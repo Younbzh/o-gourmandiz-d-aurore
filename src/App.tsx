@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   PaintBucket, Home, Building2, Palette, Square, Award, CheckCircle, 
   Users, Wrench, MapPin, Euro, Phone, Mail, MapPinned, Clock,
-  ChevronDown, Menu, X, Send, Check
+  ChevronDown, Menu, X, Check
 } from 'lucide-react';
 import { siteConfig } from './config/siteConfig';
 
@@ -10,10 +10,6 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
-  const [formData, setFormData] = useState({
-    name: '', email: '', phone: '', message: ''
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -27,12 +23,6 @@ export default function App() {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMenuOpen(false);
     }
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
   };
 
   return (
@@ -349,151 +339,106 @@ export default function App() {
             <h2 className="text-4xl md:text-5xl font-bold text-[#3A3A3A] mb-4">
               {siteConfig.finalCTA.title}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               {siteConfig.finalCTA.subtitle}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Contact Info */}
-            <div>
-              <div className="bg-white rounded-2xl p-8 shadow-lg mb-8">
-                <h3 className="text-2xl font-bold text-[#3A3A3A] mb-6">Coordonnées</h3>
-                
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-[#0099FF] rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-700 mb-1">Téléphone</p>
-                      <a href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`} className="text-[#0099FF] hover:underline text-lg font-medium">
-                        {siteConfig.contact.phone}
-                      </a>
-                      <br />
-                      <a href={`tel:${siteConfig.contact.mobile.replace(/\s/g, '')}`} className="text-[#0099FF] hover:underline text-lg font-medium">
-                        {siteConfig.contact.mobile}
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-[#0099FF] rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-700 mb-1">Email</p>
-                      <a href={`mailto:${siteConfig.contact.email}`} className="text-[#0099FF] hover:underline text-lg font-medium">
-                        {siteConfig.contact.email}
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-[#0099FF] rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MapPinned className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-700 mb-1">Adresse</p>
-                      <p className="text-gray-600">
-                        {siteConfig.contact.address.street}<br />
-                        {siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-[#0099FF] rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-700 mb-2">Horaires</p>
-                      {siteConfig.hours.details.map((item, index) => (
-                        <p key={index} className="text-gray-600 text-sm">
-                          <span className="font-medium">{item.day} :</span> {item.hours}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+          {/* CTA Principal */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="bg-gradient-to-br from-[#0099FF] to-[#0066CC] rounded-2xl p-8 md:p-12 text-white text-center shadow-2xl">
+              <h3 className="text-3xl md:text-4xl font-bold mb-6">Contactez-nous dès maintenant</h3>
+              <p className="text-xl mb-8 text-white/90">Devis gratuit et personnalisé - Réponse rapide garantie</p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a 
+                  href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
+                  className="bg-white text-[#0099FF] px-8 py-4 rounded-lg hover:bg-gray-100 transition-all font-bold text-lg shadow-lg hover:shadow-xl flex items-center gap-3 w-full sm:w-auto justify-center"
+                >
+                  <Phone className="w-6 h-6" />
+                  {siteConfig.contact.phone}
+                </a>
+                <a 
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="bg-white/10 backdrop-blur-sm text-white border-2 border-white px-8 py-4 rounded-lg hover:bg-white/20 transition-all font-bold text-lg flex items-center gap-3 w-full sm:w-auto justify-center"
+                >
+                  <Mail className="w-6 h-6" />
+                  Envoyer un email
+                </a>
               </div>
             </div>
+          </div>
 
-            {/* Contact Form */}
-            <div>
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-[#3A3A3A] mb-6">Demande de devis</h3>
-                
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-2">Nom complet *</label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#0099FF] focus:outline-none transition-colors"
-                      placeholder="Votre nom"
-                    />
+          {/* Coordonnées détaillées */}
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Téléphone */}
+            <div className="bg-white rounded-xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#0099FF] to-[#0066CC] rounded-full flex items-center justify-center mx-auto mb-6">
+                <Phone className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#3A3A3A] mb-4">Téléphone</h3>
+              <div className="space-y-2">
+                <a 
+                  href={`tel:${siteConfig.contact.phone.replace(/\s/g, '')}`}
+                  className="block text-[#0099FF] hover:underline text-lg font-semibold"
+                >
+                  {siteConfig.contact.phone}
+                </a>
+                <a 
+                  href={`tel:${siteConfig.contact.mobile.replace(/\s/g, '')}`}
+                  className="block text-[#0099FF] hover:underline text-lg font-semibold"
+                >
+                  {siteConfig.contact.mobile}
+                </a>
+              </div>
+              <p className="text-sm text-gray-500 mt-4">Appel direct</p>
+            </div>
+
+            {/* Email */}
+            <div className="bg-white rounded-xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#0099FF] to-[#0066CC] rounded-full flex items-center justify-center mx-auto mb-6">
+                <Mail className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#3A3A3A] mb-4">Email</h3>
+              <a 
+                href={`mailto:${siteConfig.contact.email}`}
+                className="text-[#0099FF] hover:underline text-lg font-semibold break-all"
+              >
+                {siteConfig.contact.email}
+              </a>
+              <p className="text-sm text-gray-500 mt-4">Réponse sous 24h</p>
+            </div>
+
+            {/* Adresse */}
+            <div className="bg-white rounded-xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#0099FF] to-[#0066CC] rounded-full flex items-center justify-center mx-auto mb-6">
+                <MapPinned className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#3A3A3A] mb-4">Adresse</h3>
+              <p className="text-gray-700 font-medium">
+                {siteConfig.contact.address.street}
+              </p>
+              <p className="text-gray-700 font-medium">
+                {siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}
+              </p>
+              <p className="text-sm text-gray-500 mt-4">Centre Bretagne</p>
+            </div>
+          </div>
+
+          {/* Horaires */}
+          <div className="max-w-2xl mx-auto mt-12">
+            <div className="bg-white rounded-xl p-8 shadow-lg">
+              <div className="flex items-center justify-center mb-6">
+                <Clock className="w-8 h-8 text-[#0099FF] mr-3" />
+                <h3 className="text-2xl font-bold text-[#3A3A3A]">Horaires d'ouverture</h3>
+              </div>
+              <div className="grid sm:grid-cols-3 gap-4">
+                {siteConfig.hours.details.map((item, index) => (
+                  <div key={index} className="text-center p-4 bg-gray-50 rounded-lg">
+                    <p className="font-bold text-gray-700 mb-1">{item.day}</p>
+                    <p className="text-gray-600">{item.hours}</p>
                   </div>
-
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-2">Email *</label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#0099FF] focus:outline-none transition-colors"
-                      placeholder="votre@email.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-2">Téléphone *</label>
-                    <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#0099FF] focus:outline-none transition-colors"
-                      placeholder="06 12 34 56 78"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-gray-700 font-medium mb-2">Votre projet *</label>
-                    <textarea
-                      required
-                      value={formData.message}
-                      onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      rows={5}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-[#0099FF] focus:outline-none transition-colors resize-none"
-                      placeholder="Décrivez votre projet (type de travaux, surface, délais souhaités...)"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full bg-[#0099FF] text-white px-8 py-4 rounded-lg hover:bg-[#0088EE] transition-all font-bold text-lg shadow-lg hover:shadow-xl flex items-center justify-center"
-                  >
-                    {isSubmitted ? (
-                      <>
-                        <Check className="w-5 h-5 mr-2" />
-                        Message envoyé !
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-5 h-5 mr-2" />
-                        Envoyer ma demande
-                      </>
-                    )}
-                  </button>
-
-                  <p className="text-sm text-gray-500 text-center">
-                    * Champs obligatoires - Réponse sous 24h
-                  </p>
-                </form>
+                ))}
               </div>
             </div>
           </div>
