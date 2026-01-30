@@ -1,346 +1,280 @@
 export const siteConfig = {
-  // IDENTITÉ
-  storeName: "ID'Mat KDO",
-  owner: "Mathieu Le Gal",
-  title: "Boutique de Cadeaux & Salon de Thé",
-  tagline: "Souvenirs bretons & Produits locaux",
-  slogan: "Un espace cosy au cœur de Loudéac",
-  city: "Loudéac",
-  region: "Côtes-d'Armor, Bretagne",
+  // Informations générales
+  businessName: "Nicolas Chapron",
+  tagline: "Peinture • Décoration • Ravalement",
+  description: "Entreprise de peinture et décoration à Loudéac depuis 2013. Expertise en peinture intérieure, extérieure, ravalement de façades et pose de revêtements.",
   
-  // HERO
-  hero: {
-    title: "ID'Mat KDO",
-    subtitle: "Boutique de Cadeaux & Salon de Thé",
-    description: "Découvrez notre boutique cosy et lumineuse au centre-ville de Loudéac. Nous vous proposons des cadeaux et souvenirs bretons, des produits locaux savoureux et un salon de thé chaleureux pour vous poser.",
-    opening: "Ouvert depuis novembre 2025",
-    cta: "Découvrez la boutique",
-    atmosphere: "Cosy, plein de lumière, chaleureux"
+  // Coordonnées
+  contact: {
+    phone: "02 96 28 98 38",
+    mobile: "07 68 63 80 22",
+    email: "nico.chapron@sfr.fr",
+    address: {
+      street: "Rue du Bourgeon",
+      city: "Loudéac",
+      postalCode: "22600",
+      region: "Bretagne",
+      country: "France"
+    }
   },
 
-  // MATHIEU LE GAL
-  manager: {
-    name: "Mathieu Le Gal",
-    title: "Gérant",
-    motivation: "On est à fond !",
-    bio: "Mathieu a ouvert ID'Mat KDO avec l'ambition de créer un nouveau lieu de vie au centre-ville de Loudéac. Un espace où l'on peut faire ses cadeaux, découvrir la Bretagne et ses produits, tout en profitant d'un moment de détente au salon de thé.",
-    vision: "Offrir un espace chaleureux et convivial où l'on peut flâner, acheter et se poser autour d'une boisson chaude"
+  // Réseaux sociaux
+  social: {
+    facebook: "",
+    instagram: "",
+    linkedin: ""
   },
 
-  // LE CONCEPT
-  concept: {
-    title: "Notre Concept",
-    subtitle: "Cadeaux bretons + Produits locaux + Salon de thé",
-    main: "ID'Mat KDO combine boutique de cadeaux et salon de thé pour créer un lieu unique au centre-ville de Loudéac",
-    three_in_one: [
-      {
-        icon: "🎁",
-        title: "Boutique de Cadeaux",
-        description: "Souvenirs et cadeaux sur le thème de la Bretagne"
-      },
-      {
-        icon: "🥖",
-        title: "Produits Locaux",
-        description: "Le meilleur de la production bretonne"
-      },
-      {
-        icon: "☕",
-        title: "Salon de Thé",
-        description: "Un espace cosy pour se poser et se détendre"
-      }
-    ],
-    complementarity: "Ces trois univers se complètent parfaitement pour vous offrir une expérience unique",
-    atmosphere: "Cosy, chaleureux, lumineux - le nouvel espace pour se poser au centre-ville"
-  },
-
-  // BOUTIQUE CADEAUX
-  gifts: {
-    title: "Cadeaux & Souvenirs",
-    subtitle: "L'esprit breton à offrir",
-    description: "Une sélection de cadeaux et souvenirs sur le thème de la Bretagne. De quoi ramener un peu de l'âme bretonne chez vous ou l'offrir à vos proches.",
-    categories: [
-      {
-        icon: "🍽️",
-        name: "Vaisselle Bretonne",
-        description: "Bols bretons, assiettes, tasses... aux couleurs et motifs traditionnels"
-      },
-      {
-        icon: "🏴",
-        name: "Souvenirs Bretons",
-        description: "Drapeaux, magnets, cartes postales, articles décoratifs"
-      },
-      {
-        icon: "👕",
-        name: "Textile",
-        description: "T-shirts, marinières, accessoires aux motifs bretons"
-      },
-      {
-        icon: "🎨",
-        name: "Artisanat Local",
-        description: "Créations d'artisans bretons"
-      },
-      {
-        icon: "🎁",
-        name: "Idées Cadeaux",
-        description: "Pour toutes les occasions, petits et grands budgets"
-      }
-    ],
-    theme: "Axée sur la thématique de la Bretagne",
-    spirit: "Des souvenirs authentiques qui célèbrent l'identité bretonne"
-  },
-
-  // PRODUITS LOCAUX
-  localProducts: {
-    title: "Produits Locaux",
-    subtitle: "Le meilleur de la Bretagne",
-    description: "Nous sélectionnons avec soin des produits locaux de qualité pour vous faire découvrir ou redécouvrir les saveurs de notre belle région.",
-    categories: [
-      {
-        icon: "🍺",
-        name: "Bières Locales",
-        description: "Sélection de bières artisanales bretonnes"
-      },
-      {
-        icon: "🍎",
-        name: "Cidre & Jus de Pomme",
-        description: "Cidres et jus de producteurs locaux"
-      },
-      {
-        icon: "🥩",
-        name: "Pâtés & Terrines",
-        description: "Charcuteries fines de la région"
-      },
-      {
-        icon: "🍪",
-        name: "Gâteaux Secs",
-        description: "Galettes, palets, sablés bretons..."
-      },
-      {
-        icon: "🧈",
-        name: "Épicerie Fine",
-        description: "Confitures, miels, produits du terroir"
-      }
-    ],
-    quality: "Des produits sélectionnés pour leur qualité et leur authenticité",
-    origin: "Fabrication locale et artisanale privilégiée"
-  },
-
-  // SALON DE THÉ
-  teaRoom: {
-    title: "Salon de Thé",
-    subtitle: "Un moment rien qu'à vous",
-    description: "Notre salon de thé complète l'offre de la boutique et crée un véritable lieu de vie au centre-ville. Installez-vous confortablement et profitez d'un moment de détente.",
-    atmosphere: "Ambiance cosy et chaleureuse dans un espace lumineux",
-    offers: [
-      {
-        icon: "☕",
-        title: "Boissons Chaudes",
-        items: [
-          "Thés",
-          "Cafés",
-          "Chocolats chauds",
-          "Infusions"
-        ]
-      },
-      {
-        icon: "🥤",
-        title: "Boissons Fraîches",
-        items: [
-          "Jus de fruits",
-          "Sodas artisanaux",
-          "Cidre",
-          "Eaux"
-        ]
-      },
-      {
-        icon: "🍰",
-        title: "Gourmandises",
-        items: [
-          "Pâtisseries",
-          "Gâteaux bretons",
-          "Biscuits",
-          "Tartines"
-        ]
-      }
-    ],
-    purpose: "Ça complète l'offre du magasin",
-    benefit: "Un nouvel espace pour se poser au centre-ville"
-  },
-
-  // LOCALISATION
-  location: {
-    title: "Un emplacement idéal",
-    description: "ID'Mat KDO a pris place au centre-ville de Loudéac, place au Fil, dans l'ancien local de Carpe Diem (qui a déménagé rue de Cadélac).",
-    address: "Place au Fil, Loudéac",
-    access: "En plein centre-ville, facile d'accès",
-    parking: "Stationnement à proximité",
-    context: "À la place de l'ancien Carpe Diem"
-  },
-
-  // POURQUOI NOUS
-  whyUs: {
-    title: "Pourquoi ID'Mat KDO ?",
-    reasons: [
-      {
-        icon: "🏠",
-        title: "Cosy & Chaleureux",
-        description: "Un espace lumineux et accueillant pour flâner"
-      },
-      {
-        icon: "🎁",
-        title: "3 en 1",
-        description: "Cadeaux + Produits locaux + Salon de thé"
-      },
-      {
-        icon: "🏴",
-        title: "Identité Bretonne",
-        description: "Des produits qui célèbrent notre région"
-      },
-      {
-        icon: "📍",
-        title: "Centre-ville",
-        description: "Idéalement situé place au Fil"
-      },
-      {
-        icon: "💚",
-        title: "Produits Locaux",
-        description: "Sélection de qualité de producteurs de la région"
-      },
-      {
-        icon: "☕",
-        title: "Pause Détente",
-        description: "Le lieu parfait pour se poser au centre-ville"
-      }
+  // Horaires
+  hours: {
+    message: "Du lundi au vendredi : 8h - 18h",
+    details: [
+      { day: "Lundi - Vendredi", hours: "8h00 - 18h00" },
+      { day: "Samedi", hours: "Sur rendez-vous" },
+      { day: "Dimanche", hours: "Fermé" }
     ]
   },
 
-  // HORAIRES
-  hours: {
-    title: "Horaires d'Ouverture",
-    schedule: {
-      monday: {
-        day: "Lundi",
-        hours: "14h30 - 19h00"
-      },
-      tuesday: {
-        day: "Mardi",
-        hours: "8h00 - 12h30 & 14h30 - 19h00"
-      },
-      wednesday: {
-        day: "Mercredi",
-        hours: "8h00 - 12h30 & 14h30 - 19h00"
-      },
-      thursday: {
-        day: "Jeudi",
-        hours: "8h00 - 12h30 & 14h30 - 19h00"
-      },
-      friday: {
-        day: "Vendredi",
-        hours: "8h00 - 12h30 & 14h30 - 19h00"
-      },
-      saturday: {
-        day: "Samedi",
-        hours: "8h00 - 12h30 & 14h30 - 19h00"
-      },
-      sunday: {
-        day: "Dimanche",
-        hours: "9h30 - 12h30"
-      }
+  // Hero Section
+  hero: {
+    title: "Votre artisan peintre à Loudéac",
+    subtitle: "Depuis 2013, notre équipe de professionnels qualifiés réalise vos projets de peinture, décoration et ravalement avec expertise et finitions soignées.",
+    cta: {
+      primary: "Demander un devis gratuit",
+      secondary: "Nos prestations"
     },
-    note: "Ouvert 7 jours sur 7"
+    features: [
+      "12 ans d'expérience",
+      "Équipe qualifiée",
+      "Finitions soignées"
+    ]
   },
 
-  // OCCASIONS
-  occasions: {
-    title: "Pour Toutes les Occasions",
+  // À propos
+  about: {
+    title: "L'entreprise Nicolas Chapron",
+    subtitle: "Votre partenaire de confiance pour tous vos travaux de peinture",
+    content: [
+      "Fondée en 2013 par Nicolas Chapron, notre entreprise s'est imposée comme un acteur incontournable de la peinture et de la décoration dans la région de Loudéac.",
+      "Avec une équipe de 3 à 5 professionnels qualifiés, nous intervenons sur tous types de travaux, du simple rafraîchissement de peinture aux projets de ravalement complets.",
+      "Notre expertise dans la sélection des produits et matériaux les plus adaptés à chaque projet nous permet de garantir des résultats durables et esthétiques."
+    ],
+    values: [
+      {
+        title: "Expertise",
+        description: "12 ans d'expérience dans le choix des matériaux et techniques adaptés à chaque projet"
+      },
+      {
+        title: "Qualité",
+        description: "Finitions propres et soignées, travail réalisé avec rigueur et professionnalisme"
+      },
+      {
+        title: "Écoute",
+        description: "Relation de confiance avec chaque client pour cerner au mieux vos besoins et envies"
+      },
+      {
+        title: "Compétitivité",
+        description: "Des prestations de qualité à des prix compétitifs, devis gratuit et personnalisé"
+      }
+    ],
+    stats: [
+      { number: "12", label: "ans d'expérience" },
+      { number: "5", label: "professionnels" },
+      { number: "100%", label: "satisfaction" }
+    ]
+  },
+
+  // Services
+  services: {
+    title: "Nos prestations",
+    subtitle: "Une gamme complète de services pour tous vos projets",
     list: [
       {
-        icon: "🎂",
-        name: "Anniversaires",
-        description: "Trouvez le cadeau parfait"
+        name: "Peinture intérieure",
+        description: "Murs, plafonds, boiseries : nous donnons vie à votre intérieur avec des finitions impeccables. Du simple rafraîchissement à la transformation complète.",
+        features: [
+          "Préparation des surfaces",
+          "Peinture murs et plafonds",
+          "Peinture boiseries",
+          "Finitions décoratives"
+        ],
+        icon: "PaintBucket"
       },
       {
-        icon: "🎄",
-        name: "Fêtes",
-        description: "Noël, fête des mères, fête des pères..."
+        name: "Peinture extérieure",
+        description: "Protection et esthétique de vos façades, volets et menuiseries extérieures avec des produits adaptés aux conditions climatiques bretonnes.",
+        features: [
+          "Peinture de façades",
+          "Volets et menuiseries",
+          "Traitement anti-humidité",
+          "Peintures résistantes"
+        ],
+        icon: "Home"
       },
       {
-        icon: "✈️",
-        name: "Souvenirs",
-        description: "Ramenez un bout de Bretagne"
+        name: "Ravalement de façades",
+        description: "Rénovation complète de vos façades : nettoyage, réparation, enduit et finitions pour redonner tout son éclat à votre bâtiment.",
+        features: [
+          "Nettoyage de façade",
+          "Réparation des fissures",
+          "Application d'enduits",
+          "Protection longue durée"
+        ],
+        icon: "Building2"
       },
       {
-        icon: "🏡",
-        name: "Décoration",
-        description: "Embellissez votre intérieur"
+        name: "Décoration & revêtements muraux",
+        description: "Papiers peints, toiles de verre, enduits décoratifs : nous vous conseillons et réalisons vos projets de décoration intérieure.",
+        features: [
+          "Pose de papiers peints",
+          "Toiles de verre",
+          "Enduits décoratifs",
+          "Conseil en décoration"
+        ],
+        icon: "Palette"
       },
       {
-        icon: "🍽️",
-        name: "Gourmandises",
-        description: "Régalez-vous ou offrez"
-      },
-      {
-        icon: "👥",
-        name: "Accueil",
-        description: "Cadeaux d'accueil pour vos invités"
+        name: "Revêtements de sols",
+        description: "Pose de parquets, sols vinyles et autres revêtements pour compléter harmonieusement vos projets de rénovation.",
+        features: [
+          "Pose de parquet",
+          "Sols vinyles",
+          "Préparation des supports",
+          "Finitions soignées"
+        ],
+        icon: "Square"
       }
     ]
+  },
+
+  // Pourquoi nous choisir
+  whyChooseUs: {
+    title: "Pourquoi choisir Nicolas Chapron ?",
+    subtitle: "Des atouts qui font la différence",
+    reasons: [
+      {
+        title: "Expertise des matériaux",
+        description: "Notre connaissance approfondie des produits et matériaux nous permet de vous conseiller et de sélectionner les solutions les plus adaptées à votre projet et à votre budget.",
+        icon: "Award"
+      },
+      {
+        title: "Finitions irréprochables",
+        description: "Nous mettons un point d'honneur à la qualité de nos finitions. Chaque chantier est réalisé avec soin, propreté et précision pour un résultat impeccable.",
+        icon: "CheckCircle"
+      },
+      {
+        title: "Relation de confiance",
+        description: "Nous prenons le temps d'écouter vos besoins et vos envies pour proposer des solutions sur-mesure. Votre satisfaction est notre priorité.",
+        icon: "Users"
+      },
+      {
+        title: "Équipe qualifiée",
+        description: "Notre équipe de 3 à 5 professionnels expérimentés intervient sur tous types de travaux, des plus simples aux plus techniques.",
+        icon: "Wrench"
+      },
+      {
+        title: "Proximité locale",
+        description: "Implantés à Loudéac depuis 2013, nous connaissons parfaitement la région et intervenons rapidement dans le Centre Bretagne.",
+        icon: "MapPin"
+      },
+      {
+        title: "Prix compétitifs",
+        description: "Nous proposons des tarifs justes et compétitifs. Devis gratuit et détaillé pour la transparence totale sur votre projet.",
+        icon: "Euro"
+      }
+    ]
+  },
+
+  // Zone d'intervention
+  serviceArea: {
+    title: "Zone d'intervention",
+    description: "Nous intervenons à Loudéac et dans tout le Centre Bretagne",
+    cities: [
+      "Loudéac",
+      "Pontivy",
+      "Rostrenen",
+      "Mûr-de-Bretagne",
+      "La Chèze",
+      "Saint-Barnabé",
+      "Trévé",
+      "Plémet",
+      "Merdrignac",
+      "Et communes environnantes"
+    ],
+    radius: "Déplacements possibles dans un rayon de 30 km autour de Loudéac"
   },
 
   // FAQ
-  faq: [
-    {
-      question: "Peut-on consommer au salon de thé sans acheter en boutique ?",
-      answer: "Bien sûr ! Le salon de thé est ouvert à tous. Vous pouvez venir uniquement pour profiter d'une pause gourmande."
-    },
-    {
-      question: "Proposez-vous des produits sans gluten ou végétariens ?",
-      answer: "Nous proposons une sélection de produits locaux variés. N'hésitez pas à nous demander, nous serons ravis de vous renseigner."
-    },
-    {
-      question: "Faites-vous des paniers cadeaux sur-mesure ?",
-      answer: "Oui, nous pouvons composer des paniers cadeaux personnalisés avec nos produits locaux et souvenirs bretons."
-    },
-    {
-      question: "Y a-t-il un parking à proximité ?",
-      answer: "Oui, vous pouvez vous garer facilement à proximité du magasin en centre-ville."
-    },
-    {
-      question: "Êtes-vous ouverts le dimanche ?",
-      answer: "Oui, nous sommes ouverts le dimanche de 9h30 à 12h30."
-    }
-  ],
+  faq: {
+    title: "Questions fréquentes",
+    subtitle: "Tout ce que vous devez savoir",
+    questions: [
+      {
+        question: "Proposez-vous des devis gratuits ?",
+        answer: "Oui, nous établissons des devis gratuits et détaillés pour tous vos projets. Contactez-nous par téléphone ou par email pour convenir d'un rendez-vous."
+      },
+      {
+        question: "Quels sont vos délais d'intervention ?",
+        answer: "Nos délais varient selon l'ampleur du projet et notre planning. Nous nous efforçons d'intervenir dans les meilleurs délais et vous proposons un planning précis lors de l'établissement du devis."
+      },
+      {
+        question: "Quels types de peinture utilisez-vous ?",
+        answer: "Nous sélectionnons les peintures et produits les plus adaptés à votre projet : peintures acryliques, glycéro, naturelles, anti-humidité, etc. Nous privilégions des marques professionnelles reconnues pour leur qualité et leur durabilité."
+      },
+      {
+        question: "Proposez-vous des garanties sur vos travaux ?",
+        answer: "Oui, nos travaux sont garantis. En tant que SARL établie depuis 2013, nous sommes couverts par une assurance décennale et responsabilité civile professionnelle."
+      },
+      {
+        question: "Intervenez-vous chez les particuliers et les professionnels ?",
+        answer: "Absolument ! Nous réalisons des travaux pour les particuliers (maisons, appartements) comme pour les professionnels (locaux commerciaux, bureaux, bâtiments industriels)."
+      },
+      {
+        question: "Comment se déroule le chantier ?",
+        answer: "Nous préparons soigneusement les surfaces, protégeons vos meubles et sols, réalisons les travaux selon le planning établi, et nettoyons le chantier chaque soir. Propreté et respect de votre lieu de vie sont essentiels pour nous."
+      },
+      {
+        question: "Puis-je vous contacter en dehors des horaires d'ouverture ?",
+        answer: "Vous pouvez nous laisser un message sur notre répondeur ou nous envoyer un email à tout moment. Nous vous rappellerons dès que possible, généralement sous 24h."
+      },
+      {
+        question: "Travaillez-vous toute l'année ?",
+        answer: "Oui, nous intervenons toute l'année. Pour les travaux extérieurs, nous adaptons notre planning selon les conditions météorologiques pour garantir un résultat optimal."
+      }
+    ]
+  },
 
-  // CONTACT
-  contact: {
-    title: "Nous Trouver",
-    address: {
-      name: "ID'Mat KDO",
-      street: "Place au Fil",
-      city: "22600 Loudéac",
-      region: "Côtes-d'Armor, Bretagne"
-    },
-    phone: "À venir",
-    email: "contact@idmatkdo.fr",
-    social: {
-      instagram: "@boutique.idmatkdo",
-      facebook: "ID'Mat KDO"
-    }
+  // Call to Action final
+  finalCTA: {
+    title: "Un projet de peinture ou de décoration ?",
+    subtitle: "Contactez-nous pour un devis gratuit et personnalisé",
+    buttonText: "Demander un devis"
   },
 
   // SEO
   seo: {
-    title: "ID'Mat KDO Loudéac - Boutique Cadeaux Bretons & Salon de Thé",
-    description: "ID'Mat KDO à Loudéac : boutique de cadeaux bretons, produits locaux et salon de thé. Espace cosy au centre-ville. Souvenirs, vaisselle, cidre, bières artisanales. Place au Fil, 22600 Loudéac.",
-    keywords: "ID'Mat KDO, boutique cadeaux Loudéac, souvenirs bretons, produits locaux Loudéac, salon de thé Loudéac, Mathieu Le Gal, vaisselle bretonne, cidre, bières artisanales, Côtes-d'Armor, 22600"
+    title: "Nicolas Chapron - Peinture Décoration Ravalement à Loudéac (22)",
+    description: "Entreprise de peinture et décoration à Loudéac depuis 2013. Peinture intérieure et extérieure, ravalement de façades, pose de revêtements. Devis gratuit. ☎ 02 96 28 98 38",
+    keywords: [
+      "peintre Loudéac",
+      "peinture Loudéac",
+      "décoration Loudéac",
+      "ravalement façade Loudéac",
+      "entreprise peinture 22600",
+      "artisan peintre Côtes-d'Armor",
+      "peinture intérieure Loudéac",
+      "peinture extérieure Loudéac",
+      "revêtements muraux Loudéac",
+      "Nicolas Chapron",
+      "peinture Centre Bretagne"
+    ]
   },
 
-  // THÈME (couleurs du logo)
-  theme: {
-    primary: "blue", // Bleu marine du logo
-    secondary: "sky", // Bleu ciel
-    accent: "amber", // Beige/crème du logo
-    sand: "yellow", // Sable
-    mode: "light" // Mode clair et maritime
+  // Schema.org
+  schema: {
+    type: "LocalBusiness",
+    additionalType: "ProfessionalService",
+    priceRange: "€€",
+    areaServed: "Centre Bretagne"
   }
 };
