@@ -1,15 +1,15 @@
 export const siteConfig = {
-  businessName: "Antoine Rault",
-  tagline: "Peinture & Décoration",
-  description: "Artisan peintre diplômé (CAP, BEP, Bac Pro) avec plus de 25 ans d'expérience. Accompagnement personnalisé, conseils adaptés et finitions soignées à Saint-Barnabé.",
+  businessName: "Ô Gourmandiz d'Aurore",
+  tagline: "Pâtisseries & Biscuiteries artisanales sur commande",
+  description: "Pâtisseries et biscuiteries artisanales, créatives & de saison sur commande. Aurore Delmas, pâtissière indépendante à La Motte (22), Centre Bretagne.",
 
   contact: {
-    phone: "06 32 22 92 31",
-    mobile: "",
-    email: "antoinerault.peinture@gmail.com",
+    phone: "06 09 84 60 70",
+    whatsapp: "33609846070",
+    email: "ogourmandizdaurore@gmail.com",
     address: {
       street: "",
-      city: "Saint-Barnabé",
+      city: "La Motte",
       postalCode: "22600",
       region: "Bretagne",
       country: "France"
@@ -17,239 +17,242 @@ export const siteConfig = {
   },
 
   social: {
-    facebook: "",
-    instagram: "",
-    linkedin: ""
+    facebook: "https://www.facebook.com/o.gourmandiz.d.aurore/",
+    instagram: "https://www.instagram.com/o.gourmandiz.d.aurore/",
+    tiktok: "https://www.tiktok.com/tag/ogourmandizdaurore"
   },
 
   hours: {
-    message: "Du lundi au vendredi : 8h - 18h",
+    message: "Commandes à passer par téléphone, WhatsApp ou email",
     details: [
-      { day: "Lundi - Vendredi", hours: "8h00 - 18h00" },
-      { day: "Samedi", hours: "Sur rendez-vous" },
-      { day: "Dimanche", hours: "Fermé" }
+      { day: "Lundi – Samedi", hours: "Sur commande" },
+      { day: "Événements", hours: "Toute la semaine" },
+      { day: "Délai recommandé", hours: "48h minimum" }
     ]
   },
 
   hero: {
-    title: "L'exigence du détail, au service de votre intérieur",
-    subtitle: "Plus de 25 ans d'expérience dans la peinture bâtiment, un accompagnement personnalisé et des finitions soignées pour chaque projet.",
+    title: "Du beau, du bon, avec des produits d'ici",
+    subtitle: "Je crée vos pâtisseries et biscuiteries artisanales, créatives & de saison, entièrement sur commande depuis mon laboratoire à La Motte (Côtes-d'Armor).",
     cta: {
-      primary: "Demander un devis gratuit",
-      secondary: "Mes prestations"
+      primary: "Me contacter pour commander",
+      secondary: "Voir mes créations"
     },
     features: [
-      "25 ans d'expérience",
-      "Artisan diplômé",
-      "Finitions soignées"
+      "Tout sur commande",
+      "Produits locaux",
+      "Personnalisé pour vous"
     ]
   },
 
   about: {
-    title: "Antoine Rault – L'exigence du détail.",
-    subtitle: "Artisan peintre diplômé, au service de vos projets les plus exigeants",
+    title: "Bonjour, je suis Aurore",
+    subtitle: "Pâtissière à La Motte, je transforme vos occasions en souvenirs gourmands",
     content: [
-      "J'ai le plaisir de vous annoncer la création de mon entreprise, après plus de 25 ans d'expérience dans le domaine de la peinture bâtiment.",
-      "Diplômé (CAP, BEP, Bac Professionnel), je mets aujourd'hui mon expertise au service de projets exigeants, où chaque détail compte.",
-      "Parce que votre intérieur mérite l'excellence, je vous propose des prestations alliant savoir-faire, précision et élégance."
+      "Installée à La Motte depuis cinq ans, j'ai découvert la pâtisserie sur le tard, en cuisinant pour mes amis. Très vite, c'est devenu une évidence — et une passion que je n'ai plus lâchée.",
+      "Après un parcours atypique — assistante vétérinaire en Mayenne puis en Bretagne — j'ai tout repris à zéro. CAP pâtissier en candidat libre, stages, formations : je voulais être vraiment prête le jour où je me lancerais.",
+      "Depuis octobre 2025, je crée depuis mon laboratoire de 10 m² à La Motte. Tout est pensé pour travailler proprement, avec précision et plaisir. Et surtout : pour que vous soyez fiers de ce que vous poserez sur la table."
     ],
     values: [
       {
-        title: "Accompagnement",
-        description: "Un suivi personnalisé de A à Z, de la conception de votre projet jusqu'à la réception des travaux"
+        title: "Je privilégie le local",
+        description: "Œufs de Guilliers, farine de Saint-Gérand, miel de Plœuc-sur-Lié, fruits de la Maison Le Bris à Loudéac — des producteurs que je connais et que je soutiens"
       },
       {
-        title: "Conseil",
-        description: "Des conseils adaptés à vos envies et à votre intérieur, pour des choix éclairés et des résultats durables"
+        title: "Je fais tout moi-même",
+        description: "Crèmes pâtissières, compotes, garnitures : je réalise toutes mes bases à la main, sans raccourci. C'est ce qui fait la différence en goût et en texture"
       },
       {
-        title: "Qualité",
-        description: "Une qualité d'exécution irréprochable, des finitions soignées à la hauteur de vos attentes"
+        title: "Je m'adapte à vous",
+        description: "Prénom, date, thème, palette de couleurs, parfums… partagez vos idées, je les transpose en pâtisserie"
       },
       {
-        title: "Élégance",
-        description: "Un savoir-faire alliant précision et élégance, pour des réalisations qui vous ressemblent"
+        title: "J'aime quand ça raconte quelque chose",
+        description: "Chaque commande est une histoire à raconter. Je mets autant de soin dans l'esthétique que dans le goût — parce que l'un ne va pas sans l'autre"
       }
     ],
     stats: [
-      { number: "25+", label: "ans d'expérience" },
-      { number: "3", label: "diplômes professionnels" },
-      { number: "100%", label: "satisfaction" }
+      { number: "CAP", label: "pâtissier diplômé" },
+      { number: "100 %", label: "fait maison" },
+      { number: "+7", label: "mois de créations" }
     ]
   },
 
   services: {
-    title: "Mes prestations",
-    subtitle: "Une expertise complète pour tous vos projets de peinture et décoration",
+    title: "Ce que je crée pour vous",
+    subtitle: "Chaque commande est unique — dites-moi ce que vous souhaitez, je m'occupe du reste",
     list: [
       {
-        name: "Peinture intérieure",
-        description: "Murs, plafonds, boiseries : je donne vie à votre intérieur avec des finitions impeccables, du simple rafraîchissement à la transformation complète.",
+        name: "Mes tartes signature",
+        description: "Snickers revisité, citron noisette meringué, fraises du jardin en saison, pommes et spéculoos… je joue les saveurs pour vous surprendre, sur un biscuit net et croustillant que je réalise entièrement moi-même.",
         features: [
-          "Préparation des surfaces",
-          "Peinture murs et plafonds",
-          "Peinture boiseries",
-          "Finitions décoratives"
+          "Citron noisette meringué",
+          "Snickers revisité",
+          "Fraises de saison",
+          "Pommes & spéculoos"
         ],
-        icon: "PaintBucket"
+        icon: "Cake",
+        photo: "/tarte.jpeg"
       },
       {
-        name: "Peinture extérieure",
-        description: "Protection et esthétique de vos façades, volets et menuiseries extérieures avec des produits adaptés aux conditions climatiques bretonnes.",
+        name: "Biscuits personnalisés",
+        description: "Je grave votre prénom, votre date, votre motif sur chaque sablé. Ce petit détail qui fait que vos invités repartent avec un souvenir dans la main — et un sourire.",
         features: [
-          "Peinture de façades",
-          "Volets et menuiseries",
-          "Traitement anti-humidité",
-          "Peintures résistantes"
+          "Sablés décorés",
+          "Prénom & date",
+          "Motifs sur mesure",
+          "Toutes occasions"
         ],
-        icon: "Home"
+        icon: "Cookie",
+        photo: "/sables-personnalises.jpeg"
       },
       {
-        name: "Ravalement de façades",
-        description: "Rénovation complète de vos façades : nettoyage, réparation, enduit et finitions pour redonner tout son éclat à votre bâtiment.",
+        name: "Pièces montées & entremets",
+        description: "Pour les grands moments, je crée des pièces qui marquent les esprits : pyramide de macarons à vos couleurs, fraisier monté en cercle, entremets de prestige. J'aime quand ça fait « oh » à l'entrée dans la salle.",
         features: [
-          "Nettoyage de façade",
-          "Réparation des fissures",
-          "Application d'enduits",
-          "Protection longue durée"
+          "Pyramide de macarons",
+          "Fraisier entremets",
+          "Couleurs sur mesure",
+          "Jusqu'à ~100 personnes"
         ],
-        icon: "Building2"
+        icon: "Star",
+        photo: "/gateau-mariage.jpeg"
       },
       {
-        name: "Décoration & revêtements",
-        description: "Papiers peints, toiles de verre, enduits décoratifs : je vous conseille et réalise vos projets de décoration intérieure avec soin.",
+        name: "Gâteaux d'anniversaire",
+        description: "Du premier anniversaire au demi-siècle, je crée des gâteaux qui vous ressemblent. Dites-moi le thème, les couleurs, l'âge — je m'occupe du reste pour que ce soit exactement ce que vous imaginez.",
         features: [
-          "Pose de papiers peints",
-          "Toiles de verre",
-          "Enduits décoratifs",
-          "Conseil en décoration"
+          "Thème personnalisé",
+          "1 an, 10 ans, 40 ans…",
+          "Baby shower & baptême",
+          "Toutes générations"
         ],
-        icon: "Palette"
+        icon: "Gift",
+        photo: "/gateau-40-ans.jpeg"
       }
     ]
   },
 
   whyChooseUs: {
-    title: "Pourquoi choisir Antoine Rault ?",
-    subtitle: "Un artisan engagé, des prestations à la hauteur de vos exigences",
+    title: "Ce que je vous promets",
+    subtitle: "Je ne fais pas de la pâtisserie en série. Chaque commande mérite mon entière attention.",
     reasons: [
       {
-        title: "25 ans d'expérience",
-        description: "Plus d'un quart de siècle dédié à la peinture bâtiment : une expertise approfondie des techniques, des produits et des exigences de chaque chantier.",
-        icon: "Award"
+        title: "Je prépare tout pour vous",
+        description: "Votre commande est réalisée spécialement pour vous, dans les 48h qui précèdent votre événement. Pas de stock, pas de « déjà fait » : fraîcheur garantie.",
+        icon: "Clock"
       },
       {
-        title: "Diplômé & qualifié",
-        description: "CAP, BEP et Bac Professionnel : une formation solide qui garantit un savoir-faire reconnu et une maîtrise irréprochable des techniques professionnelles.",
-        icon: "CheckCircle"
-      },
-      {
-        title: "Accompagnement personnalisé",
-        description: "Je prends le temps d'écouter vos envies et de vous conseiller pour des choix adaptés à votre intérieur et à votre budget.",
-        icon: "Users"
-      },
-      {
-        title: "Finitions soignées",
-        description: "Chaque détail compte. Je m'engage pour des finitions d'une précision irréprochable, à la hauteur de vos attentes les plus exigeantes.",
-        icon: "Wrench"
-      },
-      {
-        title: "Basé à Saint-Barnabé",
-        description: "Artisan local implanté en Centre Bretagne, j'interviens rapidement dans le secteur de Loudéac et ses environs.",
+        title: "Je travaille avec le terroir breton",
+        description: "Œufs de Guilliers, farine de Saint-Gérand, miel de Plœuc-sur-Lié, fruits de la Maison Le Bris à Loudéac. Je connais mes fournisseurs et je les choisis avec soin.",
         icon: "MapPin"
       },
       {
-        title: "Devis gratuit",
-        description: "Je vous propose un devis gratuit, détaillé et personnalisé, pour une totale transparence sur votre projet dès le premier échange.",
-        icon: "Euro"
+        title: "On crée ensemble",
+        description: "Couleurs, thème, prénom, parfums, quantité… Je vous écoute, je vous conseille, puis je concrétise exactement ce que vous avez en tête — souvent en mieux.",
+        icon: "Sparkles"
+      },
+      {
+        title: "Je fais tout à la main",
+        description: "Crèmes pâtissières, compotes, garnitures : je réalise toutes mes bases moi-même. C'est ce qui fait la différence en goût et en texture — et vous le sentirez à la dégustation.",
+        icon: "CheckCircle"
+      },
+      {
+        title: "Je me suis formée avec sérieux",
+        description: "CAP pâtissier en candidat libre, stages, formations en micro-entreprise… Je me suis préparée avant de me lancer. Cette rigueur, elle est dans chaque pièce que je vous livre.",
+        icon: "Award"
+      },
+      {
+        title: "Je suis les saisons",
+        description: "Fraises au printemps, pommes en automne, agrumes en hiver… Je m'adapte aux saisons parce que c'est là que les saveurs sont au meilleur.",
+        icon: "Leaf"
       }
     ]
   },
 
   serviceArea: {
-    title: "Zone d'intervention",
-    description: "Artisan basé à Saint-Barnabé, j'interviens dans tout le secteur de Loudéac",
+    title: "Je suis basée à La Motte",
+    description: "Je vous remets vos commandes en main propre à La Motte, ou je m'organise pour vous dans le secteur de Loudéac et alentours",
     cities: [
-      "Saint-Barnabé",
+      "La Motte",
       "Loudéac",
       "Pontivy",
       "Rostrenen",
       "Mûr-de-Bretagne",
       "La Chèze",
-      "Trévé",
       "Plémet",
       "Merdrignac",
+      "Plœuc-sur-Lié",
       "Et environs"
     ],
-    radius: "Déplacements possibles dans un rayon de 30 km autour de Saint-Barnabé"
+    radius: "Centre Bretagne – je vous retrouve en main propre ou on s'organise ensemble pour la livraison"
   },
 
   faq: {
-    title: "Questions fréquentes",
-    subtitle: "Tout ce que vous devez savoir",
+    title: "Vous avez des questions ?",
+    subtitle: "Je réponds aux plus fréquentes — et je suis toujours joignable si vous en avez d'autres",
     questions: [
       {
-        question: "Proposez-vous des devis gratuits ?",
-        answer: "Oui, j'établis des devis gratuits et détaillés pour tous vos projets. Contactez-moi par téléphone ou par email pour convenir d'un rendez-vous."
+        question: "Comment est-ce que je passe une commande ?",
+        answer: "Appelez-moi, écrivez-moi sur WhatsApp ou par email. Dites-moi l'occasion, le nombre de personnes, vos envies de saveurs ou de déco — et je vous reviens avec une proposition personnalisée."
       },
       {
-        question: "Quels sont vos délais d'intervention ?",
-        answer: "Mes délais varient selon l'ampleur du projet et mon planning. Je vous proposerai un planning précis lors de l'établissement du devis et m'efforce d'intervenir dans les meilleurs délais."
+        question: "Quel délai me faut-il prévoir ?",
+        answer: "Pour une commande simple, 48h suffisent. Pour une pièce montée, un mariage ou un grand événement, je vous conseille de me contacter 2 à 3 semaines à l'avance pour qu'on sécurise votre date ensemble."
       },
       {
-        question: "Quels types de peinture utilisez-vous ?",
-        answer: "Je sélectionne les peintures et produits les plus adaptés à votre projet : peintures acryliques, glycéro, naturelles, anti-humidité, etc. Je privilégie des marques professionnelles reconnues pour leur qualité et leur durabilité."
+        question: "Est-ce que je peux tout personnaliser ?",
+        answer: "Oui, et c'est exactement pour ça que je travaille sur commande ! Couleurs, thème, prénom, date, parfums, motifs… Dites-moi ce que vous avez en tête, je m'adapte. Si vous n'avez pas d'idée précise, je vous conseille volontiers."
       },
       {
-        question: "Proposez-vous des garanties sur vos travaux ?",
-        answer: "Oui, mes travaux sont garantis. Je suis couvert par une assurance responsabilité civile professionnelle pour vous offrir toutes les garanties nécessaires."
+        question: "Pour quelles occasions puis-je commander ?",
+        answer: "Anniversaires de 1 à 100 ans, mariages, fiançailles, baby shower, baptêmes, fêtes de fin d'année, Saint-Valentin, repas de famille, événements d'entreprise… Si vous avez une occasion à fêter, j'ai une création à vous proposer."
       },
       {
-        question: "Intervenez-vous chez les particuliers et les professionnels ?",
-        answer: "J'interviens aussi bien chez les particuliers (maisons, appartements) que chez les professionnels (locaux commerciaux, bureaux). Chaque projet est traité avec le même niveau d'exigence."
+        question: "Pour combien de personnes je peux créer ?",
+        answer: "Je peux répondre à des événements rassemblant jusqu'à une centaine de personnes, selon ce que vous souhaitez. On en parle ensemble lors de la prise de commande."
       },
       {
-        question: "Comment se déroule un chantier ?",
-        answer: "Je prépare soigneusement les surfaces, protège vos meubles et sols, réalise les travaux selon le planning établi, et nettoie le chantier chaque soir. Le respect de votre lieu de vie est une priorité absolue."
+        question: "Comment se passe la tarification ?",
+        answer: "Le prix dépend de la complexité, des quantités et des décors. Contactez-moi pour qu'on en discute ensemble — c'est gratuit, sans engagement, et je vous réponds rapidement."
       },
       {
-        question: "Puis-je vous contacter en dehors des horaires habituels ?",
-        answer: "Vous pouvez me laisser un message ou m'envoyer un email à tout moment. Je vous rappellerai dès que possible, généralement sous 24h."
+        question: "D'où viennent vos ingrédients ?",
+        answer: "Tout vient de chez nous : œufs de Guilliers (Morbihan), farine de Saint-Gérand (Morbihan), miel de Plœuc-sur-Lié, fruits de la Maison Le Bris à Loudéac. C'est un choix réfléchi, pas un argument marketing."
       },
       {
-        question: "Travaillez-vous toute l'année ?",
-        answer: "Oui, j'interviens toute l'année. Pour les travaux extérieurs, j'adapte mon planning selon les conditions météorologiques pour garantir un résultat optimal."
+        question: "Comment se passe la remise de commande ?",
+        answer: "Je vous remets votre commande en main propre à La Motte. Si vous êtes dans le secteur, on peut s'organiser autrement — on en parle au moment de la commande."
       }
     ]
   },
 
   finalCTA: {
-    title: "Un projet de peinture ou de décoration ?",
-    subtitle: "Contactez-moi pour un devis gratuit et personnalisé",
-    buttonText: "Demander un devis"
+    title: "Une envie de gourmandise ?",
+    subtitle: "Contactez-moi — on imagine ensemble votre création sur mesure",
+    buttonText: "Me contacter"
   },
 
   seo: {
-    title: "Antoine Rault – Peinture & Décoration à Saint-Barnabé (22)",
-    description: "Artisan peintre diplômé avec plus de 25 ans d'expérience. Peinture intérieure, extérieure, ravalement de façades et décoration à Saint-Barnabé (22600). Devis gratuit. ☎ 06 32 22 92 31",
+    title: "Ô Gourmandiz d'Aurore – Pâtisserie artisanale sur commande à La Motte (22)",
+    description: "Pâtisseries et biscuiteries artisanales, créatives & de saison sur commande à La Motte (Côtes-d'Armor). Gâteaux personnalisés, macarons, tartes signature, sablés décorés. ☎ 06 09 84 60 70",
     keywords: [
-      "peintre Saint-Barnabé",
-      "peinture Saint-Barnabé",
-      "décoration Saint-Barnabé",
-      "artisan peintre 22600",
-      "peintre Loudéac",
-      "peinture Loudéac",
-      "ravalement façade 22",
-      "Antoine Rault peinture",
-      "peinture intérieure Bretagne",
-      "peinture extérieure Bretagne",
-      "artisan peintre Centre Bretagne"
+      "pâtisserie La Motte",
+      "pâtisserie sur commande Loudéac",
+      "gâteau personnalisé 22",
+      "biscuiterie artisanale Bretagne",
+      "gâteau anniversaire Côtes-d'Armor",
+      "macaron sur commande Centre Bretagne",
+      "pièce montée mariage 22",
+      "Aurore Delmas pâtissière",
+      "pâtisserie artisanale Bretagne",
+      "sablés personnalisés Loudéac"
     ]
   },
 
   schema: {
     type: "LocalBusiness",
-    additionalType: "ProfessionalService",
+    additionalType: "Bakery",
     priceRange: "€€",
     areaServed: "Centre Bretagne"
   }
