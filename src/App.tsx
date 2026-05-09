@@ -170,7 +170,7 @@ export default function App() {
       <div className="bg-[#2B1820] border-y border-[#E8899B]/20 py-4 overflow-hidden">
         <div
           className="flex gap-0 whitespace-nowrap"
-          style={{ animation: 'marquee 30s linear infinite' }}
+          style={{ animation: 'marquee 20s linear infinite' }}
         >
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
             <span key={i} className="text-[#F5D5C0] font-medium text-sm px-6 font-display italic">
