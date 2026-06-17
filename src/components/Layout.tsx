@@ -24,7 +24,6 @@ export default function Layout() {
   useEffect(() => { setMenuOpen(false); }, [pathname]);
 
   const navBg = scrolled || !isHome ? 'bg-[#FDFAF6] border-b border-[#1A130C]/8 shadow-sm' : 'bg-transparent';
-  const logoFilter = scrolled || !isHome ? '' : 'brightness-0 invert';
   const linkColor = scrolled || !isHome ? 'text-[#1A130C] hover:text-[#5BBFBF]' : 'text-white hover:text-white/70';
   const activeColor = scrolled || !isHome ? 'text-[#5BBFBF]' : 'text-white/70';
   const burgerColor = scrolled || !isHome ? 'text-[#1A130C]' : 'text-white';
@@ -46,7 +45,7 @@ export default function Layout() {
             <img
               src="/logo.jpeg"
               alt="Ô Gourmandiz d'Aurore"
-              className={`h-12 w-auto object-contain rounded transition-all duration-300 ${logoFilter}`}
+              className="h-12 w-auto object-contain rounded transition-all duration-300"
             />
           </Link>
 
