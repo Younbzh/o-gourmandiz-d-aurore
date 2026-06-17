@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import {
   Cake, Cookie, Star, Gift, Sparkles, Leaf, Clock,
   Award, MapPin, Phone, Mail, MapPinned,
-  ChevronDown, Menu, X, Check, MessageCircle
+  ChevronDown, ChevronLeft, ChevronRight,
+  Menu, X, Check, MessageCircle
 } from 'lucide-react';
 import { siteConfig } from './config/siteConfig';
 
@@ -20,23 +21,23 @@ const marqueeItems = [
 ];
 
 const gallery = [
-  { src: '/gateau-fraises.jpeg', alt: 'Fraisier entremets aux fleurs comestibles', featured: true },
-  { src: '/gateau-mariage.jpeg', alt: 'Pièce montée fraisier pour mariage', featured: true },
-  { src: '/tarte.jpeg', alt: 'Tarte citron noisette meringué', featured: false },
-  { src: '/macaron-1.jpeg', alt: 'Macarons vanille', featured: false },
-  { src: '/macaron-2.jpeg', alt: 'Macarons', featured: false },
-  { src: '/macarons-fille-garcon.jpeg', alt: 'Macarons fille & garçon', featured: false },
-  { src: '/sables-personnalises.jpeg', alt: 'Sablés personnalisés', featured: false },
-  { src: '/gateau-1-an.jpeg', alt: 'Gâteau 1 an', featured: false },
-  { src: '/gateau-3-ans.jpeg', alt: 'Gâteau 3 ans', featured: false },
-  { src: '/gateau-8-ans.jpeg', alt: 'Gâteau 8 ans', featured: false },
-  { src: '/gateau 10-ans.jpeg', alt: 'Gâteau 10 ans', featured: false },
-  { src: '/gateau-40-ans.jpeg', alt: 'Gâteau 40 ans', featured: false },
-  { src: '/gateau-baby-shower.jpeg', alt: 'Gâteau baby shower', featured: false },
-  { src: '/tarte-floral-multi-fruits.jpeg', alt: 'Tarte florale multi-fruits', featured: false },
-  { src: '/tartelette-fleur.jpeg', alt: 'Tartelette fleurie', featured: false },
-  { src: '/gourmandise-st-valentin.jpeg', alt: 'Gourmandise Saint-Valentin', featured: false },
-  { src: '/cupcakes.jpeg', alt: 'Cupcakes', featured: false },
+  { src: '/gateau-fraises.jpeg', alt: 'Fraisier entremets aux fleurs comestibles' },
+  { src: '/gateau-mariage.jpeg', alt: 'Pièce montée fraisier pour mariage' },
+  { src: '/tarte.jpeg', alt: 'Tarte citron noisette meringué' },
+  { src: '/macaron-1.jpeg', alt: 'Macarons vanille' },
+  { src: '/macaron-2.jpeg', alt: 'Macarons' },
+  { src: '/macarons-fille-garcon.jpeg', alt: 'Macarons fille & garçon' },
+  { src: '/sables-personnalises.jpeg', alt: 'Sablés personnalisés' },
+  { src: '/gateau-1-an.jpeg', alt: 'Gâteau 1 an' },
+  { src: '/gateau-3-ans.jpeg', alt: 'Gâteau 3 ans' },
+  { src: '/gateau-8-ans.jpeg', alt: 'Gâteau 8 ans' },
+  { src: '/gateau 10-ans.jpeg', alt: 'Gâteau 10 ans' },
+  { src: '/gateau-40-ans.jpeg', alt: 'Gâteau 40 ans' },
+  { src: '/gateau-baby-shower.jpeg', alt: 'Gâteau baby shower' },
+  { src: '/tarte-floral-multi-fruits.jpeg', alt: 'Tarte florale multi-fruits' },
+  { src: '/tartelette-fleur.jpeg', alt: 'Tartelette fleurie' },
+  { src: '/gourmandise-st-valentin.jpeg', alt: 'Gourmandise Saint-Valentin' },
+  { src: '/cupcakes.jpeg', alt: 'Cupcakes' },
 ];
 
 const iconFor = (name: string, cls = 'w-6 h-6 text-white') => {
@@ -51,6 +52,7 @@ const iconFor = (name: string, cls = 'w-6 h-6 text-white') => {
     Award: <Award className={cls} />,
     MessageCircle: <MessageCircle className={cls} />,
     Phone: <Phone className={cls} />,
+    MapPin: <MapPin className={cls} />,
   };
   return map[name] ?? null;
 };
@@ -59,12 +61,23 @@ export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState<number | null>(null);
+  const [galleryStart, setGalleryStart] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setGalleryStart(prev => (prev + 1) % gallery.length);
+    }, 4000);
+    return () => clearInterval(t);
+  }, []);
+
+  const goPrev = () => setGalleryStart(prev => (prev - 1 + gallery.length) % gallery.length);
+  const goNext = () => setGalleryStart(prev => (prev + 1) % gallery.length);
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -78,6 +91,18 @@ export default function App() {
     { label: 'Événements', id: 'evenements' },
     { label: 'FAQ', id: 'faq' },
   ];
+
+  const quickLinks = [
+    { label: 'Les incontournables', id: 'incontournables', icon: 'Cake' },
+    { label: 'Gourmandiz de saison', id: 'saison', icon: 'Leaf' },
+    { label: 'Événements', id: 'evenements', icon: 'Star' },
+    { label: 'Je commande', id: 'contact', icon: 'MessageCircle', highlight: true },
+  ];
+
+  // 3 photos visibles en carousel (circulaire)
+  const slides = [-1, 0, 1].map(offset =>
+    gallery[(galleryStart + offset + gallery.length) % gallery.length]
+  );
 
   return (
     <div className="min-h-screen bg-[#FEF6EE]">
@@ -152,11 +177,11 @@ export default function App() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <button onClick={() => scrollToSection('contact')}
               className="bg-[#E8899B] text-white px-10 py-4 rounded-xl hover:bg-[#D07088] transition-all font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105">
-              Passer une commande
+              Je commande
             </button>
             <button onClick={() => scrollToSection('incontournables')}
               className="bg-white/15 backdrop-blur-sm text-white px-10 py-4 rounded-xl hover:bg-white/25 transition-all font-bold text-lg border-2 border-white/30">
-              Voir les créations
+              Je découvre
             </button>
           </div>
 
@@ -184,6 +209,32 @@ export default function App() {
               <span className="text-[#E8899B] mx-6">✦</span>
             </span>
           ))}
+        </div>
+      </div>
+
+      {/* Liens rapides */}
+      <div className="bg-white border-b border-gray-100 py-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {quickLinks.map(({ label, id, icon, highlight }) => (
+              <button
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className={`flex flex-col items-center gap-2 p-4 rounded-xl font-semibold text-sm transition-all hover:-translate-y-0.5 hover:shadow-md ${
+                  highlight
+                    ? 'bg-[#E8899B] text-white shadow-md'
+                    : 'bg-[#FEF6EE] text-[#2B1820] hover:bg-[#E8899B]/10'
+                }`}
+              >
+                <div className={`w-9 h-9 rounded-lg flex items-center justify-center ${
+                  highlight ? 'bg-white/20' : 'bg-[#E8899B]'
+                }`}>
+                  {iconFor(icon)}
+                </div>
+                {label}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -224,8 +275,44 @@ export default function App() {
         </div>
       </section>
 
+      {/* Comment ça marche */}
+      <section className="py-20 bg-[#FEF6EE]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="font-display text-4xl md:text-5xl font-bold italic text-[#2B1820] mb-3">
+              {siteConfig.modalites.title}
+            </h2>
+            <p className="text-lg text-gray-500">{siteConfig.modalites.subtitle}</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {siteConfig.modalites.steps.map((step, index) => (
+              <div key={index} className="bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow text-center relative">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-10 h-10 bg-[#E8899B] rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md">
+                  {step.number}
+                </div>
+                <div className="mt-4 mb-4 flex justify-center">
+                  <div className="w-14 h-14 bg-[#FEF6EE] rounded-xl flex items-center justify-center">
+                    {iconFor(step.icon, 'w-7 h-7 text-[#E8899B]')}
+                  </div>
+                </div>
+                <h3 className="font-display text-xl font-bold italic text-[#2B1820] mb-3">{step.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <button onClick={() => scrollToSection('contact')}
+              className="bg-[#E8899B] text-white px-10 py-4 rounded-xl hover:bg-[#D07088] transition-all font-bold text-lg shadow-lg hover:shadow-xl">
+              Je passe commande
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Les incontournables */}
-      <section id="incontournables" className="py-24 bg-[#FEF6EE]">
+      <section id="incontournables" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-display text-5xl md:text-6xl font-bold italic text-[#2B1820] mb-4">
@@ -238,7 +325,7 @@ export default function App() {
 
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {siteConfig.incontournables.list.map((item, index) => (
-              <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 group">
+              <div key={index} className="bg-[#FEF6EE] rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-1 group">
                 <div className="h-56 overflow-hidden relative">
                   <img src={item.photo} alt={item.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
@@ -265,32 +352,69 @@ export default function App() {
         </div>
       </section>
 
-      {/* Galerie */}
-      <section id="gallery" className="py-24 bg-white">
+      {/* Galerie — carousel */}
+      <section id="gallery" className="py-24 bg-[#FEF6EE]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-display text-5xl md:text-6xl font-bold italic text-[#2B1820] mb-4">
               La galerie
             </h2>
             <p className="text-xl text-gray-500 max-w-3xl mx-auto">
-              Quelques-unes de mes créations — chaque pièce est unique, réalisée pour une occasion précise
+              Quelques-unes de mes créations — chaque pièce est unique
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[180px]">
-            {gallery.map((photo, i) => (
-              <div key={i}
-                className={`overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow ${
-                  photo.featured ? 'md:col-span-2 md:row-span-2' : ''
-                }`}>
-                <img src={photo.src} alt={photo.alt}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  loading="lazy" />
-              </div>
+          {/* Carousel */}
+          <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 h-[300px] md:h-[420px]">
+              {slides.map((photo, i) => (
+                <div
+                  key={`${galleryStart}-${i}`}
+                  className={`overflow-hidden rounded-2xl shadow-md transition-all duration-500 ${
+                    i === 1
+                      ? 'md:scale-105 md:shadow-2xl z-10'
+                      : 'hidden md:block opacity-70'
+                  }`}
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Flèches */}
+            <button
+              onClick={goPrev}
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#E8899B] hover:text-white transition-colors group z-20">
+              <ChevronLeft className="w-6 h-6 text-[#2B1820] group-hover:text-white" />
+            </button>
+            <button
+              onClick={goNext}
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#E8899B] hover:text-white transition-colors group z-20">
+              <ChevronRight className="w-6 h-6 text-[#2B1820] group-hover:text-white" />
+            </button>
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {gallery.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setGalleryStart(i)}
+                className={`rounded-full transition-all duration-300 ${
+                  i === galleryStart
+                    ? 'w-6 h-2.5 bg-[#E8899B]'
+                    : 'w-2.5 h-2.5 bg-gray-300 hover:bg-[#E8899B]/50'
+                }`}
+              />
             ))}
           </div>
 
-          <p className="text-center text-sm text-gray-500 mt-8">
+          <p className="text-center text-sm text-gray-500 mt-6">
             Encore plus de créations sur{' '}
             <a href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer"
                className="text-[#E8899B] hover:underline font-medium">Instagram</a>
@@ -302,7 +426,7 @@ export default function App() {
       </section>
 
       {/* Gourmandiz de saison */}
-      <section id="saison" className="py-24 bg-[#FEF6EE]">
+      <section id="saison" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-display text-5xl md:text-6xl font-bold italic text-[#2B1820] mb-4">
@@ -320,7 +444,7 @@ export default function App() {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {siteConfig.saisonSection.seasons.map((season, index) => (
-                <div key={index} className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow text-center">
+                <div key={index} className="bg-[#FEF6EE] rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow text-center">
                   <div className="text-4xl mb-3">{season.emoji}</div>
                   <h3 className="font-display text-xl font-bold italic text-[#2B1820] mb-4">{season.name}</h3>
                   <ul className="space-y-2">
@@ -358,9 +482,11 @@ export default function App() {
             </p>
           </div>
 
-          <div className="inline-flex items-center bg-[#E8899B]/20 border border-[#E8899B]/40 text-[#FFD8E2] px-5 py-2 rounded-full text-sm font-medium mx-auto mb-12 flex justify-center max-w-lg">
-            <Clock className="w-4 h-4 mr-2 flex-shrink-0" />
-            {siteConfig.evenementsSection.note}
+          <div className="flex justify-center mb-12">
+            <div className="inline-flex items-center bg-[#E8899B]/20 border border-[#E8899B]/40 text-[#FFD8E2] px-5 py-2 rounded-full text-sm font-medium">
+              <Clock className="w-4 h-4 mr-2 flex-shrink-0" />
+              {siteConfig.evenementsSection.note}
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -393,7 +519,7 @@ export default function App() {
           <div className="text-center mt-12">
             <button onClick={() => scrollToSection('contact')}
               className="bg-[#E8899B] text-white px-10 py-4 rounded-xl hover:bg-[#D07088] transition-all font-bold text-lg shadow-xl hover:shadow-2xl">
-              Me contacter pour un événement
+              Je prends contact pour mon événement
             </button>
           </div>
         </div>
@@ -624,18 +750,12 @@ export default function App() {
                 <h3 className="font-display text-2xl font-bold italic text-[#2B1820]">Laboratoire</h3>
               </div>
               <div className="space-y-3 mb-5">
-                <p className="text-gray-700 font-medium">
-                  {siteConfig.contact.address.street}
-                </p>
-                <p className="text-gray-700">
-                  {siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}
-                </p>
+                <p className="text-gray-700 font-medium">{siteConfig.contact.address.street}</p>
+                <p className="text-gray-700">{siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}</p>
                 <p className="text-gray-500 text-sm">Côtes-d'Armor, Bretagne</p>
               </div>
               <div className="bg-[#2B1820]/5 border border-[#2B1820]/10 rounded-xl p-4">
-                <p className="text-[#2B1820] text-sm font-medium leading-relaxed">
-                  {siteConfig.contact.labNote}
-                </p>
+                <p className="text-[#2B1820] text-sm font-medium leading-relaxed">{siteConfig.contact.labNote}</p>
               </div>
             </div>
           </div>

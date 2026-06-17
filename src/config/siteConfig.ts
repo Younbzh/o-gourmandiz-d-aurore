@@ -72,6 +72,31 @@ export const siteConfig = {
     ]
   },
 
+  modalites: {
+    title: "Comment ça marche ?",
+    subtitle: "Simple, rapide, sur mesure",
+    steps: [
+      {
+        number: "01",
+        title: "Vous me contactez",
+        description: "Par SMS, téléphone ou WhatsApp. On discute de votre occasion, vos envies et les saveurs disponibles selon la carte de saison.",
+        icon: "MessageCircle"
+      },
+      {
+        number: "02",
+        title: "Je crée pour vous",
+        description: "Votre commande est réalisée sur mesure — 72h pour une commande simple, 3 semaines minimum pour un grand événement.",
+        icon: "Cake"
+      },
+      {
+        number: "03",
+        title: "Vous venez récupérer",
+        description: "Le retrait se fait au laboratoire sur rendez-vous. Livraison possible sur demande pour les grands événements.",
+        icon: "MapPin"
+      }
+    ]
+  },
+
   incontournables: {
     title: "Les incontournables",
     subtitle: "Mes créations phares — disponibles à la commande toute l'année dans la gamme de saison",
