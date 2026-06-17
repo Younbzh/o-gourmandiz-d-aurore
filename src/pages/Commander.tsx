@@ -81,10 +81,10 @@ export default function Commander() {
     return (
       <div className="min-h-screen bg-[#FDFAF6] flex items-center justify-center px-5 pt-20">
         <div className="max-w-md w-full text-center">
-          <div className="w-20 h-20 bg-[#E8899B] rounded-full flex items-center justify-center mx-auto mb-8">
+          <div className="w-20 h-20 bg-[#5BBFBF] rounded-full flex items-center justify-center mx-auto mb-8">
             <Check className="w-10 h-10 text-white" />
           </div>
-          <p className="text-xs uppercase tracking-[0.25em] text-[#E8899B] mb-4">Demande envoyée</p>
+          <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-4">Demande envoyée</p>
           <h2 className="font-display text-4xl font-bold text-[#1A130C] italic mb-6">
             Merci {form.name} !
           </h2>
@@ -119,7 +119,7 @@ export default function Commander() {
 
         {/* Titre */}
         <div className="text-center mb-12">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#E8899B] mb-4">Formulaire de commande</p>
+          <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-4">Formulaire de commande</p>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-[#1A130C] italic">
             Je passe commande
           </h1>
@@ -131,7 +131,7 @@ export default function Commander() {
             {steps.map((label, i) => (
               <div key={i} className="flex flex-col items-center gap-1 flex-1">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-colors ${
-                  i + 1 < step ? 'bg-[#E8899B] text-white' :
+                  i + 1 < step ? 'bg-[#5BBFBF] text-white' :
                   i + 1 === step ? 'bg-[#1A130C] text-white' :
                   'bg-[#F3EBE1] text-gray-400'
                 }`}>
@@ -147,7 +147,7 @@ export default function Commander() {
           </div>
           <div className="h-1 bg-[#F3EBE1] rounded-full overflow-hidden">
             <div
-              className="h-full bg-[#E8899B] rounded-full transition-all duration-500"
+              className="h-full bg-[#5BBFBF] rounded-full transition-all duration-500"
               style={{ width: `${((step - 1) / (steps.length - 1)) * 100}%` }}
             />
           </div>
@@ -166,8 +166,8 @@ export default function Commander() {
                   onClick={() => set('occasion', o)}
                   className={`text-left px-6 py-5 rounded-2xl border-2 font-medium transition-all ${
                     form.occasion === o
-                      ? 'border-[#E8899B] bg-[#E8899B]/5 text-[#1A130C]'
-                      : 'border-[#F3EBE1] bg-white text-gray-600 hover:border-[#E8899B]/50'
+                      ? 'border-[#5BBFBF] bg-[#5BBFBF]/5 text-[#1A130C]'
+                      : 'border-[#F3EBE1] bg-white text-gray-600 hover:border-[#5BBFBF]/50'
                   }`}
                 >
                   {o}
@@ -193,7 +193,7 @@ export default function Commander() {
                   type="date"
                   value={form.date}
                   onChange={e => set('date', e.target.value)}
-                  className="w-full border-2 border-[#F3EBE1] rounded-xl px-4 py-3 text-[#1A130C] focus:border-[#E8899B] outline-none transition-colors bg-white"
+                  className="w-full border-2 border-[#F3EBE1] rounded-xl px-4 py-3 text-[#1A130C] focus:border-[#5BBFBF] outline-none transition-colors bg-white"
                 />
               </div>
               <div>
@@ -206,7 +206,7 @@ export default function Commander() {
                   placeholder="ex. 20"
                   value={form.guests}
                   onChange={e => set('guests', e.target.value)}
-                  className="w-full border-2 border-[#F3EBE1] rounded-xl px-4 py-3 text-[#1A130C] focus:border-[#E8899B] outline-none transition-colors bg-white"
+                  className="w-full border-2 border-[#F3EBE1] rounded-xl px-4 py-3 text-[#1A130C] focus:border-[#5BBFBF] outline-none transition-colors bg-white"
                 />
               </div>
             </div>
@@ -222,16 +222,16 @@ export default function Commander() {
                     onClick={() => set('creation', label)}
                     className={`relative overflow-hidden rounded-2xl border-2 transition-all ${
                       form.creation === label
-                        ? 'border-[#E8899B] ring-2 ring-[#E8899B]/30'
-                        : 'border-transparent hover:border-[#E8899B]/40'
+                        ? 'border-[#5BBFBF] ring-2 ring-[#5BBFBF]/30'
+                        : 'border-transparent hover:border-[#5BBFBF]/40'
                     }`}
                   >
                     <img src={photo} alt={label} className="w-full aspect-square object-cover" />
-                    <div className={`absolute inset-0 flex items-end p-3 ${form.creation === label ? 'bg-[#E8899B]/30' : 'bg-[#1A130C]/40'}`}>
+                    <div className={`absolute inset-0 flex items-end p-3 ${form.creation === label ? 'bg-[#5BBFBF]/30' : 'bg-[#1A130C]/40'}`}>
                       <span className="text-white text-xs font-semibold leading-tight text-left">{label}</span>
                     </div>
                     {form.creation === label && (
-                      <div className="absolute top-2 right-2 w-6 h-6 bg-[#E8899B] rounded-full flex items-center justify-center">
+                      <div className="absolute top-2 right-2 w-6 h-6 bg-[#5BBFBF] rounded-full flex items-center justify-center">
                         <Check className="w-3 h-3 text-white" />
                       </div>
                     )}
@@ -256,7 +256,7 @@ export default function Commander() {
               placeholder="Ex. : thème arc-en-ciel, couleurs pastels, prénom Léa…"
               value={form.wishes}
               onChange={e => set('wishes', e.target.value)}
-              className="w-full border-2 border-[#F3EBE1] rounded-2xl px-5 py-4 text-[#1A130C] focus:border-[#E8899B] outline-none transition-colors resize-none bg-white text-sm leading-relaxed"
+              className="w-full border-2 border-[#F3EBE1] rounded-2xl px-5 py-4 text-[#1A130C] focus:border-[#5BBFBF] outline-none transition-colors resize-none bg-white text-sm leading-relaxed"
             />
             <div className="mt-6 bg-[#F3EBE1] rounded-2xl p-5">
               <p className="text-xs text-gray-500 leading-relaxed">
@@ -281,7 +281,7 @@ export default function Commander() {
                 placeholder="Marie"
                 value={form.name}
                 onChange={e => set('name', e.target.value)}
-                className="w-full border-2 border-[#F3EBE1] rounded-xl px-4 py-3 text-[#1A130C] focus:border-[#E8899B] outline-none transition-colors bg-white"
+                className="w-full border-2 border-[#F3EBE1] rounded-xl px-4 py-3 text-[#1A130C] focus:border-[#5BBFBF] outline-none transition-colors bg-white"
               />
             </div>
             <div>
@@ -293,13 +293,13 @@ export default function Commander() {
                 placeholder="06 XX XX XX XX"
                 value={form.phone}
                 onChange={e => set('phone', e.target.value)}
-                className="w-full border-2 border-[#F3EBE1] rounded-xl px-4 py-3 text-[#1A130C] focus:border-[#E8899B] outline-none transition-colors bg-white"
+                className="w-full border-2 border-[#F3EBE1] rounded-xl px-4 py-3 text-[#1A130C] focus:border-[#5BBFBF] outline-none transition-colors bg-white"
               />
             </div>
 
             {/* Récap */}
             <div className="bg-white border border-[#F3EBE1] rounded-2xl p-6 mt-4">
-              <p className="text-xs uppercase tracking-widest text-[#E8899B] mb-4">Récapitulatif</p>
+              <p className="text-xs uppercase tracking-widest text-[#5BBFBF] mb-4">Récapitulatif</p>
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex justify-between"><span className="text-gray-400">Occasion</span><span className="font-medium text-[#1A130C]">{form.occasion}</span></div>
                 <div className="flex justify-between"><span className="text-gray-400">Date</span><span className="font-medium text-[#1A130C]">{form.date}</span></div>
@@ -325,7 +325,7 @@ export default function Commander() {
             <button
               onClick={() => setStep(s => s + 1)}
               disabled={!canNext()}
-              className="bg-[#1A130C] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#E8899B] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="bg-[#1A130C] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#5BBFBF] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
               Continuer
             </button>

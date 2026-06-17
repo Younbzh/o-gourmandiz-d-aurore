@@ -25,8 +25,8 @@ export default function Layout() {
 
   const navBg = scrolled || !isHome ? 'bg-[#FDFAF6] border-b border-[#1A130C]/8 shadow-sm' : 'bg-transparent';
   const logoFilter = scrolled || !isHome ? '' : 'brightness-0 invert';
-  const linkColor = scrolled || !isHome ? 'text-[#1A130C] hover:text-[#E8899B]' : 'text-white hover:text-white/70';
-  const activeColor = scrolled || !isHome ? 'text-[#E8899B]' : 'text-white/70';
+  const linkColor = scrolled || !isHome ? 'text-[#1A130C] hover:text-[#5BBFBF]' : 'text-white hover:text-white/70';
+  const activeColor = scrolled || !isHome ? 'text-[#5BBFBF]' : 'text-white/70';
   const burgerColor = scrolled || !isHome ? 'text-[#1A130C]' : 'text-white';
 
   const navLinks = [
@@ -65,7 +65,7 @@ export default function Layout() {
             ))}
             <Link
               to="/commander"
-              className="bg-[#E8899B] text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-[#C97085] transition-colors"
+              className="bg-[#5BBFBF] text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-[#4AAEAE] transition-colors"
             >
               Commander
             </Link>
@@ -87,7 +87,7 @@ export default function Layout() {
             ))}
             <Link
               to="/commander"
-              className="bg-[#E8899B] text-white font-semibold px-6 py-3 rounded-full text-center"
+              className="bg-[#5BBFBF] text-white font-semibold px-6 py-3 rounded-full text-center"
             >
               Commander
             </Link>
@@ -116,7 +116,7 @@ export default function Layout() {
                 { label: 'TikTok', url: siteConfig.social.tiktok },
               ].map(({ label, url }) => (
                 <a key={label} href={url} target="_blank" rel="noopener noreferrer"
-                  className="text-xs border border-white/20 hover:border-[#E8899B] hover:text-[#E8899B] px-3 py-1.5 rounded-full text-white/50 transition-colors">
+                  className="text-xs border border-white/20 hover:border-[#5BBFBF] hover:text-[#5BBFBF] px-3 py-1.5 rounded-full text-white/50 transition-colors">
                   {label}
                 </a>
               ))}
@@ -124,7 +124,7 @@ export default function Layout() {
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-widest text-[#E8899B] mb-5">Contact</p>
+            <p className="text-xs uppercase tracking-widest text-[#5BBFBF] mb-5">Contact</p>
             <div className="space-y-2 text-sm text-white/60">
               <a href={`tel:${siteConfig.contact.phone.replace(/\s/g,'')}`} className="block hover:text-white transition-colors">
                 {siteConfig.contact.phone}
@@ -140,7 +140,7 @@ export default function Layout() {
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-widest text-[#E8899B] mb-5">Laboratoire</p>
+            <p className="text-xs uppercase tracking-widest text-[#5BBFBF] mb-5">Laboratoire</p>
             <p className="text-sm text-white/60 leading-relaxed">
               {siteConfig.contact.address.street}<br />
               {siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}<br />
@@ -167,7 +167,7 @@ export default function Layout() {
           <a
             href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Bonjour%20Aurore%20!%20Je%20souhaite%20passer%20une%20commande%20%F0%9F%8E%82`}
             target="_blank" rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 py-4 bg-[#E8899B] text-white font-semibold text-sm"
+            className="flex-1 flex items-center justify-center gap-2 py-4 bg-[#5BBFBF] text-white font-semibold text-sm"
           >
             <MessageCircle className="w-4 h-4" /> WhatsApp
           </a>

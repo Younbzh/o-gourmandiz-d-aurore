@@ -8,7 +8,7 @@ export default function Carte() {
     <>
       {/* En-tête */}
       <div className="pt-36 pb-16 bg-[#FDFAF6] text-center px-5">
-        <p className="text-xs uppercase tracking-[0.25em] text-[#E8899B] mb-4">Toute l'année</p>
+        <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-4">Toute l'année</p>
         <h1 className="font-display text-5xl md:text-7xl font-bold text-[#1A130C] italic mb-4">
           Les incontournables
         </h1>
@@ -48,7 +48,7 @@ export default function Carte() {
 
       {/* Séparateur saison */}
       <div className="bg-[#1A130C] py-14 text-center">
-        <p className="text-xs uppercase tracking-[0.25em] text-[#E8899B] mb-3">Ma carte évolue</p>
+        <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-3">Ma carte évolue</p>
         <h2 className="font-display text-4xl md:text-5xl font-bold text-white italic mb-4">
           Les Gourmandiz de saison
         </h2>
@@ -83,7 +83,7 @@ export default function Carte() {
             </p>
             <button
               onClick={() => navigate('/commander')}
-              className="bg-[#E8899B] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#C97085] transition-colors"
+              className="bg-[#5BBFBF] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#4AAEAE] transition-colors"
             >
               Je passe commande
             </button>

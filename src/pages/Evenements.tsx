@@ -9,12 +9,12 @@ export default function Evenements() {
     <>
       {/* En-tête */}
       <div className="pt-36 pb-16 bg-[#FDFAF6] text-center px-5">
-        <p className="text-xs uppercase tracking-[0.25em] text-[#E8899B] mb-4">Grands moments</p>
+        <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-4">Grands moments</p>
         <h1 className="font-display text-5xl md:text-7xl font-bold text-[#1A130C] italic mb-6">
           Événements &<br />grandes occasions
         </h1>
         <div className="inline-flex items-center gap-2 border border-[#1A130C]/15 bg-white rounded-full px-5 py-2.5 text-sm text-gray-500">
-          <Clock className="w-4 h-4 text-[#E8899B]" />
+          <Clock className="w-4 h-4 text-[#5BBFBF]" />
           {siteConfig.evenementsSection.note}
         </div>
       </div>
@@ -40,7 +40,7 @@ export default function Evenements() {
 
             {/* Texte */}
             <div className={`bg-[#FDFAF6] flex flex-col justify-center px-8 md:px-12 lg:px-16 py-16 ${isEven ? 'md:order-2' : 'md:order-1'}`}>
-              <p className="text-xs uppercase tracking-[0.25em] text-[#E8899B] mb-5">
+              <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-5">
                 {`0${i + 1}`}
               </p>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1A130C] italic mb-5 leading-tight">
@@ -52,14 +52,14 @@ export default function Evenements() {
               <ul className="space-y-3 mb-10">
                 {item.features.map((feature, j) => (
                   <li key={j} className="flex items-center gap-3 text-sm text-gray-600">
-                    <span className="w-1.5 h-1.5 bg-[#E8899B] rounded-full flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 bg-[#5BBFBF] rounded-full flex-shrink-0" />
                     {feature}
                   </li>
                 ))}
               </ul>
               <button
                 onClick={() => navigate('/commander')}
-                className="self-start bg-[#1A130C] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#E8899B] transition-colors"
+                className="self-start bg-[#1A130C] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#5BBFBF] transition-colors"
               >
                 Je demande un devis
               </button>
@@ -71,7 +71,7 @@ export default function Evenements() {
       {/* CTA bas */}
       <section className="bg-[#1A130C] py-24 text-center">
         <div className="max-w-xl mx-auto px-5">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#E8899B] mb-5">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-5">
             Minimum 3 semaines à l'avance
           </p>
           <h2 className="font-display text-4xl font-bold text-white italic mb-6">
@@ -82,7 +82,7 @@ export default function Evenements() {
           </p>
           <button
             onClick={() => navigate('/commander')}
-            className="bg-[#E8899B] text-white px-10 py-4 rounded-full font-semibold hover:bg-[#C97085] transition-colors"
+            className="bg-[#5BBFBF] text-white px-10 py-4 rounded-full font-semibold hover:bg-[#4AAEAE] transition-colors"
           >
             Je prends contact
           </button>

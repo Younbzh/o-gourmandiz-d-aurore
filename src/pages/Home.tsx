@@ -38,7 +38,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A130C]/90 via-[#1A130C]/25 to-transparent" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-5 lg:px-8 pb-16 md:pb-28 w-full">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#E8899B] mb-6">
+          <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-6">
             Pâtisserie artisanale · La Motte (22) · Sur commande
           </p>
           <h1 className="font-display text-6xl md:text-8xl lg:text-[7.5rem] font-bold text-white leading-[0.88] mb-8">
@@ -82,10 +82,10 @@ export default function Home() {
             <div className="absolute inset-0 bg-[#1A130C]/45 group-hover:bg-[#1A130C]/60 transition-colors duration-300" />
             <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex items-end justify-between">
               <div>
-                <p className="text-[10px] uppercase tracking-widest text-[#E8899B] mb-2">{sub}</p>
+                <p className="text-[10px] uppercase tracking-widest text-[#5BBFBF] mb-2">{sub}</p>
                 <h2 className="font-display text-2xl md:text-3xl font-bold text-white italic">{label}</h2>
               </div>
-              <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white group-hover:bg-[#E8899B] group-hover:border-transparent transition-all duration-300 flex-shrink-0">
+              <div className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center text-white group-hover:bg-[#5BBFBF] group-hover:border-transparent transition-all duration-300 flex-shrink-0">
                 <ArrowRight className="w-4 h-4" />
               </div>
             </div>
@@ -103,13 +103,13 @@ export default function Home() {
               className="w-full aspect-[4/5] object-cover rounded-2xl"
             />
             <div className="absolute -bottom-5 -right-5 bg-[#1A130C] text-white px-6 py-5 rounded-xl hidden md:block">
-              <p className="text-[10px] uppercase tracking-widest text-[#E8899B] mb-1">Diplômée</p>
+              <p className="text-[10px] uppercase tracking-widest text-[#5BBFBF] mb-1">Diplômée</p>
               <p className="font-display text-xl font-bold italic">CAP 2023</p>
             </div>
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-[#E8899B] mb-6">Qui suis-je ?</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-6">Qui suis-je ?</p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1A130C] leading-tight mb-8">
               Rien ne me<br />
               <em>prédestinait</em><br />
@@ -123,7 +123,7 @@ export default function Home() {
             </p>
             <button
               onClick={() => navigate('/about')}
-              className="inline-flex items-center gap-2 text-[#1A130C] font-semibold border-b-2 border-[#1A130C] pb-0.5 hover:text-[#E8899B] hover:border-[#E8899B] transition-colors"
+              className="inline-flex items-center gap-2 text-[#1A130C] font-semibold border-b-2 border-[#1A130C] pb-0.5 hover:text-[#5BBFBF] hover:border-[#5BBFBF] transition-colors"
             >
               En savoir plus <ArrowRight className="w-4 h-4" />
             </button>
@@ -135,7 +135,7 @@ export default function Home() {
       <section className="bg-[#1A130C] py-24">
         <div className="max-w-6xl mx-auto px-5 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-xs uppercase tracking-[0.25em] text-[#E8899B] mb-4">Témoignages</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-4">Témoignages</p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white italic">
               Ce que disent mes clients
             </h2>
@@ -146,7 +146,7 @@ export default function Home() {
               <div key={i} className="border border-white/10 rounded-2xl p-8">
                 <div className="flex gap-1 mb-5">
                   {Array.from({ length: review.stars }).map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-[#E8899B] text-[#E8899B]" />
+                    <Star key={j} className="w-4 h-4 fill-[#5BBFBF] text-[#5BBFBF]" />
                   ))}
                 </div>
                 <p className="text-white/60 leading-relaxed mb-6 italic text-sm">"{review.text}"</p>
@@ -163,7 +163,7 @@ export default function Home() {
       {/* CTA bas de page */}
       <section className="bg-[#FDFAF6] py-24 text-center">
         <div className="max-w-xl mx-auto px-5">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#E8899B] mb-5">Laboratoire privé · Sur commande</p>
+          <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-5">Laboratoire privé · Sur commande</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-[#1A130C] italic mb-6">
             Une envie de gourmandise ?
           </h2>
@@ -172,7 +172,7 @@ export default function Home() {
           </p>
           <button
             onClick={() => navigate('/commander')}
-            className="bg-[#E8899B] text-white px-10 py-4 rounded-full font-semibold hover:bg-[#C97085] transition-colors"
+            className="bg-[#5BBFBF] text-white px-10 py-4 rounded-full font-semibold hover:bg-[#4AAEAE] transition-colors"
           >
             Je passe commande
           </button>
