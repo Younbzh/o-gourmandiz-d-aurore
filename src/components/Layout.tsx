@@ -104,7 +104,7 @@ export default function Layout() {
       <footer className="bg-[#1A130C] text-white">
         <div className="max-w-6xl mx-auto px-5 lg:px-8 py-16 grid md:grid-cols-3 gap-10">
           <div>
-            <img src="/logo.jpeg" alt="Ô Gourmandiz d'Aurore" className="h-12 w-auto object-contain rounded mb-4 brightness-0 invert opacity-80" />
+            <img src="/logo.jpeg" alt="Ô Gourmandiz d'Aurore" className="h-14 w-auto object-contain rounded-xl mb-4" />
             <p className="text-white/50 text-sm leading-relaxed">
               Pâtisseries artisanales de saison sur commande.<br />
               Laboratoire privé à La Motte (22).
