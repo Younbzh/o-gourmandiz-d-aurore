@@ -30,7 +30,7 @@
   }
 
   .eyebrow {
-    @apply text-[10px] uppercase tracking-[0.25em] text-[#E6D39A];
+    @apply text-[10px] uppercase tracking-[0.25em] text-[#E6D39A] font-semibold;
   }
 
   .btn-primary {
