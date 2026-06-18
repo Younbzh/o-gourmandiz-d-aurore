@@ -33,6 +33,10 @@
     @apply text-[11px] uppercase tracking-[0.25em] text-[#E6D39A] font-bold;
   }
 
+  .label {
+    @apply text-xs uppercase tracking-[0.25em] text-[#5BBFBF] font-bold;
+  }
+
   .btn-primary {
     @apply rounded-full px-6 py-3 text-sm font-semibold text-black transition;
     background: linear-gradient(90deg, #E6C36A, #C89E4A);

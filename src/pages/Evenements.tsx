@@ -9,7 +9,7 @@ export default function Evenements() {
     <>
       {/* En-tête */}
       <div className="pt-36 pb-16 bg-[#FDFAF6] text-center px-5">
-        <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-4">Grands moments</p>
+        <p className="label mb-4">Grands moments</p>
         <h1 className="font-display text-5xl md:text-7xl font-bold text-[#1A130C] italic mb-6">
           Événements &<br />grandes occasions
         </h1>
@@ -40,7 +40,7 @@ export default function Evenements() {
 
             {/* Texte */}
             <div className={`bg-[#FDFAF6] flex flex-col justify-center px-8 md:px-12 lg:px-16 py-16 ${isEven ? 'md:order-2' : 'md:order-1'}`}>
-              <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-5">
+              <p className="label mb-5">
                 {`0${i + 1}`}
               </p>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1A130C] italic mb-5 leading-tight">
@@ -71,7 +71,7 @@ export default function Evenements() {
       {/* CTA bas */}
       <section className="bg-[#1A130C] py-24 text-center">
         <div className="max-w-xl mx-auto px-5">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-5">
+          <p className="label mb-5">
             Minimum 3 semaines à l'avance
           </p>
           <h2 className="font-display text-4xl font-bold text-white italic mb-6">

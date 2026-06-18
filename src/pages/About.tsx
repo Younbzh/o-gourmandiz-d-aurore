@@ -18,7 +18,7 @@ export default function About() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A130C]/90 via-[#1A130C]/30 to-transparent" />
         <div className="relative z-10 max-w-6xl mx-auto px-5 lg:px-8 pb-16 w-full">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-4">Qui suis-je ?</p>
+          <p className="label mb-4">Qui suis-je ?</p>
           <h1 className="font-display text-5xl md:text-7xl font-bold text-white italic leading-tight">
             Aurore Delmas
           </h1>
@@ -29,7 +29,7 @@ export default function About() {
       <section className="bg-[#FDFAF6] py-24">
         <div className="max-w-6xl mx-auto px-5 lg:px-8 grid md:grid-cols-2 gap-16 items-start">
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-6">Mon histoire</p>
+            <p className="label mb-6">Mon histoire</p>
             {siteConfig.about.content.map((paragraph, i) => (
               <p key={i} className="text-gray-600 leading-relaxed text-lg mb-6">
                 {paragraph}
@@ -39,7 +39,7 @@ export default function About() {
 
           {/* Philosophie */}
           <div className="bg-[#1A130C] rounded-2xl p-8 md:p-10">
-            <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-6">Ma philosophie</p>
+            <p className="label mb-6">Ma philosophie</p>
             <div className="space-y-6">
               {siteConfig.about.values.map((value, i) => (
                 <div key={i} className={i < siteConfig.about.values.length - 1 ? 'pb-6 border-b border-white/10' : ''}>
@@ -56,7 +56,7 @@ export default function About() {
       <section className="bg-[#F3EBE1] py-20">
         <div className="max-w-6xl mx-auto px-5 lg:px-8 grid md:grid-cols-2 gap-10">
           <div className="bg-white rounded-2xl p-8">
-            <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-6">Horaires d'appels</p>
+            <p className="label mb-6">Horaires d'appels</p>
             <div className="space-y-4">
               {siteConfig.hours.callHours.map((item, i) => (
                 <div key={i} className="flex justify-between items-center border-b border-[#F3EBE1] pb-4">
@@ -71,7 +71,7 @@ export default function About() {
           </div>
 
           <div className="bg-white rounded-2xl p-8">
-            <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-6">Laboratoire</p>
+            <p className="label mb-6">Laboratoire</p>
             <p className="font-medium text-[#1A130C] mb-1">{siteConfig.contact.address.street}</p>
             <p className="text-gray-600 mb-1">{siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}</p>
             <p className="text-gray-400 text-sm mb-6">Côtes-d'Armor, Bretagne</p>
@@ -85,7 +85,7 @@ export default function About() {
       {/* Allergènes */}
       <section className="bg-[#FDFAF6] py-20">
         <div className="max-w-3xl mx-auto px-5 lg:px-8">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-6">Information</p>
+          <p className="label mb-6">Information</p>
           <h2 className="font-display text-3xl font-bold text-[#1A130C] italic mb-4">Allergènes</h2>
           <p className="text-gray-500 mb-8 leading-relaxed text-sm">{siteConfig.allergens.intro}</p>
           <div className="grid sm:grid-cols-2 gap-3">
@@ -105,7 +105,7 @@ export default function About() {
       {/* FAQ */}
       <section className="bg-white py-20">
         <div className="max-w-3xl mx-auto px-5 lg:px-8">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-6 text-center">FAQ</p>
+          <p className="label mb-6 text-center">FAQ</p>
           <h2 className="font-display text-4xl font-bold text-[#1A130C] italic mb-12 text-center">
             {siteConfig.faq.title}
           </h2>

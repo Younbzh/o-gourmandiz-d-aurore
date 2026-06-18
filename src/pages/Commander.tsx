@@ -84,7 +84,7 @@ export default function Commander() {
           <div className="w-20 h-20 bg-[#5BBFBF] rounded-full flex items-center justify-center mx-auto mb-8">
             <Check className="w-10 h-10 text-white" />
           </div>
-          <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-4">Demande envoyée</p>
+          <p className="label mb-4">Demande envoyée</p>
           <h2 className="font-display text-4xl font-bold text-[#1A130C] italic mb-6">
             Merci {form.name} !
           </h2>
@@ -119,7 +119,7 @@ export default function Commander() {
 
         {/* Titre */}
         <div className="text-center mb-12">
-          <p className="text-xs uppercase tracking-[0.25em] text-[#5BBFBF] mb-4">Formulaire de commande</p>
+          <p className="label mb-4">Formulaire de commande</p>
           <h1 className="font-display text-4xl md:text-5xl font-bold text-[#1A130C] italic">
             Je passe commande
           </h1>
@@ -299,7 +299,7 @@ export default function Commander() {
 
             {/* Récap */}
             <div className="bg-white border border-[#F3EBE1] rounded-2xl p-6 mt-4">
-              <p className="text-xs uppercase tracking-widest text-[#5BBFBF] mb-4">Récapitulatif</p>
+              <p className="label mb-4">Récapitulatif</p>
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex justify-between"><span className="text-gray-400">Occasion</span><span className="font-medium text-[#1A130C]">{form.occasion}</span></div>
                 <div className="flex justify-between"><span className="text-gray-400">Date</span><span className="font-medium text-[#1A130C]">{form.date}</span></div>

@@ -123,7 +123,7 @@ export default function Layout() {
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-widest text-[#5BBFBF] mb-5">Contact</p>
+            <p className="label mb-5">Contact</p>
             <div className="space-y-2 text-sm text-white/60">
               <a href={`tel:${siteConfig.contact.phone.replace(/\s/g,'')}`} className="block hover:text-white transition-colors">
                 {siteConfig.contact.phone}
@@ -139,7 +139,7 @@ export default function Layout() {
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-widest text-[#5BBFBF] mb-5">Laboratoire</p>
+            <p className="label mb-5">Laboratoire</p>
             <p className="text-sm text-white/60 leading-relaxed">
               {siteConfig.contact.address.street}<br />
               {siteConfig.contact.address.postalCode} {siteConfig.contact.address.city}<br />
