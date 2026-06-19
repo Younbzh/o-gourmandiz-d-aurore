@@ -41,13 +41,18 @@ export default function Layout() {
       {/* Nav */}
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${navBg}`}>
         <div className="max-w-6xl mx-auto px-5 lg:px-8 flex items-center justify-between h-20">
-          <Link to="/">
-            <img
-              src="/logo.jpeg"
-              alt="Ô Gourmandiz d'Aurore"
-              className="h-12 w-auto object-contain rounded transition-all duration-300"
-            />
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link to="/">
+              <img
+                src="/logo.jpeg"
+                alt="Ô Gourmandiz d'Aurore"
+                className="h-12 w-auto object-contain rounded transition-all duration-300"
+              />
+            </Link>
+            <span className="hidden lg:block text-[10px] uppercase tracking-[0.25em] font-bold text-[#5BBFBF]">
+              Pâtisserie artisanale · La Motte (22) · Sur commande
+            </span>
+          </div>
 
           {/* Desktop */}
           <div className="hidden md:flex items-center gap-8">
