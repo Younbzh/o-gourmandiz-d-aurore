@@ -6,19 +6,19 @@ const visualLinks = [
   {
     label: 'La carte',
     sub: 'Incontournables & créations de saison',
-    photo: '/tarte.jpeg',
+    photo: '/6392.jpg',
     to: '/carte',
   },
   {
     label: 'Événements',
     sub: 'Pièces montées · Pyramides · Biscuits',
-    photo: '/gateau-mariage.jpeg',
+    photo: '/6431.jpg',
     to: '/evenements',
   },
   {
     label: 'Commander',
     sub: 'Formulaire de commande en 4 étapes',
-    photo: '/sables-personnalises.jpeg',
+    photo: '/6417.jpg',
     to: '/commander',
   },
 ];
