@@ -44,8 +44,8 @@ export default function Home() {
       {/* Hero */}
       <section className="relative h-screen flex items-end overflow-hidden">
         <img
-          src="/gateau-fraises.jpeg"
-          alt="Fraisier d'Aurore"
+          src="/6386.jpg"
+          alt="Pyramide de macarons Ô Gourmandiz d'Aurore"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A130C]/90 via-[#1A130C]/25 to-transparent" />

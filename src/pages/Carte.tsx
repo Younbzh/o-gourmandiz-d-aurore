@@ -1,32 +1,87 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { siteConfig } from '../config/siteConfig';
+import { ChevronDown } from 'lucide-react';
 
-const fichesSaison: Record<string, { src: string; alt: string }[]> = {
-  summer: [
-    { src: '/6347.jpg', alt: 'Fraisier' },
-    { src: '/6332.jpg', alt: 'Tarte Fraise Rhubarbe' },
-    { src: '/6341.jpg', alt: 'Tarte Fraise Crumble' },
-    { src: '/6335.jpg', alt: 'Tarte Abricot Framboise' },
-    { src: '/6338.jpg', alt: 'Tarte Multi-Fruits' },
-    { src: '/6350.jpg', alt: 'Pavlova' },
-  ],
-};
+interface Product {
+  id: string;
+  name: string;
+  photo: string;
+  composition: string[];
+  prix: { format: string; prix: string }[];
+  allergenes: string[];
+  note?: string;
+  sansGluten?: boolean;
+}
 
-const fichesPerma = [
-  { src: '/6329.jpg', alt: 'Tarte Double Chocolat' },
-  { src: '/6343.jpg', alt: 'Tarte Citron Noisette' },
-  { src: '/6355.jpg', alt: 'Number Cake' },
-  { src: '/6356.jpg', alt: 'Macarons' },
-  { src: '/6367.jpg', alt: 'Mignardises' },
-  { src: '/6370.jpg', alt: 'Biscuits personnalisés' },
+const incontournables: Product[] = [
+  {
+    id: 'number-cake',
+    name: 'Number Cake',
+    photo: '/6398.jpg',
+    composition: [
+      'Base pâte sucrée ou meringue au choix',
+      'Macarons assortis & meringues inclus',
+      'Fleurs comestibles incluses',
+      'Parfum au choix parmi la gamme de saison',
+    ],
+    prix: [
+      { format: '5 – 6 personnes', prix: '34,50 €' },
+      { format: '10 – 12 personnes', prix: '66 €' },
+    ],
+    allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
+    note: 'Supplément de 5 € pour deux parfums différents. Personnalisable en couleurs, thème et décors. Option sans fruits à coque sur demande.',
+  },
+  {
+    id: 'double-chocolat',
+    name: 'Tarte Double Chocolat',
+    photo: '/6467.jpg',
+    composition: [
+      'Pâte sucrée amande',
+      'Croustillant',
+      'Ganache chocolat noir',
+      'Ganache montée chocolat au lait',
+    ],
+    prix: [
+      { format: '4 personnes', prix: '20 €' },
+      { format: '6 personnes', prix: '29 €' },
+      { format: '8 personnes', prix: '38 €' },
+      { format: '10 personnes', prix: '46 €' },
+    ],
+    allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande)'],
+    note: 'Option sans fruits à coque sur demande (sans amande dans la pâte).',
+  },
+  {
+    id: 'macarons',
+    name: 'Macarons',
+    photo: '/6480.jpg',
+    composition: [
+      'Vanille · Chocolat noir · Caramel beurre salé',
+      'Citron · Fraise · Framboise · Rhubarbe',
+    ],
+    prix: [
+      { format: 'Boîte de 8', prix: '12 €' },
+      { format: 'Boîte de 16', prix: '24 €' },
+    ],
+    allergenes: ['Gluten', 'Œufs', 'Fruits à coque (amande)'],
+    note: 'Personnalisables en couleurs selon votre occasion.',
+  },
+  {
+    id: 'biscuits',
+    name: 'Biscuits personnalisés',
+    photo: '/6464.jpg',
+    composition: [
+      'Sablés Vanille, Cacao ou Citron',
+      'Personnalisés : prénom, âge, message, illustration sur feuille de sucre',
+      'Emballage individuel possible',
+      'Commande minimum de 20 pièces par parfum',
+    ],
+    prix: [
+      { format: 'À partir de 20 pièces', prix: 'à partir de 1,20 €/biscuit' },
+    ],
+    allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande)'],
+    note: 'Option sans fruits à coque sur demande.',
+  },
 ];
-
-const seasonLabels: Record<string, string> = {
-  summer: 'Été',
-  autumn: 'Automne',
-  winter: 'Hiver',
-  spring: 'Printemps',
-};
 
 function getSeason() {
   const m = new Date().getMonth();
@@ -36,127 +91,273 @@ function getSeason() {
   return 'spring';
 }
 
+const saisonProduits: Partial<Record<string, Product[]>> = {
+  summer: [
+    {
+      id: 'fraisier',
+      name: 'Fraisier',
+      photo: '/6426.jpg',
+      composition: [
+        'Génoise',
+        'Crème légère vanille',
+        'Ganache montée vanille',
+        'Fraises fraîches',
+        'Fleurs comestibles',
+      ],
+      prix: [
+        { format: '4 personnes', prix: '25 €' },
+        { format: '6 personnes', prix: '34,50 €' },
+        { format: '8 personnes', prix: '44,50 €' },
+        { format: '10 personnes', prix: '54,50 €' },
+      ],
+      allergenes: ['Gluten', 'Œufs', 'Lait'],
+    },
+    {
+      id: 'tarte-fraise-rhubarbe',
+      name: 'Tarte Fraise Rhubarbe',
+      photo: '/6410.jpg',
+      composition: [
+        'Sablé breton',
+        'Compotée fraise / rhubarbe',
+        'Ganache montée vanille',
+        'Fraises fraîches',
+        'Rhubarbe pochée',
+      ],
+      prix: [
+        { format: '4 personnes', prix: '20 €' },
+        { format: '6 personnes', prix: '29 €' },
+        { format: '8 personnes', prix: '38 €' },
+        { format: '10 personnes', prix: '46 €' },
+      ],
+      allergenes: ['Gluten', 'Œufs', 'Lait'],
+    },
+    {
+      id: 'tarte-fraise-crumble',
+      name: 'Tarte Fraise Crumble',
+      photo: '/6453.jpg',
+      composition: [
+        'Pâte sucrée amande',
+        'Crème pâtissière',
+        'Crumble',
+        'Fraises fraîches',
+        'Fleurs comestibles',
+      ],
+      prix: [
+        { format: '4 personnes', prix: '22 €' },
+        { format: '6 personnes', prix: '32 €' },
+        { format: '8 personnes', prix: '42 €' },
+        { format: '10 personnes', prix: '52 €' },
+      ],
+      allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande)'],
+      note: 'Option sans fruits à coque sur demande.',
+    },
+    {
+      id: 'tarte-abricot-framboise',
+      name: 'Tarte Abricot Framboise',
+      photo: '/6417.jpg',
+      composition: [
+        'Sablé breton',
+        'Abricots rôtis',
+        'Gel framboise',
+        'Ganache montée vanille',
+        'Abricots & framboises fraîches',
+        'Macarons vanille',
+      ],
+      prix: [
+        { format: '4 personnes', prix: '25 €' },
+        { format: '6 personnes', prix: '34,50 €' },
+        { format: '8 personnes', prix: '44,50 €' },
+        { format: '10 personnes', prix: '54,50 €' },
+      ],
+      allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande)'],
+      note: 'Option sans fruits à coque sur demande.',
+    },
+    {
+      id: 'tarte-multi-fruits',
+      name: 'Tarte Multi-Fruits',
+      photo: '/6392.jpg',
+      composition: [
+        'Pâte sucrée amande',
+        'Crème pâtissière',
+        'Fruits frais de saison & producteurs locaux',
+        'Fleurs comestibles',
+      ],
+      prix: [
+        { format: '4 personnes', prix: '20 €' },
+        { format: '6 personnes', prix: '29 €' },
+        { format: '8 personnes', prix: '38 €' },
+        { format: '10 personnes', prix: '46 €' },
+      ],
+      allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande)'],
+      note: 'Option sans fruits à coque sur demande.',
+    },
+    {
+      id: 'pavlova',
+      name: 'Pavlova',
+      photo: '/6422.jpg',
+      composition: [
+        'Meringue',
+        'Ganache montée vanille',
+        'Fruits frais de saison & producteurs locaux',
+        'Fleurs comestibles',
+      ],
+      prix: [
+        { format: '4 personnes', prix: '20 €' },
+        { format: '6 personnes', prix: '29 €' },
+        { format: '8 personnes', prix: '38 €' },
+        { format: '10 personnes', prix: '46 €' },
+      ],
+      allergenes: ['Œufs', 'Lait'],
+      sansGluten: true,
+    },
+  ],
+};
+
+const seasonName: Record<string, string> = {
+  summer: 'Été',
+  autumn: 'Automne',
+  winter: 'Hiver',
+  spring: 'Printemps',
+};
+
+function ProductCard({ product }: { product: Product }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#F3EBE1]">
+      <button onClick={() => setOpen(v => !v)} className="w-full text-left group">
+        <div className="relative overflow-hidden">
+          <img
+            src={product.photo}
+            alt={product.name}
+            className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          {product.sansGluten && (
+            <span className="absolute top-3 left-3 bg-[#5BBFBF] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full">
+              Sans gluten
+            </span>
+          )}
+        </div>
+        <div className="px-4 py-3 flex items-center justify-between">
+          <h3 className="font-display font-bold italic text-[#1A130C] text-base leading-tight">{product.name}</h3>
+          <ChevronDown className={`w-4 h-4 text-[#5BBFBF] flex-shrink-0 transition-transform ml-2 ${open ? 'rotate-180' : ''}`} />
+        </div>
+      </button>
+
+      {open && (
+        <div className="px-4 pb-5 border-t border-[#F3EBE1] pt-4 space-y-4">
+          <div>
+            <p className="label mb-2">Composition</p>
+            <ul className="space-y-1">
+              {product.composition.map((c, i) => (
+                <li key={i} className="text-xs text-gray-600 flex items-start gap-2">
+                  <span className="w-1 h-1 bg-[#5BBFBF] rounded-full mt-1.5 flex-shrink-0" />
+                  {c}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="label mb-2">Tarifs</p>
+            <div className="space-y-1">
+              {product.prix.map((p, i) => (
+                <div key={i} className="flex justify-between text-xs border-b border-[#F3EBE1] pb-1 last:border-0">
+                  <span className="text-gray-500">{p.format}</span>
+                  <span className="font-semibold text-[#1A130C]">{p.prix}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="label mb-2">Allergènes</p>
+            <div className="flex flex-wrap gap-1">
+              {product.allergenes.map((a, i) => (
+                <span key={i} className="text-[10px] bg-[#F3EBE1] text-[#1A130C] px-2 py-0.5 rounded-full">{a}</span>
+              ))}
+            </div>
+          </div>
+
+          {product.note && (
+            <p className="text-[11px] text-gray-400 italic leading-relaxed">{product.note}</p>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function Carte() {
   const navigate = useNavigate();
+  const [tab, setTab] = useState<'incontournables' | 'saison'>('incontournables');
   const season = getSeason();
-  const fichesEnCours = fichesSaison[season] ?? [];
+  const produitsSaison = saisonProduits[season] ?? [];
+
+  const products = tab === 'incontournables' ? incontournables : produitsSaison;
 
   return (
     <>
-      {/* En-tête */}
-      <div className="pt-36 pb-16 bg-[#FDFAF6] text-center px-5">
-        <p className="label mb-4">Toute l'année</p>
-        <h1 className="font-display text-5xl md:text-7xl font-bold text-[#1A130C] italic mb-4">
-          Les incontournables
+      <div className="pt-36 pb-10 bg-[#FDFAF6] text-center px-5">
+        <p className="label mb-4">La carte</p>
+        <h1 className="font-display text-5xl md:text-7xl font-bold text-[#1A130C] italic mb-3">
+          Nos créations
         </h1>
-        <p className="text-gray-400 max-w-md mx-auto">
-          Mes créations phares — disponibles à la commande dans la gamme de saison
+        <p className="text-gray-400 max-w-md mx-auto text-sm">
+          Cliquez sur un gâteau pour voir sa composition, ses tarifs et ses allergènes.
         </p>
       </div>
 
-      {/* Grille incontournables */}
-      <section className="bg-[#FDFAF6] pb-4">
-        <div className="max-w-6xl mx-auto px-5 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-4">
-            {siteConfig.incontournables.list.map((item, i) => (
-              <div key={i} className="group relative overflow-hidden rounded-2xl bg-[#1A130C]">
-                <img
-                  src={item.photo}
-                  alt={item.name}
-                  className="w-full aspect-[4/3] object-cover opacity-80 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1A130C]/90 via-[#1A130C]/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-7">
-                  <h3 className="font-display text-2xl font-bold text-white italic mb-2">{item.name}</h3>
-                  <p className="text-white/55 text-sm leading-relaxed">{item.description}</p>
-                  <ul className="flex flex-wrap gap-2 mt-4">
-                    {item.features.map((f, j) => (
-                      <li key={j} className="text-xs border border-white/20 text-white/70 px-3 py-1 rounded-full">
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Onglets */}
+      <div className="sticky top-20 z-30 bg-[#FDFAF6] border-b border-[#F3EBE1]">
+        <div className="max-w-6xl mx-auto px-5 flex">
+          {(['incontournables', 'saison'] as const).map((t) => (
+            <button
+              key={t}
+              onClick={() => setTab(t)}
+              className={`py-4 px-5 text-sm font-semibold border-b-2 transition-colors ${
+                tab === t
+                  ? 'border-[#5BBFBF] text-[#1A130C]'
+                  : 'border-transparent text-gray-400 hover:text-[#1A130C]'
+              }`}
+            >
+              {t === 'incontournables' ? 'Incontournables' : `Carte de saison · ${seasonName[season]}`}
+            </button>
+          ))}
         </div>
-      </section>
+      </div>
 
-      {/* Fiches de saison */}
-      <section className="bg-[#F3EBE1] py-16 md:py-20">
+      {/* Grille produits */}
+      <section className="bg-[#FDFAF6] py-12 min-h-[50vh]">
         <div className="max-w-6xl mx-auto px-5 lg:px-8">
-          {fichesEnCours.length > 0 && (
+          {products.length === 0 ? (
+            <div className="text-center py-24">
+              <p className="text-gray-400 mb-2">La carte de {seasonName[season].toLowerCase()} arrive bientôt.</p>
+              <p className="text-gray-400 text-sm mb-8">Contactez-moi pour connaître les créations du moment.</p>
+              <button
+                onClick={() => navigate('/commander')}
+                className="bg-[#5BBFBF] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#4AAEAE] transition-colors"
+              >
+                Me contacter
+              </button>
+            </div>
+          ) : (
             <>
-              <div className="text-center mb-10">
-                <p className="label mb-3">En ce moment · {seasonLabels[season]}</p>
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1A130C] italic">
-                  Les créations de saison
-                </h2>
-              </div>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
-                {fichesEnCours.map(({ src, alt }) => (
-                  <img key={src} src={src} alt={alt} className="w-full rounded-2xl shadow-sm object-cover aspect-[3/4]" />
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+                {products.map(product => (
+                  <ProductCard key={product.id} product={product} />
                 ))}
+              </div>
+              <div className="text-center mt-12">
+                <button
+                  onClick={() => navigate('/commander')}
+                  className="bg-[#5BBFBF] text-white px-10 py-4 rounded-full font-semibold hover:bg-[#4AAEAE] transition-colors"
+                >
+                  Je passe commande
+                </button>
               </div>
             </>
           )}
-          <div className="text-center mb-10">
-            <p className="label mb-3">Toute l'année</p>
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1A130C] italic">
-              Les incontournables
-            </h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {fichesPerma.map(({ src, alt }) => (
-              <img key={src} src={src} alt={alt} className="w-full rounded-2xl shadow-sm object-cover aspect-[3/4]" />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Séparateur saison */}
-      <div className="bg-[#1A130C] py-14 text-center">
-        <p className="label mb-3">Ma carte évolue</p>
-        <h2 className="font-display text-4xl md:text-5xl font-bold text-white italic mb-4">
-          Les Gourmandiz de saison
-        </h2>
-        <p className="text-white/40 max-w-md mx-auto text-sm">
-          {siteConfig.saisonSection.subtitle}
-        </p>
-      </div>
-
-      {/* Grille saisons */}
-      <section className="bg-[#F3EBE1] py-16">
-        <div className="max-w-6xl mx-auto px-5 lg:px-8">
-          <p className="text-center text-gray-500 text-sm leading-relaxed mb-12 max-w-xl mx-auto">
-            {siteConfig.saisonSection.description}
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            {siteConfig.saisonSection.seasons.map((season, i) => (
-              <div key={i} className="bg-white rounded-2xl p-6 text-center">
-                <div className="text-3xl mb-3">{season.emoji}</div>
-                <h3 className="font-display text-lg font-bold italic text-[#1A130C] mb-4">{season.name}</h3>
-                <ul className="space-y-2">
-                  {season.items.map((item, j) => (
-                    <li key={j} className="text-xs text-gray-500 leading-relaxed">{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-gray-400 text-sm italic mb-6">
-              Les créations de saison changent — contactez-moi pour connaître la carte du moment
-            </p>
-            <button
-              onClick={() => navigate('/commander')}
-              className="bg-[#5BBFBF] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#4AAEAE] transition-colors"
-            >
-              Je passe commande
-            </button>
-          </div>
         </div>
       </section>
     </>
