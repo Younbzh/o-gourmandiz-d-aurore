@@ -68,6 +68,32 @@ export default function Evenements() {
         );
       })}
 
+      {/* Galerie réalisations */}
+      <section className="bg-[#F3EBE1] py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-5 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="label mb-3">En images</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1A130C] italic">
+              Quelques créations
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            {[
+              { src: '/6389.jpg', alt: 'Pyramide de macarons rose' },
+              { src: '/6386.jpg', alt: 'Pyramide de macarons turquoise' },
+              { src: '/6448.jpg', alt: 'Pyramide mariage' },
+              { src: '/6437.jpg', alt: 'Number cake anniversaire fruits rouges' },
+              { src: '/6401.jpg', alt: 'Number cake 50 ans' },
+              { src: '/6442.jpg', alt: 'Number cake chocolat' },
+              { src: '/6504.jpg', alt: 'Number cake enfant' },
+              { src: '/6383.jpg', alt: 'Biscuits événementiel' },
+            ].map(({ src, alt }) => (
+              <img key={src} src={src} alt={alt} className="w-full aspect-[3/4] object-cover rounded-xl" />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA bas */}
       <section className="bg-[#1A130C] py-24 text-center">
         <div className="max-w-xl mx-auto px-5">

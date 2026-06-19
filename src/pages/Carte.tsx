@@ -1,8 +1,45 @@
 import { useNavigate } from 'react-router-dom';
 import { siteConfig } from '../config/siteConfig';
 
+const fichesSaison: Record<string, { src: string; alt: string }[]> = {
+  summer: [
+    { src: '/6347.jpg', alt: 'Fraisier' },
+    { src: '/6332.jpg', alt: 'Tarte Fraise Rhubarbe' },
+    { src: '/6341.jpg', alt: 'Tarte Fraise Crumble' },
+    { src: '/6335.jpg', alt: 'Tarte Abricot Framboise' },
+    { src: '/6338.jpg', alt: 'Tarte Multi-Fruits' },
+    { src: '/6350.jpg', alt: 'Pavlova' },
+  ],
+};
+
+const fichesPerma = [
+  { src: '/6329.jpg', alt: 'Tarte Double Chocolat' },
+  { src: '/6343.jpg', alt: 'Tarte Citron Noisette' },
+  { src: '/6355.jpg', alt: 'Number Cake' },
+  { src: '/6356.jpg', alt: 'Macarons' },
+  { src: '/6367.jpg', alt: 'Mignardises' },
+  { src: '/6370.jpg', alt: 'Biscuits personnalisés' },
+];
+
+const seasonLabels: Record<string, string> = {
+  summer: 'Été',
+  autumn: 'Automne',
+  winter: 'Hiver',
+  spring: 'Printemps',
+};
+
+function getSeason() {
+  const m = new Date().getMonth();
+  if (m >= 5 && m <= 7) return 'summer';
+  if (m >= 8 && m <= 10) return 'autumn';
+  if (m === 11 || m <= 1) return 'winter';
+  return 'spring';
+}
+
 export default function Carte() {
   const navigate = useNavigate();
+  const season = getSeason();
+  const fichesEnCours = fichesSaison[season] ?? [];
 
   return (
     <>
@@ -41,6 +78,38 @@ export default function Carte() {
                   </ul>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Fiches de saison */}
+      <section className="bg-[#F3EBE1] py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-5 lg:px-8">
+          {fichesEnCours.length > 0 && (
+            <>
+              <div className="text-center mb-10">
+                <p className="label mb-3">En ce moment · {seasonLabels[season]}</p>
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1A130C] italic">
+                  Les créations de saison
+                </h2>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
+                {fichesEnCours.map(({ src, alt }) => (
+                  <img key={src} src={src} alt={alt} className="w-full rounded-2xl shadow-sm object-cover aspect-[3/4]" />
+                ))}
+              </div>
+            </>
+          )}
+          <div className="text-center mb-10">
+            <p className="label mb-3">Toute l'année</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1A130C] italic">
+              Les incontournables
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {fichesPerma.map(({ src, alt }) => (
+              <img key={src} src={src} alt={alt} className="w-full rounded-2xl shadow-sm object-cover aspect-[3/4]" />
             ))}
           </div>
         </div>

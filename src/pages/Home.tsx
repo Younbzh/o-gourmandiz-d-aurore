@@ -23,8 +23,21 @@ const visualLinks = [
   },
 ];
 
+function getSeason(): 'spring' | 'summer' | 'autumn' | 'winter' {
+  const m = new Date().getMonth();
+  if (m >= 5 && m <= 7) return 'summer';
+  if (m >= 8 && m <= 10) return 'autumn';
+  if (m === 11 || m <= 1) return 'winter';
+  return 'spring';
+}
+
+const seasonalCard: Partial<Record<ReturnType<typeof getSeason>, string>> = {
+  summer: '/6326.jpg',
+};
+
 export default function Home() {
   const navigate = useNavigate();
+  const season = getSeason();
 
   return (
     <>
@@ -89,6 +102,36 @@ export default function Home() {
           </button>
         ))}
       </section>
+
+      {/* Carte de saison */}
+      {seasonalCard[season] && (
+        <section className="bg-[#1A130C] py-16 md:py-24">
+          <div className="max-w-6xl mx-auto px-5 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+            <div className="flex-1">
+              <p className="label mb-4">En ce moment</p>
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-white italic mb-5 leading-tight">
+                La carte d'été
+              </h2>
+              <p className="text-white/50 leading-relaxed mb-8 max-w-sm">
+                Fruits frais, fleurs comestibles, créations légères — ma carte évolue au fil des saisons.
+              </p>
+              <button
+                onClick={() => navigate('/carte')}
+                className="bg-[#5BBFBF] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#4AAEAE] transition-colors"
+              >
+                Voir toute la carte
+              </button>
+            </div>
+            <div className="w-full md:w-72 lg:w-80 flex-shrink-0">
+              <img
+                src={seasonalCard[season]}
+                alt="La carte de saison"
+                className="w-full rounded-2xl shadow-2xl"
+              />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Mini about */}
       <section className="bg-[#FDFAF6] py-24 md:py-32">
