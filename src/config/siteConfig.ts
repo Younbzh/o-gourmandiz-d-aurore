@@ -275,28 +275,47 @@ export const siteConfig = {
 
   reviews: {
     title: "Ce que disent mes clients",
-    subtitle: "Des créations appréciées — des avis sincères",
+    note: "5 / 5 · 47 avis Google",
+    googleUrl: "https://www.google.com/search?q=Ô+Gourmandiz+d%27Aurore+La+Motte&ludocid=",
     list: [
       {
-        name: "Marie L.",
-        text: "Aurore a créé un fraisier magnifique pour l'anniversaire de ma fille. Visuellement sublime et délicieux. Je recommande chaudement !",
+        name: "Jean-marc Gallais",
+        text: "La tarte double chocolat et la tarte fraise crumble sont délicieuses. Les pâtes à tarte sont croustillantes. Les tartes ne sont pas trop sucrées. Tout est bien équilibré. Elles sont joliment décorées. Sans hésitation, nous recommanderons.",
         stars: 5,
-        occasion: "Anniversaire"
+        occasion: "Tartes"
       },
       {
-        name: "Julie & Florian",
-        text: "Les sablés personnalisés pour notre mariage étaient parfaits. Un souvenir unique pour nos invités, et vraiment délicieux.",
+        name: "Le Hellay Philippe",
+        text: "Que du bonheur, gâteaux de mariage super bon, sucrés juste comme il fallait. Aurore, personne fiable et professionnelle, rien à redire.",
         stars: 5,
         occasion: "Mariage"
       },
       {
-        name: "Sophie B.",
-        text: "Une pyramide de macarons à nos couleurs pour un baptême — précis, beau, et vraiment savoureux. Merci Aurore !",
+        name: "Kamille Nedejag",
+        text: "Fraisier incroyable, des saveurs très équilibrées. Léger et gourmand. Merci beaucoup pour cette explosion de saveurs 😄🥰",
         stars: 5,
-        occasion: "Baptême"
+        occasion: "Fraisier"
+      },
+      {
+        name: "Aurélie Moisan",
+        text: "Aurore s'adapte à vos goûts, à vos demandes ! Ces gâteaux sont magnifiques et si bons ! Merci encore 🤩",
+        stars: 5,
+        occasion: "Anniversaire"
+      },
+      {
+        name: "VIRGINIE LE HO",
+        text: "Je recommande les créations d'Aurore ! Cela fait plusieurs anniversaires que je commande des tartes et number cakes qui sont généreux et délicieux. Sans oublier des produits de qualité. Vous pouvez y aller en toute confiance.",
+        stars: 5,
+        occasion: "Fidèle cliente"
+      },
+      {
+        name: "A Ozgul",
+        text: "Excellente tarte vanille praliné, aussi belle que délicieuse. On voit tout de suite que c'est un travail soigné et maîtrisé : la présentation est élégante, très équilibrée.",
+        stars: 5,
+        occasion: "Tarte"
       }
     ],
-    googleCta: "Laissez votre avis sur Google"
+    googleCta: "Voir les 47 avis sur Google"
   },
 
   finalCTA: {

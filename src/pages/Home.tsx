@@ -176,26 +176,48 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-5 lg:px-8">
           <div className="text-center mb-16">
             <p className="label mb-4">Témoignages</p>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-white italic">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-white italic mb-5">
               Ce que disent mes clients
             </h2>
+            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2.5">
+              <div className="flex gap-0.5">
+                {Array.from({ length: 5 }).map((_, j) => (
+                  <Star key={j} className="w-3.5 h-3.5 fill-[#E6D39A] text-[#E6D39A]" />
+                ))}
+              </div>
+              <span className="text-white text-sm font-semibold">5 / 5</span>
+              <span className="text-white/30 text-sm">·</span>
+              <span className="text-white/60 text-sm">47 avis Google</span>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {siteConfig.reviews.list.map((review, i) => (
-              <div key={i} className="border border-white/10 rounded-2xl p-8">
-                <div className="flex gap-1 mb-5">
+              <div key={i} className="border border-white/10 rounded-2xl p-7 flex flex-col">
+                <div className="flex gap-1 mb-4">
                   {Array.from({ length: review.stars }).map((_, j) => (
-                    <Star key={j} className="w-4 h-4 fill-[#5BBFBF] text-[#5BBFBF]" />
+                    <Star key={j} className="w-3.5 h-3.5 fill-[#E6D39A] text-[#E6D39A]" />
                   ))}
                 </div>
-                <p className="text-white/60 leading-relaxed mb-6 italic text-sm">"{review.text}"</p>
+                <p className="text-white/60 leading-relaxed mb-5 italic text-sm flex-1">"{review.text}"</p>
                 <div className="flex items-center justify-between pt-4 border-t border-white/10">
-                  <span className="font-semibold text-white text-sm">{review.name}</span>
-                  <span className="text-xs text-white/25">{review.occasion}</span>
+                  <span className="font-bold text-white text-sm">{review.name}</span>
+                  <span className="text-[10px] text-white/25 uppercase tracking-wider">{review.occasion}</span>
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <a
+              href="https://www.google.com/search?q=Ô+Gourmandiz+d%27Aurore"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border border-white/20 text-white/70 hover:text-white hover:border-white/40 px-7 py-3 rounded-full text-sm font-semibold transition-colors"
+            >
+              <Star className="w-4 h-4 fill-[#E6D39A] text-[#E6D39A]" />
+              Voir les 47 avis sur Google
+            </a>
           </div>
         </div>
       </section>
