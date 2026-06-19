@@ -106,7 +106,7 @@ export default function Layout() {
 
       {/* Footer */}
       <footer className="bg-[#1A130C] text-white">
-        <div className="max-w-6xl mx-auto px-5 lg:px-8 py-16 grid md:grid-cols-3 gap-10">
+        <div className="max-w-6xl mx-auto px-5 lg:px-8 py-16 grid md:grid-cols-4 gap-10">
           <div>
             <img src="/logo.jpeg" alt="Ô Gourmandiz d'Aurore" className="h-14 w-auto object-contain rounded-xl mb-4" />
             <p className="text-white/50 text-sm leading-relaxed">
@@ -140,6 +140,19 @@ export default function Layout() {
               <a href={`mailto:${siteConfig.contact.email}`} className="block hover:text-white transition-colors text-xs">
                 {siteConfig.contact.email}
               </a>
+            </div>
+          </div>
+
+          <div>
+            <p className="label mb-5">Horaires d'appels</p>
+            <div className="space-y-2 text-sm text-white/60">
+              {siteConfig.hours.callHours.map((item, i) => (
+                <div key={i}>
+                  <span className="text-white/40 block text-xs">{item.day}</span>
+                  <span className="text-[#5BBFBF] font-semibold">{item.hours}</span>
+                </div>
+              ))}
+              <p className="text-white/30 text-xs pt-1">{siteConfig.hours.pickup}</p>
             </div>
           </div>
 

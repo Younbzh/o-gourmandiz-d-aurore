@@ -203,7 +203,7 @@ export default function Commander() {
                 <input
                   type="number"
                   min="1"
-                  placeholder="ex. 20"
+                  placeholder="ex. 20, 50, 100+"
                   value={form.guests}
                   onChange={e => set('guests', e.target.value)}
                   className="w-full border-2 border-[#F3EBE1] rounded-xl px-4 py-3 text-[#1A130C] focus:border-[#5BBFBF] outline-none transition-colors bg-white"

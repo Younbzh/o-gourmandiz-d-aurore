@@ -54,7 +54,7 @@ export const siteConfig = {
       },
       {
         title: "Les fruits qui ont du goût",
-        description: "Je m'approvisionne en fruits de saison chez mon grossiste à Loudéac. Pas de fraises à Noël : ce qui est bon, c'est ce qui est mûr."
+        description: "Je m'approvisionne en fruits de saison chez mon grossiste et auprès de producteurs locaux selon les disponibilités. Pas de fraises à Noël : ce qui est bon, c'est ce qui est mûr."
       },
       {
         title: "Peu sucré, beau à voir",
@@ -135,11 +135,11 @@ export const siteConfig = {
   saisonSection: {
     title: "Les Gourmandiz de saison",
     subtitle: "Ma carte change au fil des mois — parce que les meilleures saveurs sont celles du moment",
-    description: "Je travaille avec les fruits et les saveurs du moment. Chaque saison apporte de nouvelles créations : fraisier au printemps, tarte aux mirabelles en été, entremets pomme-caramel en automne, douceurs festives en hiver. Contactez-moi pour connaître la carte du moment.",
+    description: "Je travaille avec les fruits et les saveurs du moment. Chaque saison apporte de nouvelles créations : fraisier au printemps, tarte aux mirabelles en été, tarte pomme-caramel en automne, douceurs festives en hiver. Contactez-moi pour connaître la carte du moment.",
     seasons: [
-      { name: "Printemps", emoji: "🌸", items: ["Fraisier", "Tarte citron-framboise", "Tarte aux fleurs"] },
-      { name: "Été", emoji: "☀️", items: ["Tarte multi-fruits", "Entremets pêche-abricot", "Tarte framboise-pistache"] },
-      { name: "Automne", emoji: "🍂", items: ["Tarte pomme-spéculoos", "Entremets poire-caramel", "Tarte aux figues"] },
+      { name: "Printemps", emoji: "🌸", items: ["Fraisier", "Tarte citron-framboise", "Pavlova aux fruits rouges"] },
+      { name: "Été", emoji: "☀️", items: ["Tarte multi-fruits", "Tarte abricot-framboise", "Tarte fraise-rhubarbe"] },
+      { name: "Automne", emoji: "🍂", items: ["Tarte pomme-spéculoos", "Tarte poire-caramel", "Tarte aux figues"] },
       { name: "Hiver", emoji: "❄️", items: ["Bûche festive", "Tarte chocolat-orange", "Tarte pralinée"] }
     ],
     cta: "Me contacter pour la carte actuelle"
@@ -152,8 +152,8 @@ export const siteConfig = {
     list: [
       {
         name: "Pièce montée à la française",
-        description: "Une alternative élégante au croquembouche classique. Fraisier monté en cercles, entremets empilés, décorés de fleurs comestibles ou d'éléments personnalisés. À partir de 6€ la part — selon les options (fleurs, topper…).",
-        features: ["Fraisier, mousse, entremets", "Fleurs comestibles", "Topper personnalisé", "À partir de 6€/part"],
+        description: "Une alternative élégante au croquembouche classique. Fraisiers montés en cercles, décorés de fleurs comestibles ou d'éléments personnalisés. À partir de 5€ la part — selon les options (fleurs, topper…).",
+        features: ["Fraisiers, tartes, pavlovas", "Fleurs comestibles", "Topper personnalisé", "À partir de 5€/part"],
         icon: "Star",
         photo: "/gateau-mariage.jpeg"
       },
@@ -244,7 +244,7 @@ export const siteConfig = {
       },
       {
         question: "Pour combien de personnes je peux créer ?",
-        answer: "Je peux répondre à des événements rassemblant jusqu'à une centaine de personnes, selon ce que vous souhaitez. On en parle ensemble lors de la prise de commande."
+        answer: "Je peux répondre à des événements rassemblant plus de 100 personnes, selon ce que vous souhaitez. On en parle ensemble lors de la prise de commande."
       },
       {
         question: "Comment se passe la tarification ?",
@@ -252,7 +252,7 @@ export const siteConfig = {
       },
       {
         question: "D'où viennent vos ingrédients ?",
-        answer: "Œufs de Plémet, farine de Saint-Gérand, beurre, crème et lait français. Fruits de saison approvisionnés chez mon grossiste à Loudéac. Pas de fraises à Noël : je travaille avec ce qui est bon, au bon moment."
+        answer: "Œufs de Plémet, farine de Saint-Gérand, beurre, crème et lait français. Fruits de saison approvisionnés chez mon grossiste et auprès de producteurs locaux selon les saisons. Pas de fraises à Noël : je travaille avec ce qui est bon, au bon moment."
       },
       {
         question: "Comment se passe la remise de commande ?",
@@ -265,7 +265,7 @@ export const siteConfig = {
     title: "Allergènes",
     intro: "Mes pâtisseries contiennent ou peuvent contenir les allergènes suivants. La liste détaillée par création est disponible sur demande — n'hésitez pas à me le signaler lors de votre commande.",
     list: [
-      { name: "Gluten", note: "Farine de blé utilisée systématiquement" },
+      { name: "Gluten", note: "Présent dans la quasi-totalité des créations (la Pavlova est sans gluten)" },
       { name: "Œufs", note: "Présents dans toutes les préparations" },
       { name: "Lait", note: "Beurre, crème, lait dans la quasi-totalité des recettes" },
       { name: "Fruits à coque", note: "Amandes, noisettes, pistaches selon les recettes" },
