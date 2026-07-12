@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronDown, MessageCircle } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
 interface Product {
   id: string;
   name: string;
-  photo: string;
+  photos: string[];
   composition: string[];
   prix: { format: string; prix: string }[];
   allergenes: string[];
@@ -18,7 +18,15 @@ const incontournables: Product[] = [
   {
     id: 'number-cake',
     name: 'Number Cake',
-    photo: '/6398.jpg',
+    photos: [
+      '/6398.jpg',
+      '/IMG-20260711-WA0008.jpg',
+      '/IMG-20260711-WA0013.jpg',
+      '/IMG-20260711-WA0020.jpg',
+      '/IMG-20260711-WA0027.jpg',
+      '/IMG-20260711-WA0029.jpg',
+      '/IMG-20260711-WA0021.jpg',
+    ],
     composition: [
       'Base pâte sucrée ou meringue au choix',
       'Macarons assortis & meringues inclus',
@@ -35,7 +43,7 @@ const incontournables: Product[] = [
   {
     id: 'double-chocolat',
     name: 'Tarte Double Chocolat',
-    photo: '/6467.jpg',
+    photos: ['/6467.jpg'],
     composition: [
       'Pâte sucrée amande',
       'Croustillant',
@@ -54,7 +62,12 @@ const incontournables: Product[] = [
   {
     id: 'multi-fruits',
     name: 'Tarte Multi-Fruits',
-    photo: '/IMG-20260711-WA0033.jpg',
+    photos: [
+      '/IMG-20260711-WA0033.jpg',
+      '/6392.jpg',
+      '/IMG-20260711-WA0015.jpg',
+      '/IMG-20260711-WA0023.jpg',
+    ],
     composition: [
       'Pâte sucrée amande',
       'Crème pâtissière',
@@ -73,7 +86,7 @@ const incontournables: Product[] = [
   {
     id: 'citron-noisette',
     name: 'Tarte Citron Noisette Meringuée',
-    photo: '/IMG-20260711-WA0024.jpg',
+    photos: ['/IMG-20260711-WA0024.jpg'],
     composition: [
       'Pâte sucrée',
       'Praliné noisette',
@@ -89,7 +102,11 @@ const incontournables: Product[] = [
   {
     id: 'macarons',
     name: 'Macarons',
-    photo: '/6480.jpg',
+    photos: [
+      '/6480.jpg',
+      '/IMG-20260711-WA0005.jpg',
+      '/IMG-20260711-WA0007.jpg',
+    ],
     composition: [
       'Vanille · Chocolat noir · Caramel beurre salé',
       'Citron · Fraise · Framboise · Rhubarbe',
@@ -104,7 +121,12 @@ const incontournables: Product[] = [
   {
     id: 'biscuits-meringues',
     name: 'Biscuits / Meringues personnalisés',
-    photo: '/6464.jpg',
+    photos: [
+      '/6464.jpg',
+      '/IMG-20260711-WA0018.jpg',
+      '/IMG-20260711-WA0022.jpg',
+      '/IMG-20260711-WA0025.jpg',
+    ],
     composition: [
       'Sablés Vanille, Cacao ou Citron',
       'Meringues personnalisées disponibles',
@@ -133,7 +155,14 @@ const saisonProduits: Partial<Record<string, Product[]>> = {
     {
       id: 'fraisier',
       name: 'Fraisier',
-      photo: '/6426.jpg',
+      photos: [
+        '/6426.jpg',
+        '/IMG-20260711-WA0003.jpg',
+        '/IMG-20260711-WA0004.jpg',
+        '/IMG-20260711-WA0006.jpg',
+        '/IMG-20260711-WA0010.jpg',
+        '/IMG-20260711-WA0011.jpg',
+      ],
       composition: [
         'Génoise',
         'Crème légère vanille',
@@ -152,7 +181,7 @@ const saisonProduits: Partial<Record<string, Product[]>> = {
     {
       id: 'tarte-fraise-rhubarbe',
       name: 'Tarte Fraise Rhubarbe',
-      photo: '/6410.jpg',
+      photos: ['/6410.jpg'],
       composition: [
         'Sablé breton',
         'Compotée fraise / rhubarbe',
@@ -171,7 +200,7 @@ const saisonProduits: Partial<Record<string, Product[]>> = {
     {
       id: 'tarte-fraise-crumble',
       name: 'Tarte Fraise Crumble',
-      photo: '/6453.jpg',
+      photos: ['/6453.jpg'],
       composition: [
         'Pâte sucrée amande',
         'Crème pâtissière',
@@ -191,7 +220,7 @@ const saisonProduits: Partial<Record<string, Product[]>> = {
     {
       id: 'tarte-abricot-framboise',
       name: 'Tarte Abricot Framboise',
-      photo: '/6417.jpg',
+      photos: ['/6417.jpg'],
       composition: [
         'Sablé breton',
         'Abricots rôtis',
@@ -212,7 +241,7 @@ const saisonProduits: Partial<Record<string, Product[]>> = {
     {
       id: 'pavlova',
       name: 'Pavlova',
-      photo: '/IMG-20260711-WA0031.jpg',
+      photos: ['/IMG-20260711-WA0031.jpg'],
       composition: [
         'Meringue',
         'Ganache montée vanille',
@@ -238,6 +267,83 @@ const seasonName: Record<string, string> = {
   spring: 'Printemps',
 };
 
+function PhotoCarousel({ photos, alt, badge }: { photos: string[]; alt: string; badge?: boolean }) {
+  const [index, setIndex] = useState(0);
+  const startX = useRef<number | null>(null);
+  const n = photos.length;
+
+  const go = (dir: number) => setIndex((prev) => (prev + dir + n) % n);
+
+  const onTouchStart = (e: React.TouchEvent) => { startX.current = e.touches[0].clientX; };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (startX.current === null) return;
+    const dx = e.changedTouches[0].clientX - startX.current;
+    if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+    startX.current = null;
+  };
+
+  return (
+    <div
+      className="relative overflow-hidden bg-[#F3EBE1]"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      <div
+        className="flex transition-transform duration-500 ease-out"
+        style={{ transform: `translateX(-${index * 100}%)` }}
+      >
+        {photos.map((p, i) => (
+          <img
+            key={i}
+            src={p}
+            alt={`${alt} ${i + 1}`}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            className="w-full aspect-square object-cover flex-shrink-0"
+          />
+        ))}
+      </div>
+
+      {badge && (
+        <span className="absolute top-3 left-3 bg-[#5BBFBF] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full z-10">
+          Sans gluten
+        </span>
+      )}
+
+      {n > 1 && (
+        <>
+          <button
+            type="button"
+            aria-label="Photo précédente"
+            onClick={() => go(-1)}
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/70 backdrop-blur-sm flex items-center justify-center text-[#1A130C] hover:bg-white transition-colors z-10"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            type="button"
+            aria-label="Photo suivante"
+            onClick={() => go(1)}
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/70 backdrop-blur-sm flex items-center justify-center text-[#1A130C] hover:bg-white transition-colors z-10"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+          <div className="absolute bottom-2.5 left-0 right-0 flex justify-center gap-1.5 z-10">
+            {photos.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Voir la photo ${i + 1}`}
+                onClick={() => setIndex(i)}
+                className={`h-1.5 rounded-full transition-all ${i === index ? 'w-4 bg-white' : 'w-1.5 bg-white/50'}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 function ProductCard({ product }: { product: Product }) {
   const [open, setOpen] = useState(false);
 
@@ -251,19 +357,9 @@ function ProductCard({ product }: { product: Product }) {
 
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#F3EBE1]">
-      <button onClick={() => setOpen(v => !v)} className="w-full text-left group">
-        <div className="relative overflow-hidden">
-          <img
-            src={product.photo}
-            alt={product.name}
-            className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          {product.sansGluten && (
-            <span className="absolute top-3 left-3 bg-[#5BBFBF] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full">
-              Sans gluten
-            </span>
-          )}
-        </div>
+      <PhotoCarousel photos={product.photos} alt={product.name} badge={product.sansGluten} />
+
+      <button onClick={() => setOpen(v => !v)} className="w-full text-left">
         <div className="px-4 py-3 flex items-center justify-between gap-2">
           <div className="min-w-0">
             <h3 className="font-display font-bold italic text-[#1A130C] text-base leading-tight">{product.name}</h3>
@@ -343,7 +439,7 @@ export default function Carte() {
           Nos créations
         </h1>
         <p className="text-gray-400 max-w-md mx-auto text-sm">
-          Cliquez sur un gâteau pour voir sa composition, ses tarifs et ses allergènes.
+          Cliquez sur un gâteau pour voir sa composition, ses tarifs et ses allergènes. Faites défiler les photos pour voir les différentes réalisations.
         </p>
       </div>
 
