@@ -17,7 +17,7 @@ const visualLinks = [
   },
   {
     label: 'Commander',
-    sub: 'Formulaire de commande en 4 étapes',
+    sub: 'Formulaire de commande sur mesure',
     photo: '/6417.jpg',
     to: '/commander',
   },
@@ -230,7 +230,7 @@ export default function Home() {
             Une envie de gourmandise ?
           </h2>
           <p className="text-gray-400 mb-10 leading-relaxed">
-            Remplissez le formulaire en 4 étapes — je vous réponds rapidement pour confirmer votre création.
+            Remplissez le formulaire — je vous réponds rapidement pour confirmer votre création.
           </p>
           <button
             onClick={() => navigate('/commander')}

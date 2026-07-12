@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, MessageCircle } from 'lucide-react';
+import { siteConfig } from '../config/siteConfig';
 
 interface Product {
   id: string;
@@ -51,6 +52,41 @@ const incontournables: Product[] = [
     note: 'Option sans fruits à coque sur demande (sans amande dans la pâte).',
   },
   {
+    id: 'multi-fruits',
+    name: 'Tarte Multi-Fruits',
+    photo: '/IMG-20260711-WA0033.jpg',
+    composition: [
+      'Pâte sucrée amande',
+      'Crème pâtissière',
+      'Fruits frais de saison & producteurs locaux',
+      'Fleurs comestibles',
+    ],
+    prix: [
+      { format: '4 personnes', prix: '20 €' },
+      { format: '6 personnes', prix: '29 €' },
+      { format: '8 personnes', prix: '38 €' },
+      { format: '10 personnes', prix: '46 €' },
+    ],
+    allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande)'],
+    note: 'Option sans fruits à coque sur demande.',
+  },
+  {
+    id: 'citron-noisette',
+    name: 'Tarte Citron Noisette Meringuée',
+    photo: '/IMG-20260711-WA0024.jpg',
+    composition: [
+      'Pâte sucrée',
+      'Praliné noisette',
+      'Crème de citron',
+      'Meringue italienne',
+    ],
+    prix: [
+      { format: 'Selon le nombre de personnes', prix: 'Sur devis' },
+    ],
+    allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
+    note: 'La noisette est essentielle à cette création — pas d\'option sans fruits à coque (ou version citron seul sur demande).',
+  },
+  {
     id: 'macarons',
     name: 'Macarons',
     photo: '/6480.jpg',
@@ -62,15 +98,16 @@ const incontournables: Product[] = [
       { format: 'Boîte de 8', prix: '12 €' },
       { format: 'Boîte de 16', prix: '24 €' },
     ],
-    allergenes: ['Gluten', 'Œufs', 'Fruits à coque (amande)'],
-    note: 'Personnalisables en couleurs selon votre occasion.',
+    allergenes: ['Œufs', 'Lait', 'Fruits à coque (amande)'],
+    note: 'Personnalisables en couleurs selon votre occasion. Naturellement sans gluten.',
   },
   {
-    id: 'biscuits',
-    name: 'Biscuits personnalisés',
+    id: 'biscuits-meringues',
+    name: 'Biscuits / Meringues personnalisés',
     photo: '/6464.jpg',
     composition: [
       'Sablés Vanille, Cacao ou Citron',
+      'Meringues personnalisées disponibles',
       'Personnalisés : prénom, âge, message, illustration sur feuille de sucre',
       'Emballage individuel possible',
       'Commande minimum de 20 pièces par parfum',
@@ -78,8 +115,8 @@ const incontournables: Product[] = [
     prix: [
       { format: 'À partir de 20 pièces', prix: 'à partir de 1,20 €/biscuit' },
     ],
-    allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande)'],
-    note: 'Option sans fruits à coque sur demande.',
+    allergenes: ['Gluten', 'Œufs', 'Lait'],
+    note: 'Meringues personnalisées : œuf uniquement (sans gluten, sans fruits à coque).',
   },
 ];
 
@@ -170,31 +207,12 @@ const saisonProduits: Partial<Record<string, Product[]>> = {
         { format: '10 personnes', prix: '54,50 €' },
       ],
       allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande)'],
-      note: 'Option sans fruits à coque sur demande.',
-    },
-    {
-      id: 'tarte-multi-fruits',
-      name: 'Tarte Multi-Fruits',
-      photo: '/6392.jpg',
-      composition: [
-        'Pâte sucrée amande',
-        'Crème pâtissière',
-        'Fruits frais de saison & producteurs locaux',
-        'Fleurs comestibles',
-      ],
-      prix: [
-        { format: '4 personnes', prix: '20 €' },
-        { format: '6 personnes', prix: '29 €' },
-        { format: '8 personnes', prix: '38 €' },
-        { format: '10 personnes', prix: '46 €' },
-      ],
-      allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande)'],
-      note: 'Option sans fruits à coque sur demande.',
+      note: 'Contient des macarons (amande). Option sans fruits à coque sur demande (sans macarons).',
     },
     {
       id: 'pavlova',
       name: 'Pavlova',
-      photo: '/6422.jpg',
+      photo: '/IMG-20260711-WA0031.jpg',
       composition: [
         'Meringue',
         'Ganache montée vanille',
@@ -223,6 +241,14 @@ const seasonName: Record<string, string> = {
 function ProductCard({ product }: { product: Product }) {
   const [open, setOpen] = useState(false);
 
+  const rawPrix = product.prix[0]?.prix ?? '';
+  const prixMin = rawPrix.replace(/^à partir de\s*/i, '');
+  const prixLabel = /devis|demande/i.test(prixMin) ? prixMin : `dès ${prixMin}`;
+
+  const commandeUrl = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
+    `Bonjour Aurore ! Je souhaite commander : ${product.name}. `
+  )}`;
+
   return (
     <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-[#F3EBE1]">
       <button onClick={() => setOpen(v => !v)} className="w-full text-left group">
@@ -238,9 +264,12 @@ function ProductCard({ product }: { product: Product }) {
             </span>
           )}
         </div>
-        <div className="px-4 py-3 flex items-center justify-between">
-          <h3 className="font-display font-bold italic text-[#1A130C] text-base leading-tight">{product.name}</h3>
-          <ChevronDown className={`w-4 h-4 text-[#5BBFBF] flex-shrink-0 transition-transform ml-2 ${open ? 'rotate-180' : ''}`} />
+        <div className="px-4 py-3 flex items-center justify-between gap-2">
+          <div className="min-w-0">
+            <h3 className="font-display font-bold italic text-[#1A130C] text-base leading-tight">{product.name}</h3>
+            <p className="text-[11px] text-[#5BBFBF] font-semibold mt-0.5">{prixLabel}</p>
+          </div>
+          <ChevronDown className={`w-4 h-4 text-[#5BBFBF] flex-shrink-0 transition-transform ${open ? 'rotate-180' : ''}`} />
         </div>
       </button>
 
@@ -282,6 +311,16 @@ function ProductCard({ product }: { product: Product }) {
           {product.note && (
             <p className="text-[11px] text-gray-400 italic leading-relaxed">{product.note}</p>
           )}
+
+          <a
+            href={commandeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full bg-[#5BBFBF] text-white py-3 rounded-full text-sm font-semibold hover:bg-[#4AAEAE] transition-colors"
+          >
+            <MessageCircle className="w-4 h-4" />
+            Je commande
+          </a>
         </div>
       )}
     </div>

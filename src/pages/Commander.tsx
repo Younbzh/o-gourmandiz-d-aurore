@@ -307,6 +307,17 @@ export default function Commander() {
                 <div className="flex justify-between"><span className="text-gray-400">Création</span><span className="font-medium text-[#1A130C] text-right max-w-[60%]">{form.creation}</span></div>
               </div>
             </div>
+
+            {/* Paiement & acompte */}
+            <div className="bg-[#F3EBE1] rounded-2xl p-6">
+              <p className="label mb-3">{siteConfig.payment.title}</p>
+              <div className="flex flex-wrap gap-2 mb-3">
+                {siteConfig.payment.methods.map((m) => (
+                  <span key={m} className="text-xs bg-white text-[#1A130C] font-medium px-3 py-1 rounded-full">{m}</span>
+                ))}
+              </div>
+              <p className="text-xs text-gray-500 leading-relaxed">{siteConfig.payment.deposit}</p>
+            </div>
           </div>
         )}
 

@@ -31,6 +31,13 @@ export const siteConfig = {
     pickup: "Retrait sur rendez-vous"
   },
 
+  payment: {
+    title: "Paiement & réservation",
+    methods: ["Virement", "Espèces", "Carte bancaire"],
+    deposit: "Un acompte de 30 % est demandé pour valider toute commande.",
+    depositShort: "Acompte de 30 % à la réservation"
+  },
+
   hero: {
     title: "Du beau, du bon, avec des produits d'ici",
     subtitle: "Je crée vos pâtisseries artisanales de saison, entièrement sur commande depuis mon laboratoire à La Motte (Côtes-d'Armor).",
