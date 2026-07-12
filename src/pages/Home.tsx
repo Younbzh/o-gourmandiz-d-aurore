@@ -32,7 +32,7 @@ function getSeason(): 'spring' | 'summer' | 'autumn' | 'winter' {
 }
 
 const seasonalCard: Partial<Record<ReturnType<typeof getSeason>, string>> = {
-  summer: '/6326.jpg',
+  summer: '/IMG-20260711-WA0004.jpg',
 };
 
 export default function Home() {
@@ -75,6 +75,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Carte de saison — mise en avant */}
+      {seasonalCard[season] && (
+        <section className="bg-[#1A130C] py-16 md:py-24">
+          <div className="max-w-6xl mx-auto px-5 lg:px-8 flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <div className="w-full md:w-1/2 flex-shrink-0 order-1 md:order-2">
+              <img
+                src={seasonalCard[season]}
+                alt="La carte de l'été"
+                className="w-full aspect-square object-cover rounded-3xl shadow-2xl"
+              />
+            </div>
+            <div className="flex-1 order-2 md:order-1 text-center md:text-left">
+              <p className="label mb-4">La carte du moment · Été ☀️</p>
+              <h2 className="font-display text-4xl md:text-6xl font-bold text-white italic mb-5 leading-[0.95]">
+                Les saveurs<br />de l'été
+              </h2>
+              <p className="text-white/50 leading-relaxed mb-8 max-w-md mx-auto md:mx-0">
+                Fraisiers, tartes aux fruits rouges, pavlovas, abricot-framboise… Des créations légères, gorgées de fruits de saison et de fleurs comestibles.
+              </p>
+              <button
+                onClick={() => navigate('/carte')}
+                className="bg-[#5BBFBF] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#4AAEAE] transition-colors"
+              >
+                Découvrir la carte de l'été
+              </button>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* 3 blocs visuels */}
       <section className="grid md:grid-cols-3">
         {visualLinks.map(({ label, sub, photo, to }) => (
@@ -102,36 +132,6 @@ export default function Home() {
           </button>
         ))}
       </section>
-
-      {/* Carte de saison */}
-      {seasonalCard[season] && (
-        <section className="bg-[#1A130C] py-16 md:py-24">
-          <div className="max-w-6xl mx-auto px-5 lg:px-8 flex flex-col md:flex-row items-center gap-12">
-            <div className="flex-1">
-              <p className="label mb-4">En ce moment</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-white italic mb-5 leading-tight">
-                La carte d'été
-              </h2>
-              <p className="text-white/50 leading-relaxed mb-8 max-w-sm">
-                Fruits frais, fleurs comestibles, créations légères — ma carte évolue au fil des saisons.
-              </p>
-              <button
-                onClick={() => navigate('/carte')}
-                className="bg-[#5BBFBF] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#4AAEAE] transition-colors"
-              >
-                Voir toute la carte
-              </button>
-            </div>
-            <div className="w-full md:w-72 lg:w-80 flex-shrink-0">
-              <img
-                src={seasonalCard[season]}
-                alt="La carte de saison"
-                className="w-full rounded-2xl shadow-2xl"
-              />
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Mini about */}
       <section className="bg-[#FDFAF6] py-24 md:py-32">
