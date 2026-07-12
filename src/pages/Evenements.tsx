@@ -1,6 +1,95 @@
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Clock } from 'lucide-react';
+import { Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
+
+function SectionCarousel({ photos, alt }: { photos: string[]; alt: string }) {
+  const [index, setIndex] = useState(0);
+  const startX = useRef<number | null>(null);
+  const n = photos.length;
+
+  const go = (dir: number) => setIndex((prev) => (prev + dir + n) % n);
+
+  const onTouchStart = (e: React.TouchEvent) => { startX.current = e.touches[0].clientX; };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (startX.current === null) return;
+    const dx = e.changedTouches[0].clientX - startX.current;
+    if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+    startX.current = null;
+  };
+
+  return (
+    <div
+      className="relative overflow-hidden bg-[#F3EBE1] h-full"
+      style={{ minHeight: '320px' }}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      <div
+        className="flex h-full transition-transform duration-500 ease-out"
+        style={{ transform: `translateX(-${index * 100}%)` }}
+      >
+        {photos.map((p, i) => (
+          <img
+            key={i}
+            src={p}
+            alt={`${alt} ${i + 1}`}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            className="w-full h-full object-cover flex-shrink-0 min-h-[50vw] md:min-h-0"
+          />
+        ))}
+      </div>
+      <div className="absolute inset-0 bg-[#1A130C]/10 pointer-events-none" />
+
+      {n > 1 && (
+        <>
+          <button
+            type="button"
+            aria-label="Photo précédente"
+            onClick={() => go(-1)}
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/75 backdrop-blur-sm flex items-center justify-center text-[#1A130C] hover:bg-white transition-colors z-10"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            type="button"
+            aria-label="Photo suivante"
+            onClick={() => go(1)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/75 backdrop-blur-sm flex items-center justify-center text-[#1A130C] hover:bg-white transition-colors z-10"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+          <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-10">
+            {photos.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                aria-label={`Voir la photo ${i + 1}`}
+                onClick={() => setIndex(i)}
+                className={`h-2 rounded-full transition-all ${i === index ? 'w-5 bg-white' : 'w-2 bg-white/60'}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+const gallery = [
+  { src: '/IMG-20260711-WA0031.jpg', alt: 'Pavlova aux fruits et fleurs' },
+  { src: '/6437.jpg', alt: 'Number cake fruits rouges' },
+  { src: '/IMG-20260711-WA0002.jpg', alt: 'Mignardises 50 ans' },
+  { src: '/6401.jpg', alt: 'Number cake 50 ans' },
+  { src: '/IMG-20260711-WA0026.jpg', alt: 'Mignardises fleur vanille' },
+  { src: '/IMG-20260711-WA0008.jpg', alt: 'Number cake anniversaire fraises' },
+  { src: '/6442.jpg', alt: 'Number cake chocolat' },
+  { src: '/IMG-20260711-WA0020.jpg', alt: 'Number cake fruits exotiques' },
+  { src: '/6448.jpg', alt: 'Pyramide de macarons mariage' },
+  { src: '/IMG-20260711-WA0033.jpg', alt: 'Tarte aux fruits rouges' },
+  { src: '/IMG-20260711-WA0013.jpg', alt: 'Number cake citron' },
+  { src: '/6389.jpg', alt: 'Pyramide de macarons rose' },
+];
 
 export default function Evenements() {
   const navigate = useNavigate();
@@ -19,7 +108,7 @@ export default function Evenements() {
         </div>
       </div>
 
-      {/* Sections événements — alternées photo / texte */}
+      {/* Sections événements — alternées carousel / texte */}
       {siteConfig.evenementsSection.list.map((item, i) => {
         const isEven = i % 2 === 0;
         return (
@@ -27,15 +116,9 @@ export default function Evenements() {
             key={i}
             className={`grid md:grid-cols-2 min-h-[70vh] ${i === siteConfig.evenementsSection.list.length - 1 ? '' : 'border-b border-[#F3EBE1]'}`}
           >
-            {/* Photo */}
-            <div className={`relative overflow-hidden ${isEven ? 'md:order-1' : 'md:order-2'}`}>
-              <img
-                src={item.photo}
-                alt={item.name}
-                className="w-full h-full object-cover min-h-[50vw] md:min-h-0"
-                style={{ minHeight: '320px' }}
-              />
-              <div className="absolute inset-0 bg-[#1A130C]/10" />
+            {/* Carousel photos */}
+            <div className={`relative ${isEven ? 'md:order-1' : 'md:order-2'}`}>
+              <SectionCarousel photos={item.photos} alt={item.name} />
             </div>
 
             {/* Texte */}
@@ -78,17 +161,8 @@ export default function Evenements() {
             </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {[
-              { src: '/6389.jpg', alt: 'Pyramide de macarons rose' },
-              { src: '/6386.jpg', alt: 'Pyramide de macarons turquoise' },
-              { src: '/6448.jpg', alt: 'Pyramide mariage' },
-              { src: '/6437.jpg', alt: 'Number cake anniversaire fruits rouges' },
-              { src: '/6401.jpg', alt: 'Number cake 50 ans' },
-              { src: '/6442.jpg', alt: 'Number cake chocolat' },
-              { src: '/6504.jpg', alt: 'Number cake enfant' },
-              { src: '/6383.jpg', alt: 'Biscuits événementiel' },
-            ].map(({ src, alt }) => (
-              <img key={src} src={src} alt={alt} className="w-full aspect-[3/4] object-cover rounded-xl" />
+            {gallery.map(({ src, alt }) => (
+              <img key={src} src={src} alt={alt} loading="lazy" className="w-full aspect-[3/4] object-cover rounded-xl" />
             ))}
           </div>
         </div>

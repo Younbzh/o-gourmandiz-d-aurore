@@ -162,21 +162,21 @@ export const siteConfig = {
         description: "Une alternative élégante au croquembouche classique. Fraisiers montés en cercles, décorés de fleurs comestibles ou d'éléments personnalisés. À partir de 5€ la part — selon les options (fleurs, topper…).",
         features: ["Fraisiers, tartes, pavlovas", "Fleurs comestibles", "Topper personnalisé", "À partir de 5€/part"],
         icon: "Star",
-        photo: "/gateau-mariage.jpeg"
+        photos: ["/IMG-20260711-WA0000.jpg", "/gateau-mariage.jpeg"]
       },
       {
         name: "Pyramide de macarons",
         description: "Des dizaines de macarons assemblés en pyramide, à vos couleurs et dans les saveurs de la carte de saison. Un centre de table gourmand qui impressionne — et qui se déguste.",
         features: ["Macarons à vos couleurs", "Parfums de saison", "Mariage, baptême, entreprise", "Disponible toute l'année"],
         icon: "Sparkles",
-        photo: "/macarons-fille-garcon.jpeg"
+        photos: ["/IMG-20260711-WA0001.jpg", "/6386.jpg", "/6389.jpg", "/IMG-20260711-WA0009.jpg"]
       },
       {
         name: "Biscuits personnalisés",
         description: "Sablés décorés avec prénoms, dates, motifs spéciaux. Un souvenir gourmand pour chacun de vos invités — idéal comme cadeau de mariage ou faire-part comestible.",
         features: ["Prénom, date, motif", "Emballage individuel possible", "Mariage, baptême, naissance", "Grandes quantités"],
         icon: "Cookie",
-        photo: "/sables-personnalises.jpeg"
+        photos: ["/sables-personnalises.jpeg", "/IMG-20260711-WA0018.jpg", "/IMG-20260711-WA0022.jpg", "/IMG-20260711-WA0025.jpg"]
       }
     ]
   },
