@@ -119,6 +119,30 @@ const incontournables: Product[] = [
     note: 'Personnalisables en couleurs selon votre occasion. Naturellement sans gluten.',
   },
   {
+    id: 'mignardises',
+    name: 'Mignardises',
+    photos: [
+      '/IMG-20260711-WA0002.jpg',
+      '/IMG-20260711-WA0032.jpg',
+      '/IMG-20260711-WA0028.jpg',
+      '/IMG-20260711-WA0014.jpg',
+      '/IMG-20260711-WA0019.jpg',
+      '/IMG-20260711-WA0026.jpg',
+    ],
+    composition: [
+      'Assortiment de mini tartelettes',
+      'Citron meringué, fruits frais de saison',
+      'Praliné, vanille, caramel',
+      'Format bouchée — idéal buffet & réceptions',
+      'Personnalisables (feuille de sucre, couleurs)',
+    ],
+    prix: [
+      { format: 'Selon quantité & assortiment', prix: 'Sur devis' },
+    ],
+    allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
+    note: 'Assortiment sur mesure selon votre événement. Option sans fruits à coque sur demande.',
+  },
+  {
     id: 'biscuits-meringues',
     name: 'Biscuits / Meringues personnalisés',
     photos: [
