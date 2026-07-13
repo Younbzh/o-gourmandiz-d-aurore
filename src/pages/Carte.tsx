@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronDown, ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
+import { getSeason, seasonName, type Season } from '../utils/season';
 
 interface Product {
   id: string;
@@ -166,15 +167,7 @@ const incontournables: Product[] = [
   },
 ];
 
-function getSeason() {
-  const m = new Date().getMonth();
-  if (m >= 5 && m <= 7) return 'summer';
-  if (m >= 8 && m <= 10) return 'autumn';
-  if (m === 11 || m <= 1) return 'winter';
-  return 'spring';
-}
-
-const saisonProduits: Partial<Record<string, Product[]>> = {
+const saisonProduits: Partial<Record<Season, Product[]>> = {
   summer: [
     {
       id: 'fraisier',
@@ -282,13 +275,6 @@ const saisonProduits: Partial<Record<string, Product[]>> = {
       sansGluten: true,
     },
   ],
-};
-
-const seasonName: Record<string, string> = {
-  summer: 'Été',
-  autumn: 'Automne',
-  winter: 'Hiver',
-  spring: 'Printemps',
 };
 
 function PhotoCarousel({ photos, alt, badge }: { photos: string[]; alt: string; badge?: boolean }) {

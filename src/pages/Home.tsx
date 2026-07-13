@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
+import { getSeason, type Season } from '../utils/season';
 
 const visualLinks = [
   {
@@ -23,15 +24,7 @@ const visualLinks = [
   },
 ];
 
-function getSeason(): 'spring' | 'summer' | 'autumn' | 'winter' {
-  const m = new Date().getMonth();
-  if (m >= 5 && m <= 7) return 'summer';
-  if (m >= 8 && m <= 10) return 'autumn';
-  if (m === 11 || m <= 1) return 'winter';
-  return 'spring';
-}
-
-const seasonalCard: Partial<Record<ReturnType<typeof getSeason>, string>> = {
+const seasonalCard: Partial<Record<Season, string>> = {
   summer: '/IMG-20260711-WA0004.jpg',
 };
 
