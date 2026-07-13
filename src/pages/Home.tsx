@@ -28,9 +28,38 @@ const seasonalCard: Partial<Record<Season, string>> = {
   summer: '/IMG-20260711-WA0004.jpg',
 };
 
+// Textes du bloc « carte du moment » — s'adaptent automatiquement à la saison
+const seasonHero: Record<Season, { emoji: string; label: string; titleLine: string; desc: string }> = {
+  spring: {
+    emoji: '🌸',
+    label: 'Printemps',
+    titleLine: 'du printemps',
+    desc: "Premières fraises, rhubarbe, fleurs comestibles, agrumes… Des douceurs fraîches qui célèbrent le retour des beaux jours.",
+  },
+  summer: {
+    emoji: '☀️',
+    label: 'Été',
+    titleLine: "de l'été",
+    desc: "Fraisiers, tartes aux fruits rouges, pavlovas, abricot-framboise… Des créations légères, gorgées de fruits de saison et de fleurs comestibles.",
+  },
+  autumn: {
+    emoji: '🍂',
+    label: 'Automne',
+    titleLine: "de l'automne",
+    desc: "Poires, pommes, caramel, spéculoos, fruits secs… Des tartes gourmandes et réconfortantes aux parfums de l'arrière-saison.",
+  },
+  winter: {
+    emoji: '❄️',
+    label: 'Hiver',
+    titleLine: "de l'hiver",
+    desc: "Chocolat, agrumes, marrons, fruits exotiques… Des créations festives et enveloppantes pour la saison froide et les fêtes.",
+  },
+};
+
 export default function Home() {
   const navigate = useNavigate();
   const season = getSeason();
+  const hero = seasonHero[season];
 
   return (
     <>
@@ -75,23 +104,23 @@ export default function Home() {
             <div className="w-full md:w-1/2 flex-shrink-0 order-1 md:order-2">
               <img
                 src={seasonalCard[season]}
-                alt="La carte de l'été"
+                alt={`La carte ${hero.titleLine}`}
                 className="w-full aspect-square object-cover rounded-3xl shadow-2xl"
               />
             </div>
             <div className="flex-1 order-2 md:order-1 text-center md:text-left">
-              <p className="label mb-4">La carte du moment · Été ☀️</p>
+              <p className="label mb-4">La carte du moment · {hero.label} {hero.emoji}</p>
               <h2 className="font-display text-4xl md:text-6xl font-bold text-white italic mb-5 leading-[0.95]">
-                Les saveurs<br />de l'été
+                Les saveurs<br />{hero.titleLine}
               </h2>
               <p className="text-white/50 leading-relaxed mb-8 max-w-md mx-auto md:mx-0">
-                Fraisiers, tartes aux fruits rouges, pavlovas, abricot-framboise… Des créations légères, gorgées de fruits de saison et de fleurs comestibles.
+                {hero.desc}
               </p>
               <button
                 onClick={() => navigate('/carte')}
                 className="bg-[#5BBFBF] text-white px-8 py-4 rounded-full font-semibold hover:bg-[#4AAEAE] transition-colors"
               >
-                Découvrir la carte de l'été
+                Découvrir la carte {hero.titleLine}
               </button>
             </div>
           </div>
