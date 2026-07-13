@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://o-gourmandiz-d-aurore.vercel.app/sitemap.xml

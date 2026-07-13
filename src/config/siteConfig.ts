@@ -272,7 +272,7 @@ export const siteConfig = {
     title: "Allergènes",
     intro: "Mes pâtisseries contiennent ou peuvent contenir les allergènes suivants. La liste détaillée par création est disponible sur demande — n'hésitez pas à me le signaler lors de votre commande.",
     list: [
-      { name: "Gluten", note: "Présent dans la quasi-totalité des créations (la Pavlova est sans gluten)" },
+      { name: "Gluten", note: "Présent dans la plupart des créations (la Pavlova et les macarons sont sans gluten)" },
       { name: "Œufs", note: "Présents dans toutes les préparations" },
       { name: "Lait", note: "Beurre, crème, lait dans la quasi-totalité des recettes" },
       { name: "Fruits à coque", note: "Amandes, noisettes, pistaches selon les recettes" },
