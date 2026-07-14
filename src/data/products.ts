@@ -82,7 +82,7 @@ export const incontournables: Product[] = [
   {
     id: 'citron-noisette',
     name: 'Tarte Citron Noisette Meringuée',
-    photos: ['/IMG-20260711-WA0024.jpg'],
+    photos: ['/6395.jpg', '/IMG-20260711-WA0024.jpg'],
     composition: [
       'Pâte sucrée',
       'Praliné noisette',
