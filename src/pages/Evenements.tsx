@@ -85,7 +85,7 @@ const gallery = [
   { src: '/IMG-20260711-WA0008.jpg', alt: 'Number cake anniversaire fraises' },
   { src: '/6442.jpg', alt: 'Number cake chocolat' },
   { src: '/IMG-20260711-WA0020.jpg', alt: 'Number cake fruits exotiques' },
-  { src: '/6448.jpg', alt: 'Pyramide de macarons mariage' },
+  { src: '/IMG-20260711-WA0027.jpg', alt: 'Number cake 1 an aux fruits' },
   { src: '/IMG-20260711-WA0033.jpg', alt: 'Tarte aux fruits rouges' },
   { src: '/IMG-20260711-WA0013.jpg', alt: 'Number cake citron' },
   { src: '/6389.jpg', alt: 'Pyramide de macarons rose' },

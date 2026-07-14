@@ -162,14 +162,14 @@ export const siteConfig = {
         description: "Vos créations préférées de la carte — fraisiers, tartes, pavlovas… — montées en pièce d'exception et décorées de fleurs comestibles ou d'éléments personnalisés. À partir de 5€ la part, selon les options (fleurs, topper…).",
         features: ["Créations à la carte", "Fleurs comestibles", "Topper personnalisé", "À partir de 5€/part"],
         icon: "Star",
-        photos: ["/IMG-20260711-WA0000.jpg", "/gateau-mariage.jpeg"]
+        photos: ["/IMG-20260711-WA0000.jpg", "/6431.jpg", "/gateau-mariage.jpeg"]
       },
       {
         name: "Pyramide de macarons",
         description: "Des dizaines de macarons assemblés en pyramide, à vos couleurs et dans les saveurs de la carte de saison. Un centre de table gourmand qui impressionne — et qui se déguste.",
         features: ["Macarons à vos couleurs", "Parfums de saison", "Mariage, baptême, entreprise", "Disponible toute l'année"],
         icon: "Sparkles",
-        photos: ["/IMG-20260711-WA0001.jpg", "/6386.jpg", "/6389.jpg"]
+        photos: ["/IMG-20260711-WA0001.jpg", "/6386.jpg", "/6389.jpg", "/6448.jpg"]
       },
       {
         name: "Biscuits personnalisés",
