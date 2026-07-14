@@ -18,6 +18,8 @@ export const incontournables: Product[] = [
     photos: [
       '/6398.jpg',
       '/IMG-20260711-WA0008.jpg',
+      '/6404.jpg',
+      '/6501.jpg',
       '/IMG-20260711-WA0013.jpg',
       '/IMG-20260711-WA0020.jpg',
       '/IMG-20260711-WA0027.jpg',
@@ -100,6 +102,10 @@ export const incontournables: Product[] = [
     name: 'Macarons',
     photos: [
       '/6480.jpg',
+      '/6475.jpg',
+      '/6486.jpg',
+      '/6492.jpg',
+      '/6435.jpg',
       '/IMG-20260711-WA0005.jpg',
       '/IMG-20260711-WA0007.jpg',
     ],
@@ -119,6 +125,8 @@ export const incontournables: Product[] = [
     name: 'Mignardises',
     photos: [
       '/IMG-20260711-WA0002.jpg',
+      '/6443.jpg',
+      '/6458.jpg',
       '/IMG-20260711-WA0032.jpg',
       '/IMG-20260711-WA0028.jpg',
       '/IMG-20260711-WA0014.jpg',
@@ -184,6 +192,7 @@ export const saisonProduits: Partial<Record<Season, Product[]>> = {
       name: 'Fraisier',
       photos: [
         '/6426.jpg',
+        '/6472.jpg',
         '/IMG-20260711-WA0003.jpg',
         '/IMG-20260711-WA0004.jpg',
         '/IMG-20260711-WA0006.jpg',
@@ -227,7 +236,7 @@ export const saisonProduits: Partial<Record<Season, Product[]>> = {
     {
       id: 'tarte-fraise-crumble',
       name: 'Tarte Fraise Crumble',
-      photos: ['/6453.jpg'],
+      photos: ['/6453.jpg', '/6451.jpg'],
       composition: [
         'Pâte sucrée amande',
         'Crème pâtissière',
@@ -268,7 +277,7 @@ export const saisonProduits: Partial<Record<Season, Product[]>> = {
     {
       id: 'pavlova',
       name: 'Pavlova',
-      photos: ['/IMG-20260711-WA0031.jpg'],
+      photos: ['/IMG-20260711-WA0031.jpg', '/6433.jpg'],
       composition: [
         'Meringue',
         'Ganache montée vanille',
