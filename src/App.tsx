@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import Carte from './pages/Carte';
+import Produit from './pages/Produit';
 import Evenements from './pages/Evenements';
 import Commander from './pages/Commander';
 import About from './pages/About';
@@ -12,6 +13,7 @@ export default function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="carte" element={<Carte />} />
+        <Route path="carte/:id" element={<Produit />} />
         <Route path="evenements" element={<Evenements />} />
         <Route path="commander" element={<Commander />} />
         <Route path="about" element={<About />} />

@@ -3,7 +3,7 @@ import { Check, Phone, MessageCircle } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 
 type Occasion = 'Anniversaire' | 'Mariage / Fiançailles' | 'Baptême / Naissance' | 'Événement professionnel' | 'Autre';
-type Creation = 'Tarte signature' | 'Gâteau d\'anniversaire / Number cake' | 'Macarons' | 'Biscuits personnalisés' | 'Pièce montée à la française' | 'Pyramide de macarons' | 'Je ne sais pas encore';
+type Creation = 'Number cake' | 'Tarte de saison' | 'Macarons' | 'Mignardises' | 'Biscuits personnalisés' | 'Pièce montée à la française' | 'Pyramide de macarons' | 'Je ne sais pas encore';
 
 interface FormData {
   occasion: Occasion | '';
@@ -24,9 +24,10 @@ const occasions: Occasion[] = [
 ];
 
 const creations: { label: Creation; photo: string }[] = [
-  { label: 'Tarte signature', photo: '/tarte.jpeg' },
-  { label: 'Gâteau d\'anniversaire / Number cake', photo: '/gateau-40-ans.jpeg' },
+  { label: 'Number cake', photo: '/gateau-40-ans.jpeg' },
+  { label: 'Tarte de saison', photo: '/tarte.jpeg' },
   { label: 'Macarons', photo: '/macaron-1.jpeg' },
+  { label: 'Mignardises', photo: '/IMG-20260711-WA0002.jpg' },
   { label: 'Biscuits personnalisés', photo: '/sables-personnalises.jpeg' },
   { label: 'Pièce montée à la française', photo: '/gateau-mariage.jpeg' },
   { label: 'Pyramide de macarons', photo: '/macarons-fille-garcon.jpeg' },

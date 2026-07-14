@@ -155,12 +155,12 @@ export const siteConfig = {
   evenementsSection: {
     title: "Événements & grandes occasions",
     subtitle: "Pour les grands moments, je crée des pièces qui restent dans les mémoires",
-    note: "Pour les grandes commandes, contactez-moi au minimum 3 semaines à l'avance.",
+    note: "Les grandes occasions se préparent : pour un événement, pensez à me contacter idéalement 3 semaines à l'avance.",
     list: [
       {
         name: "Pièce montée à la française",
-        description: "Une alternative élégante au croquembouche classique. Fraisiers montés en cercles, décorés de fleurs comestibles ou d'éléments personnalisés. À partir de 5€ la part — selon les options (fleurs, topper…).",
-        features: ["Fraisiers, tartes, pavlovas", "Fleurs comestibles", "Topper personnalisé", "À partir de 5€/part"],
+        description: "Vos créations préférées de la carte — fraisiers, tartes, pavlovas… — montées en pièce d'exception et décorées de fleurs comestibles ou d'éléments personnalisés. À partir de 5€ la part, selon les options (fleurs, topper…).",
+        features: ["Créations à la carte", "Fleurs comestibles", "Topper personnalisé", "À partir de 5€/part"],
         icon: "Star",
         photos: ["/IMG-20260711-WA0000.jpg", "/gateau-mariage.jpeg"]
       },
@@ -169,7 +169,7 @@ export const siteConfig = {
         description: "Des dizaines de macarons assemblés en pyramide, à vos couleurs et dans les saveurs de la carte de saison. Un centre de table gourmand qui impressionne — et qui se déguste.",
         features: ["Macarons à vos couleurs", "Parfums de saison", "Mariage, baptême, entreprise", "Disponible toute l'année"],
         icon: "Sparkles",
-        photos: ["/IMG-20260711-WA0001.jpg", "/6386.jpg", "/6389.jpg", "/IMG-20260711-WA0009.jpg"]
+        photos: ["/IMG-20260711-WA0001.jpg", "/6386.jpg", "/6389.jpg"]
       },
       {
         name: "Biscuits personnalisés",
@@ -243,7 +243,7 @@ export const siteConfig = {
       },
       {
         question: "Est-ce que je peux tout personnaliser ?",
-        answer: "La personnalisation, oui — couleurs, thème, décors. Pour les parfums, ils suivent la carte de saison : pas de goût carambar dans les macarons, par exemple — je travaille dans ma gamme pour garantir la qualité. On discute ensemble de ce qui est possible."
+        answer: "Oui, pour tout ce qui est visuel : couleurs, thème, décors, message personnalisé. Côté parfums, je travaille dans ma gamme de saison pour garantir la qualité — on en discute ensemble pour trouver ce qui vous fera plaisir."
       },
       {
         question: "Pour quelles occasions puis-je commander ?",
