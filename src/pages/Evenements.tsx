@@ -35,7 +35,7 @@ function SectionCarousel({ photos, alt }: { photos: string[]; alt: string }) {
             src={p}
             alt={`${alt} ${i + 1}`}
             loading={i === 0 ? 'eager' : 'lazy'}
-            className="w-full h-full object-cover flex-shrink-0 min-h-[50vw] md:min-h-0"
+            className="w-full h-full object-contain flex-shrink-0 min-h-[50vw] md:min-h-0"
           />
         ))}
       </div>
