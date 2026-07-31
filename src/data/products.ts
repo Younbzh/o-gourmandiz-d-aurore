@@ -217,7 +217,7 @@ export const incontournables: Product[] = [
       'Idéal buffet & cadeau invités',
     ],
     prix: [
-      { format: 'Selon quantité', prix: 'Sur devis' },
+      { format: 'À la pièce', prix: 'à partir de 2,50 €' },
     ],
     allergenes: ['Œufs'],
     sansGluten: true,
