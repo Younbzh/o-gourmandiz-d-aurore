@@ -101,7 +101,10 @@ export const incontournables: Product[] = [
       'Meringue italienne',
     ],
     prix: [
-      { format: 'Selon le nombre de personnes', prix: 'Sur devis' },
+      { format: '4 personnes', prix: '25 €' },
+      { format: '6 personnes', prix: '34,50 €' },
+      { format: '8 personnes', prix: '44,50 €' },
+      { format: '10 personnes', prix: '54,50 €' },
     ],
     allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
     note: 'La noisette est essentielle à cette création — pas d\'option sans fruits à coque (ou version citron seul sur demande).',
