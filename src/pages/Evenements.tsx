@@ -160,9 +160,9 @@ export default function Evenements() {
               Quelques créations
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          <div className="columns-2 md:columns-3 lg:columns-4 gap-3">
             {gallery.map(({ src, alt }) => (
-              <img key={src} src={src} alt={alt} loading="lazy" className="w-full aspect-[3/4] object-cover rounded-xl" />
+              <img key={src} src={src} alt={alt} loading="lazy" className="w-full rounded-xl mb-3 break-inside-avoid" />
             ))}
           </div>
         </div>
