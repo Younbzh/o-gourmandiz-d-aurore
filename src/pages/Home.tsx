@@ -13,7 +13,7 @@ const visualLinks = [
   {
     label: 'Événements',
     sub: 'Pièces montées · Pyramides · Biscuits',
-    photo: '/6431.jpg',
+    photo: '/6389.jpg',
     to: '/evenements',
   },
   {
