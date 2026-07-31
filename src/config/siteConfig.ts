@@ -20,7 +20,7 @@ export const siteConfig = {
   social: {
     facebook: "https://www.facebook.com/o.gourmandiz.d.aurore/",
     instagram: "https://www.instagram.com/o.gourmandiz.d.aurore/",
-    tiktok: "https://www.tiktok.com/tag/ogourmandizdaurore"
+    tiktok: "https://www.tiktok.com/@o.gourmandiz.d.aurore"
   },
 
   hours: {
@@ -159,24 +159,31 @@ export const siteConfig = {
     list: [
       {
         name: "Pièce montée à la française",
-        description: "Vos créations préférées de la carte — fraisiers, tartes, pavlovas… — montées en pièce d'exception et décorées de fleurs comestibles ou d'éléments personnalisés. À partir de 5€ la part, selon les options (fleurs, topper…).",
-        features: ["Créations à la carte", "Fleurs comestibles", "Topper personnalisé", "À partir de 5€/part"],
+        description: "Vos créations préférées de la carte — fraisiers, tartes, pavlovas… — montées en pièce d'exception, décorées de fleurs (comestibles ou non), de rubans ou d'éléments personnalisés. À partir de 5€ la part, selon les options.",
+        features: ["Créations à la carte", "Fleurs comestibles ou non", "Rubans & topper personnalisé", "Décor personnalisé dès 15 €"],
         icon: "Star",
-        photos: ["/IMG-20260711-WA0000.jpg", "/6431.jpg", "/gateau-mariage.jpeg"]
+        photos: ["/7739.jpg", "/IMG-20260711-WA0000.jpg", "/6431.jpg", "/gateau-mariage.jpeg"]
       },
       {
         name: "Pyramide de macarons",
         description: "Des dizaines de macarons assemblés en pyramide, à vos couleurs et dans les saveurs de la carte de saison. Un centre de table gourmand qui impressionne — et qui se déguste.",
-        features: ["Macarons à vos couleurs", "Parfums de saison", "Mariage, baptême, entreprise", "Disponible toute l'année"],
+        features: ["Macarons à vos couleurs", "Parfums de saison", "Fleurs & topper", "Décor personnalisé dès 15 €"],
         icon: "Sparkles",
-        photos: ["/IMG-20260711-WA0001.jpg", "/6386.jpg", "/6389.jpg", "/6448.jpg"]
+        photos: ["/6448.jpg", "/IMG-20260711-WA0001.jpg", "/6386.jpg", "/6389.jpg"]
       },
       {
         name: "Biscuits personnalisés",
-        description: "Sablés décorés avec prénoms, dates, motifs spéciaux. Un souvenir gourmand pour chacun de vos invités — idéal comme cadeau de mariage ou faire-part comestible.",
-        features: ["Prénom, date, motif", "Emballage individuel possible", "Mariage, baptême, naissance", "Grandes quantités"],
+        description: "Sablés décorés et personnalisés — prénom, date, motif, illustration sur feuille de sucre. Toujours emballés individuellement. Un souvenir gourmand pour chacun de vos invités.",
+        features: ["Prénom, date, motif", "Toujours emballés individuellement", "Min. 20 pièces par parfum", "Décor personnalisé dès 15 €"],
         icon: "Cookie",
         photos: ["/sables-personnalises.jpeg", "/IMG-20260711-WA0018.jpg", "/IMG-20260711-WA0022.jpg", "/IMG-20260711-WA0025.jpg"]
+      },
+      {
+        name: "Meringues personnalisées",
+        description: "Meringues croustillantes aux couleurs et parfums de votre événement, toujours emballées individuellement. Parfait en buffet ou en cadeau pour vos invités. Sans gluten et sans fruits à coque.",
+        features: ["Couleurs & parfums personnalisés", "Emballage individuel", "Sans gluten", "Décor personnalisé dès 15 €"],
+        icon: "Sparkles",
+        photos: ["/7738.jpg"]
       }
     ]
   },

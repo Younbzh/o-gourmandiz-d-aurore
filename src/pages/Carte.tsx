@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { getSeason, seasonName } from '../utils/season';
 import { incontournables, saisonProduits, type Product } from '../data/products';
 
-function ProductCard({ product }: { product: Product }) {
+function ProductCard({ product, tab }: { product: Product; tab: string }) {
   const rawPrix = product.prix[0]?.prix ?? '';
   const prixMin = rawPrix.replace(/^à partir de\s*/i, '');
   const prixLabel = /devis|demande/i.test(prixMin) ? prixMin : `dès ${prixMin}`;
 
   return (
     <Link
-      to={`/carte/${product.id}`}
+      to={`/carte/${product.id}?from=${tab}`}
       className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-[#F3EBE1] block"
     >
       <div className="relative overflow-hidden">
@@ -47,9 +47,16 @@ function ProductCard({ product }: { product: Product }) {
 
 export default function Carte() {
   const navigate = useNavigate();
-  const [tab, setTab] = useState<'incontournables' | 'saison'>('incontournables');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialTab = searchParams.get('cat') === 'saison' ? 'saison' : 'incontournables';
+  const [tab, setTab] = useState<'incontournables' | 'saison'>(initialTab);
   const season = getSeason();
   const produitsSaison = saisonProduits[season] ?? [];
+
+  const changeTab = (t: 'incontournables' | 'saison') => {
+    setTab(t);
+    setSearchParams(t === 'saison' ? { cat: 'saison' } : {}, { replace: true });
+  };
 
   const products = tab === 'incontournables' ? incontournables : produitsSaison;
 
@@ -71,7 +78,7 @@ export default function Carte() {
           {(['incontournables', 'saison'] as const).map((t) => (
             <button
               key={t}
-              onClick={() => setTab(t)}
+              onClick={() => changeTab(t)}
               className={`py-4 px-5 text-sm font-semibold border-b-2 transition-colors ${
                 tab === t
                   ? 'border-[#5BBFBF] text-[#1A130C]'
@@ -102,7 +109,7 @@ export default function Carte() {
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
                 {products.map(product => (
-                  <ProductCard key={product.id} product={product} />
+                  <ProductCard key={product.id} product={product} tab={tab} />
                 ))}
               </div>
               <div className="text-center mt-12">

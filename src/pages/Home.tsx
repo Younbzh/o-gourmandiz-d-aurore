@@ -67,14 +67,14 @@ export default function Home() {
       <section className="relative h-screen flex items-end overflow-hidden">
         <img
           src="/6386.jpg"
-          alt="Pyramide de macarons Ô Gourmandiz d'Aurore"
-          className="absolute inset-0 w-full h-full object-cover"
+          alt="Pyramide de macarons Ô'Gourmandiz d'Aurore"
+          className="absolute inset-0 w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A130C]/90 via-[#1A130C]/25 to-transparent" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-5 lg:px-8 pb-16 md:pb-28 w-full">
 <h1 className="font-display text-6xl md:text-8xl lg:text-[7.5rem] font-bold text-white leading-[0.88] mb-8">
-            Ô Gourmandiz<br />
+            Ô'Gourmandiz<br />
             <em>d'Aurore</em>
           </h1>
           <p className="text-white/55 text-base md:text-lg mb-10 max-w-sm leading-relaxed">

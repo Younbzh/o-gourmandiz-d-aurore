@@ -29,6 +29,11 @@ export default function About() {
       <section className="bg-[#FDFAF6] py-24">
         <div className="max-w-6xl mx-auto px-5 lg:px-8 grid md:grid-cols-2 gap-16 items-start">
           <div>
+            <img
+              src="/7752.jpg"
+              alt="Aurore, pâtissière — Ô'Gourmandiz d'Aurore"
+              className="w-full max-w-sm aspect-[4/5] object-cover rounded-2xl mb-8"
+            />
             <p className="label mb-6">Mon histoire</p>
             {siteConfig.about.content.map((paragraph, i) => (
               <p key={i} className="text-gray-600 leading-relaxed text-lg mb-6">

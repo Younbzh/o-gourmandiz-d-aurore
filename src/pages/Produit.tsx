@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ArrowLeft, MessageCircle } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { getProductById } from '../data/products';
@@ -36,7 +36,7 @@ function BigCarousel({ photos, alt, badge }: { photos: string[]; alt: string; ba
               src={p}
               alt={`${alt} ${i + 1}`}
               loading={i === 0 ? 'eager' : 'lazy'}
-              className="w-full aspect-square object-cover flex-shrink-0"
+              className="w-full aspect-square object-contain flex-shrink-0"
             />
           ))}
         </div>
@@ -94,6 +94,9 @@ function BigCarousel({ photos, alt, badge }: { photos: string[]; alt: string; ba
 export default function Produit() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const from = searchParams.get('from') === 'saison' ? 'saison' : 'incontournables';
+  const backTo = from === 'saison' ? '/carte?cat=saison' : '/carte';
   const product = id ? getProductById(id) : undefined;
 
   if (!product) {
@@ -115,7 +118,7 @@ export default function Produit() {
     <div className="bg-[#FDFAF6] min-h-screen pt-28 pb-20">
       <div className="max-w-3xl mx-auto px-5 lg:px-8">
         <button
-          onClick={() => navigate('/carte')}
+          onClick={() => navigate(backTo)}
           className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-[#1A130C] transition-colors mb-6"
         >
           <ArrowLeft className="w-4 h-4" /> Retour à la carte
@@ -132,7 +135,7 @@ export default function Produit() {
 
           <div className="grid sm:grid-cols-2 gap-8">
             <div>
-              <p className="label mb-3">Composition</p>
+              <p className="label mb-3">{product.compositionLabel ?? 'Composition'}</p>
               <ul className="space-y-2">
                 {product.composition.map((c, i) => (
                   <li key={i} className="text-sm text-gray-600 flex items-start gap-2.5">
