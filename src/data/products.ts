@@ -43,7 +43,7 @@ export const incontournables: Product[] = [
       { format: '2 chiffres XL · 20-24 personnes', prix: '128 €' },
     ],
     allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
-    note: 'Supplément de 5 € pour deux saveurs différentes. Personnalisation sur demande. Option sans fruits à coque sur demande.',
+    note: 'Supplément de 5 € pour deux saveurs différentes. Décor personnalisé à partir de 15 €. Option sans fruits à coque sur demande.',
   },
   {
     id: 'double-chocolat',
