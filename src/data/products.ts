@@ -6,6 +6,7 @@ export interface Product {
   photos: string[];
   composition: string[];
   compositionLabel?: string;
+  details?: string[];
   prix: { format: string; prix: string }[];
   allergenes: string[];
   note?: string;
@@ -170,13 +171,14 @@ export const incontournables: Product[] = [
     ],
     compositionLabel: 'Parfums',
     composition: [
-      'Assortiment de mini tartelettes & macarons',
       'Vanille & praliné',
       'Double chocolat',
       'Caramel beurre salé',
       'Citron meringué',
       'Fruits de saison',
-      'Macarons assortis',
+    ],
+    details: [
+      'Assortiment de mini tartelettes & macarons',
       'Format bouchée — idéal buffet & réceptions',
       'Personnalisables (feuille de sucre)',
     ],

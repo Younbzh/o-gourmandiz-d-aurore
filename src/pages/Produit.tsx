@@ -166,6 +166,20 @@ export default function Produit() {
             </div>
           </div>
 
+          {product.details && product.details.length > 0 && (
+            <div className="mt-8">
+              <p className="label mb-3">Détails</p>
+              <ul className="space-y-2">
+                {product.details.map((d, i) => (
+                  <li key={i} className="text-sm text-gray-600 flex items-start gap-2.5">
+                    <span className="w-1.5 h-1.5 bg-[#5BBFBF] rounded-full mt-1.5 flex-shrink-0" />
+                    {d}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {product.note && (
             <p className="text-sm text-gray-400 italic leading-relaxed mt-8">{product.note}</p>
           )}
