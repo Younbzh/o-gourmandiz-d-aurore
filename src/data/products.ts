@@ -77,7 +77,7 @@ export const incontournables: Product[] = [
     composition: [
       'Pâte sucrée amande',
       'Crème pâtissière',
-      'Fruits frais de saison & producteurs locaux selon disponibilité',
+      'Fruits de saison, au gré des récoltes',
       'Fleurs comestibles de saison',
     ],
     prix: [
@@ -87,7 +87,7 @@ export const incontournables: Product[] = [
       { format: '10 personnes', prix: '46 €' },
     ],
     allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande)'],
-    note: 'Option sans fruits à coque sur demande.',
+    note: 'Producteurs locaux selon disponibilités. Option sans fruits à coque sur demande.',
   },
   {
     id: 'citron-noisette',
@@ -144,7 +144,7 @@ export const incontournables: Product[] = [
     composition: [
       'Meringue',
       'Ganache montée vanille',
-      'Fruits frais de saison & producteurs locaux',
+      'Fruits de saison, au gré des récoltes',
       'Fleurs comestibles de saison',
     ],
     prix: [
@@ -155,7 +155,7 @@ export const incontournables: Product[] = [
     ],
     allergenes: ['Œufs', 'Lait'],
     sansGluten: true,
-    note: 'Garniture de fruits suivant la saison.',
+    note: 'Producteurs locaux selon disponibilités.',
   },
   {
     id: 'mignardises',
