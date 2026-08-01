@@ -17,8 +17,8 @@ export const incontournables: Product[] = [
     id: 'number-cake',
     name: 'Number Cake',
     photos: [
-      '/6437.jpg',
       '/7737.jpg',
+      '/6437.jpg',
       '/6501.jpg',
       '/IMG-20260711-WA0020.jpg',
       '/IMG-20260711-WA0027.jpg',

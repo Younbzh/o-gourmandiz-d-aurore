@@ -19,7 +19,7 @@ function ProductCard({ product, tab }: { product: Product; tab: string }) {
           src={product.photos[0]}
           alt={product.name}
           loading="lazy"
-          className="w-full aspect-[4/5] object-contain group-hover:scale-105 transition-transform duration-500"
+          className="w-full aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500"
         />
         {product.sansGluten && (
           <span className="absolute top-3 left-3 bg-[#5BBFBF] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full">
