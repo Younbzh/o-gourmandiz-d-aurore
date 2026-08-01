@@ -36,7 +36,7 @@ function BigCarousel({ photos, alt, badge }: { photos: string[]; alt: string; ba
               src={p}
               alt={`${alt} ${i + 1}`}
               loading={i === 0 ? 'eager' : 'lazy'}
-              className="w-full h-[80vh] object-contain flex-shrink-0"
+              className="w-full h-[70vh] object-contain flex-shrink-0"
             />
           ))}
         </div>
