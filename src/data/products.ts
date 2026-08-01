@@ -162,8 +162,9 @@ export const incontournables: Product[] = [
     id: 'mignardises',
     name: 'Mignardises',
     photos: [
-      '/7756.jpg',
+      '/IMG-20260801-WA0006.jpg',
       '/7757.jpg',
+      '/7756.jpg',
       '/IMG-20260711-WA0024.jpg',
       '/IMG-20260711-WA0002.jpg',
     ],
