@@ -20,7 +20,7 @@ function SectionCarousel({ photos, alt }: { photos: string[]; alt: string }) {
 
   return (
     <div
-      className="relative overflow-hidden bg-[#F3EBE1] h-[45vh] md:h-[65vh]"
+      className="relative overflow-hidden bg-[#F3EBE1] h-[55vh] md:h-[75vh]"
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
@@ -113,7 +113,7 @@ export default function Evenements() {
         return (
           <section
             key={i}
-            className={`grid md:grid-cols-2 md:min-h-[65vh] ${i === siteConfig.evenementsSection.list.length - 1 ? '' : 'border-b border-[#F3EBE1]'}`}
+            className={`grid md:grid-cols-2 md:min-h-[75vh] ${i === siteConfig.evenementsSection.list.length - 1 ? '' : 'border-b border-[#F3EBE1]'}`}
           >
             {/* Carousel photos */}
             <div className={`relative ${isEven ? 'md:order-1' : 'md:order-2'}`}>
