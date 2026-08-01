@@ -209,7 +209,7 @@ export default function Home() {
               </div>
               <span className="text-white text-sm font-semibold">5 / 5</span>
               <span className="text-white/30 text-sm">·</span>
-              <span className="text-white/60 text-sm">47 avis Google</span>
+              <span className="text-white/60 text-sm">55 avis Google</span>
             </div>
           </div>
 
@@ -238,7 +238,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 border border-white/20 text-white/70 hover:text-white hover:border-white/40 px-7 py-3 rounded-full text-sm font-semibold transition-colors"
             >
               <Star className="w-4 h-4 fill-[#E6D39A] text-[#E6D39A]" />
-              Voir les 47 avis sur Google
+              Voir les 55 avis sur Google
             </a>
           </div>
         </div>
