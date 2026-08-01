@@ -181,7 +181,7 @@ export const siteConfig = {
       {
         name: "Meringues personnalisées",
         description: "Meringues croustillantes aux couleurs et parfums de votre événement, toujours emballées individuellement. Parfait en buffet ou en cadeau pour vos invités. Sans gluten et sans fruits à coque.",
-        features: ["Couleurs & parfums personnalisés", "Emballage individuel", "Sans gluten"],
+        features: ["Couleurs personnalisées", "Emballage individuel", "Sans gluten"],
         icon: "Sparkles",
         photos: ["/7738.jpg"]
       }

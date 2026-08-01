@@ -216,7 +216,7 @@ export const incontournables: Product[] = [
     photos: ['/IMG-20260618-WA0066.jpg', '/7738.jpg'],
     composition: [
       'Meringues croustillantes',
-      'Parfums et couleurs personnalisables',
+      'Couleurs personnalisables',
       'Toujours emballées individuellement',
       'Idéal buffet & cadeau invités',
     ],
