@@ -197,7 +197,7 @@ export const incontournables: Product[] = [
       '/IMG-20260711-WA0025.jpg',
     ],
     composition: [
-      'Sablés Vanille, Cacao ou Citron',
+      'Sablés Vanille, Cacao, Citron, Noisette ou Amande',
       'Personnalisés : prénom, âge, message, illustration sur feuille de sucre',
       'Toujours emballés individuellement',
       'Commande minimum de 20 pièces par parfum',
@@ -205,8 +205,8 @@ export const incontournables: Product[] = [
     prix: [
       { format: 'À partir de 20 pièces', prix: 'à partir de 1,20 €/biscuit' },
     ],
-    allergenes: ['Gluten', 'Œufs', 'Lait'],
-    note: 'Personnalisables : prénom, date, motif.',
+    allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
+    note: 'Personnalisables : prénom, date, motif. Fruits à coque uniquement pour les parfums noisette et amande.',
   },
   {
     id: 'meringues',
