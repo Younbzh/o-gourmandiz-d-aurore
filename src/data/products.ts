@@ -68,6 +68,7 @@ export const incontournables: Product[] = [
     id: 'multi-fruits',
     name: 'Tarte Multi-Fruits',
     photos: [
+      '/IMG-20260801-WA0005.jpg',
       '/IMG-20260711-WA0033.jpg',
       '/7533.jpg',
       '/6392.jpg',
