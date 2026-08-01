@@ -38,9 +38,9 @@ export const incontournables: Product[] = [
     ],
     prix: [
       { format: '1 chiffre · 5-6 personnes', prix: '34,50 €' },
-      { format: '1 chiffre · 10-12 personnes', prix: '66 €' },
+      { format: '1 chiffre XL · 10-12 personnes', prix: '66 €' },
       { format: '2 chiffres · 10-12 personnes', prix: '68 €' },
-      { format: '2 chiffres · 20-24 personnes', prix: '128 €' },
+      { format: '2 chiffres XL · 20-24 personnes', prix: '128 €' },
     ],
     allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
     note: 'Supplément de 5 € pour deux saveurs différentes. Personnalisation sur demande. Option sans fruits à coque sur demande.',
