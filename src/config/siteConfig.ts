@@ -160,28 +160,28 @@ export const siteConfig = {
       {
         name: "Pièce montée à la française",
         description: "Vos créations préférées de la carte — fraisiers, tartes, pavlovas… — montées en pièce d'exception, décorées de fleurs (comestibles ou non), de rubans ou d'éléments personnalisés. À partir de 5€ la part, selon les options.",
-        features: ["Créations à la carte", "Fleurs comestibles ou non", "Rubans & topper personnalisé", "Décor personnalisé dès 15 €"],
+        features: ["Créations à la carte", "Fleurs comestibles ou non", "Rubans & topper personnalisé"],
         icon: "Star",
         photos: ["/7739.jpg", "/IMG-20260711-WA0000.jpg", "/6431.jpg", "/gateau-mariage.jpeg"]
       },
       {
         name: "Pyramide de macarons",
         description: "Des dizaines de macarons assemblés en pyramide, à vos couleurs et dans les saveurs de la carte de saison. Un centre de table gourmand qui impressionne — et qui se déguste.",
-        features: ["Macarons à vos couleurs", "Parfums de saison", "Fleurs & topper", "Décor personnalisé dès 15 €"],
+        features: ["Macarons à vos couleurs", "Parfums de saison", "Fleurs & topper"],
         icon: "Sparkles",
         photos: ["/6448.jpg", "/IMG-20260711-WA0001.jpg", "/6386.jpg", "/6389.jpg"]
       },
       {
         name: "Biscuits personnalisés",
         description: "Sablés décorés et personnalisés — prénom, date, motif, illustration sur feuille de sucre. Toujours emballés individuellement. Un souvenir gourmand pour chacun de vos invités.",
-        features: ["Prénom, date, motif", "Toujours emballés individuellement", "Min. 20 pièces par parfum", "Décor personnalisé dès 15 €"],
+        features: ["Prénom, date, motif", "Toujours emballés individuellement", "Min. 20 pièces par parfum"],
         icon: "Cookie",
         photos: ["/sables-personnalises.jpeg", "/IMG-20260711-WA0018.jpg", "/IMG-20260711-WA0022.jpg", "/IMG-20260711-WA0025.jpg"]
       },
       {
         name: "Meringues personnalisées",
         description: "Meringues croustillantes aux couleurs et parfums de votre événement, toujours emballées individuellement. Parfait en buffet ou en cadeau pour vos invités. Sans gluten et sans fruits à coque.",
-        features: ["Couleurs & parfums personnalisés", "Emballage individuel", "Sans gluten", "Décor personnalisé dès 15 €"],
+        features: ["Couleurs & parfums personnalisés", "Emballage individuel", "Sans gluten"],
         icon: "Sparkles",
         photos: ["/7738.jpg"]
       }
