@@ -77,7 +77,7 @@ export const incontournables: Product[] = [
     composition: [
       'Pâte sucrée amande',
       'Crème pâtissière',
-      'Fruits de saison, au gré des récoltes',
+      'Fruits frais de saison',
       'Fleurs comestibles de saison',
     ],
     prix: [
@@ -144,7 +144,7 @@ export const incontournables: Product[] = [
     composition: [
       'Meringue',
       'Ganache montée vanille',
-      'Fruits de saison, au gré des récoltes',
+      'Fruits frais de saison',
       'Fleurs comestibles de saison',
     ],
     prix: [
