@@ -96,9 +96,10 @@ export const incontournables: Product[] = [
     composition: [
       'Pâte sucrée',
       'Crème d\'amande',
+      'Crémeux citron',
+      'Gel citron',
       'Praliné noisette',
-      'Crème de citron',
-      'Meringue italienne',
+      'Meringue suisse',
     ],
     prix: [
       { format: '4 personnes', prix: '25 €' },
