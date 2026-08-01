@@ -171,10 +171,14 @@ export const incontournables: Product[] = [
     compositionLabel: 'Parfums',
     composition: [
       'Assortiment de mini tartelettes & macarons',
-      'Vanille & praliné · Double chocolat · Caramel beurre salé',
-      'Citron meringué · Fruits de saison · Macarons assortis',
+      'Vanille & praliné',
+      'Double chocolat',
+      'Caramel beurre salé',
+      'Citron meringué',
+      'Fruits de saison',
+      'Macarons assortis',
       'Format bouchée — idéal buffet & réceptions',
-      'Personnalisables (feuille de sucre, couleurs)',
+      'Personnalisables (feuille de sucre)',
     ],
     prix: [
       { format: 'À partir de 50 pièces', prix: '1,20 €/pièce' },
