@@ -17,17 +17,15 @@ export const incontournables: Product[] = [
     id: 'number-cake',
     name: 'Number Cake',
     photos: [
-      '/7737.jpg',
+      '/IMG-20260801-WA0000.jpg',
+      '/IMG-20260801-WA0002.jpg',
+      '/IMG-20260801-WA0001.jpg',
+      '/IMG-20260801-WA0003.jpg',
       '/6437.jpg',
-      '/6501.jpg',
-      '/IMG-20260711-WA0020.jpg',
-      '/IMG-20260711-WA0027.jpg',
-      '/IMG-20260711-WA0029.jpg',
-      '/IMG-20260711-WA0021.jpg',
-      '/6398.jpg',
-      '/IMG-20260711-WA0008.jpg',
       '/6404.jpg',
-      '/IMG-20260711-WA0013.jpg',
+      '/7737.jpg',
+      '/IMG-20260711-WA0021.jpg',
+      '/IMG-20260711-WA0029.jpg',
     ],
     compositionLabel: 'Parfums & base',
     composition: [
@@ -185,6 +183,7 @@ export const incontournables: Product[] = [
     id: 'biscuits',
     name: 'Biscuits personnalisés',
     photos: [
+      '/IMG-20260801-WA0004.jpg',
       '/6464.jpg',
       '/IMG-20260711-WA0018.jpg',
       '/IMG-20260711-WA0022.jpg',
@@ -205,7 +204,7 @@ export const incontournables: Product[] = [
   {
     id: 'meringues',
     name: 'Meringues personnalisées',
-    photos: ['/7738.jpg'],
+    photos: ['/IMG-20260618-WA0066.jpg', '/7738.jpg'],
     composition: [
       'Meringues croustillantes',
       'Parfums et couleurs personnalisables',
