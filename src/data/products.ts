@@ -235,12 +235,12 @@ export const saisonProduits: Partial<Record<Season, Product[]>> = {
       id: 'fraisier',
       name: 'Fraisier',
       photos: [
+        '/IMG-20260711-WA0010.jpg',
         '/6426.jpg',
         '/6472.jpg',
         '/IMG-20260711-WA0003.jpg',
         '/IMG-20260711-WA0004.jpg',
         '/IMG-20260711-WA0006.jpg',
-        '/IMG-20260711-WA0010.jpg',
         '/IMG-20260711-WA0011.jpg',
       ],
       composition: [
