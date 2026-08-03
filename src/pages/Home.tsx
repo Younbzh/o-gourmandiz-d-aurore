@@ -73,7 +73,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A130C]/90 via-[#1A130C]/25 to-transparent" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-5 lg:px-8 pb-16 md:pb-28 w-full">
-<h1 className="font-display text-6xl md:text-8xl lg:text-[7.5rem] font-bold text-white leading-[0.88] mb-8">
+<h1 className="font-display text-[2.5rem] sm:text-6xl md:text-8xl lg:text-[7.5rem] font-bold text-white leading-[0.9] md:leading-[0.88] mb-8">
             Ô'Gourmandiz<br />
             <em>d'Aurore</em>
           </h1>
