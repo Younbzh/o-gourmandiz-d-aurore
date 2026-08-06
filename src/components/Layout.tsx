@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Phone, MessageCircle, Menu, X } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
+import { communes, cheminCommune } from '../data/communes';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -164,6 +165,26 @@ export default function Layout() {
               Côtes-d'Armor · Bretagne
             </p>
             <p className="text-xs text-white/30 mt-3">Retrait sur rendez-vous uniquement</p>
+          </div>
+        </div>
+
+        {/*
+          Les pages commune sont liées depuis toutes les pages : une page qu'aucun
+          lien ne désigne n'est trouvée que par le plan de site, et Google la
+          traite comme secondaire. C'est ici qu'elles entrent dans le maillage.
+        */}
+        <div className="border-t border-white/10 max-w-6xl mx-auto px-5 lg:px-8 py-8">
+          <p className="label mb-4">Zone desservie</p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {communes.map((c) => (
+              <Link
+                key={c.slug}
+                to={cheminCommune(c.slug)}
+                className="text-sm text-white/45 hover:text-[#5BBFBF] transition-colors"
+              >
+                Pâtisserie à {c.nom}
+              </Link>
+            ))}
           </div>
         </div>
 

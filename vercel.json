@@ -1,5 +1,10 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/carte/:id",
+      "destination": "/carte/index.html"
+    }
   ]
 }
