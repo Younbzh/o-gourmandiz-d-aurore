@@ -38,7 +38,7 @@ export default function PageCommune({ commune }: { commune: Commune }) {
         <div className="border-t border-[#1A130C]/10 pt-8 mb-10">
           <p className="label mb-4">Ce qui se commande depuis {commune.nom}</p>
           <ul className="grid sm:grid-cols-2 gap-3">
-            {commune.occasions.map((o) => (
+            {commune.specialites.map((o) => (
               <li key={o} className="flex items-center gap-3 text-[#1A130C]/80">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#5BBFBF] flex-shrink-0" />
                 {o}

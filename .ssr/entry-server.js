@@ -184,64 +184,64 @@ const communes = [
     nom: "Loudéac",
     departement: "Côtes-d’Armor",
     situation: "la ville voisine du laboratoire",
-    ancrage: "Loudéac est la ville la plus proche du laboratoire, et la plupart des commandes viennent de là. Le retrait se cale facilement sur un trajet du quotidien : on convient d’un créneau, vous passez, tout est prêt et emballé.",
-    occasions: ["Gâteaux d’anniversaire", "Pièces montées de mariage", "Buffets d’entreprise", "Sablés décorés"]
+    ancrage: "Tout est fait à la commande : la taille du gâteau se cale sur le nombre exact de convives, d’un Number Cake pour cinq personnes à un format XL pour vingt-quatre. Les parfums se choisissent ensemble, vanille et fruits de saison, chocolat noir croustillant ou caramel beurre salé, sur une base de pâte sucrée ou de meringue.",
+    specialites: ["Number Cake", "Macarons", "Tarte Citron Noisette Meringuée", "Biscuits personnalisés"]
   },
   {
     slug: "plemet",
     nom: "Plémet",
     departement: "Côtes-d’Armor",
     situation: "à l’est de La Motte, sur la même route",
-    ancrage: "Plémet est sur la même route que La Motte, ce qui rend le retrait simple même en semaine. Les commandes de dernière minute y sont fréquentes : appelez, on regarde ensemble ce qui reste faisable pour la date voulue.",
-    occasions: ["Gâteaux d’anniversaire", "Baptêmes", "Desserts de fête de famille"]
+    ancrage: "La carte suit les fruits : fraisier et tarte fraise-rhubarbe au printemps, abricot-framboise l’été, fruits de saison le reste de l’année. Rien n’est préparé à l’avance ni gardé en vitrine, ce qui explique qu’une commande se passe quelques jours avant la date.",
+    specialites: ["Fraisier", "Tarte Fraise Rhubarbe", "Tarte Multi-Fruits", "Pavlova"]
   },
   {
     slug: "la-cheze",
     nom: "La Chèze",
     departement: "Côtes-d’Armor",
     situation: "au sud-est de La Motte",
-    ancrage: "La Chèze fait partie des communes voisines desservies sans supplément. Les demandes y sont souvent familiales, pour des petites tablées : la taille du gâteau se cale sur le nombre exact de convives, sans rien jeter.",
-    occasions: ["Gâteaux d’anniversaire", "Desserts de fête de famille", "Biscuits personnalisés"]
+    ancrage: "Pour une tablée familiale, le format compte autant que le parfum : un gâteau calibré pour le nombre de convives évite d’en jeter la moitié. Les mignardises et les macarons se commandent aussi à l’unité, pour compléter un dessert sans repartir sur une grande pièce.",
+    specialites: ["Mignardises", "Macarons", "Tarte Double Chocolat", "Number Cake"]
   },
   {
     slug: "treve",
     nom: "Trévé",
     departement: "Côtes-d’Armor",
     situation: "entre le laboratoire et Loudéac",
-    ancrage: "Trévé est entre le laboratoire et Loudéac, donc le retrait s’organise sans détour. C’est aussi une commune où les commandes de biscuiterie personnalisée reviennent souvent, pour des événements associatifs ou d’entreprise.",
-    occasions: ["Biscuits personnalisés", "Gâteaux d’anniversaire", "Commandes associatives"]
+    ancrage: "Les biscuits et les meringues se personnalisent : forme, couleur, message, décor aux couleurs d’un événement. C’est ce qui se prête le mieux à une remise en nombre, chaque pièce étant décorée à la main plutôt qu’imprimée.",
+    specialites: ["Biscuits personnalisés", "Meringues personnalisées", "Macarons", "Mignardises"]
   },
   {
     slug: "uzel",
     nom: "Uzel",
     departement: "Côtes-d’Armor",
     situation: "au nord de La Motte",
-    ancrage: "Uzel est dans la zone desservie au nord. Pour les commandes venant d’un peu plus loin, il vaut mieux appeler tôt : les créneaux de retrait se réservent, surtout en fin de semaine.",
-    occasions: ["Gâteaux d’anniversaire", "Pièces montées", "Tartes de saison"]
+    ancrage: "Les tartes sont montées sur une pâte sucrée faite maison : double chocolat, citron noisette meringuée, ou multi-fruits selon la saison. Le décor peut être personnalisé, avec des fleurs comestibles et des macarons assortis posés au moment du montage.",
+    specialites: ["Tarte Citron Noisette Meringuée", "Tarte Double Chocolat", "Tarte Multi-Fruits", "Macarons"]
   },
   {
     slug: "pontivy",
     nom: "Pontivy",
     departement: "Morbihan",
     situation: "au sud-ouest, dans le Morbihan",
-    ancrage: "Pontivy est le point le plus au sud de la zone desservie. Le déplacement vaut surtout pour les grosses commandes, mariages et buffets, où l’on convient d’un rendez-vous unique plutôt que de plusieurs allers-retours.",
-    occasions: ["Pièces montées de mariage", "Buffets et réceptions", "Grands formats"]
+    ancrage: "Pour une réception, la pièce montée et la pyramide de macarons se conçoivent sur mesure : hauteur, parfums, couleurs, nombre de parts. Une dégustation se cale en amont, pour arrêter les saveurs avant de valider la commande.",
+    specialites: ["Pièces montées", "Pyramides de macarons", "Mignardises", "Pavlova"]
   },
   {
     slug: "merdrignac",
     nom: "Merdrignac",
     departement: "Côtes-d’Armor",
     situation: "à l’est du pays de Loudéac",
-    ancrage: "Merdrignac est à la limite est de la zone. Comme pour toutes les communes éloignées, on cale un seul rendez-vous de retrait et on prépare la commande pour qu’elle voyage bien : emballage renforcé et conseils de transport.",
-    occasions: ["Gâteaux d’anniversaire", "Pièces montées", "Commandes pour événements"]
+    ancrage: "Un gâteau qui voyage se conçoit différemment : les pièces les plus fragiles, pavlova et meringues, tiennent moins bien la route qu’une tarte ou un Number Cake sur pâte sucrée. Le choix se fait ensemble, en fonction de la distance et de la saison.",
+    specialites: ["Number Cake", "Tarte Double Chocolat", "Biscuits personnalisés", "Macarons"]
   },
   {
     slug: "ploermel",
     nom: "Ploërmel",
     departement: "Morbihan",
     situation: "au sud-est, dans le Morbihan",
-    ancrage: "Ploërmel marque la limite sud-est de la zone desservie. Les demandes qui en viennent concernent surtout les mariages et les grandes occasions, pour lesquels le rendez-vous de dégustation se prend plusieurs semaines à l’avance.",
-    occasions: ["Pièces montées de mariage", "Grandes réceptions", "Desserts de mariage"]
+    ancrage: "Pour un mariage, le dessert se décide plusieurs semaines à l’avance : pièce montée, pyramide de macarons ou dessert de buffet, avec un rendez-vous de dégustation pour arrêter les parfums. Les fleurs comestibles et les décors sont accordés aux couleurs du jour.",
+    specialites: ["Pièces montées", "Pyramides de macarons", "Mignardises", "Macarons"]
   }
 ];
 const cheminCommune = (slug) => `/patisserie-${slug}`;
@@ -1824,7 +1824,7 @@ function PageCommune({ commune }) {
         "Ce qui se commande depuis ",
         commune.nom
       ] }),
-      /* @__PURE__ */ jsx("ul", { className: "grid sm:grid-cols-2 gap-3", children: commune.occasions.map((o) => /* @__PURE__ */ jsxs("li", { className: "flex items-center gap-3 text-[#1A130C]/80", children: [
+      /* @__PURE__ */ jsx("ul", { className: "grid sm:grid-cols-2 gap-3", children: commune.specialites.map((o) => /* @__PURE__ */ jsxs("li", { className: "flex items-center gap-3 text-[#1A130C]/80", children: [
         /* @__PURE__ */ jsx("span", { className: "w-1.5 h-1.5 rounded-full bg-[#5BBFBF] flex-shrink-0" }),
         o
       ] }, o)) })
