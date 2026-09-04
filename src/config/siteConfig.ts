@@ -282,14 +282,17 @@ export const siteConfig = {
       { name: "Gluten", note: "Présent dans la plupart des créations (la Pavlova et les macarons sont sans gluten)" },
       { name: "Œufs", note: "Présents dans toutes les préparations" },
       { name: "Lait", note: "Beurre, crème, lait dans la quasi-totalité des recettes" },
-      { name: "Fruits à coque", note: "Amandes, noisettes, pistaches selon les recettes" },
-      { name: "Traces possibles", note: "Arachides et soja — atelier non spécialisé" }
+      { name: "Fruits à coque", note: "Amandes, noisettes, pistaches, noix de pécan selon les recettes" },
+      { name: "Arachides", note: "Présentes dans les créations à base de cacahuète, qui ne peuvent pas être adaptées sans" },
+      { name: "Soja", note: "Présent dans les biscuits utilisés en croustillant (spéculoos)" },
+      { name: "Traces possibles", note: "Arachides et soja dans les autres créations — atelier non spécialisé" }
     ]
   },
 
   reviews: {
     title: "Ce que disent mes clients",
-    note: "5 / 5 · 55 avis Google",
+    count: 63,
+    note: "5 / 5 · 63 avis Google",
     googleUrl: "https://www.google.com/search?q=Ô+Gourmandiz+d%27Aurore+La+Motte&ludocid=",
     list: [
       {
@@ -329,7 +332,7 @@ export const siteConfig = {
         occasion: "Tarte"
       }
     ],
-    googleCta: "Voir les 55 avis sur Google"
+    googleCta: "Voir les 63 avis sur Google"
   },
 
   finalCTA: {
