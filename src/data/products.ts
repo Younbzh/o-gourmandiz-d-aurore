@@ -319,11 +319,111 @@ export const saisonProduits: Partial<Record<Season, Product[]>> = {
       note: 'Contient des macarons (amande). Option sans fruits à coque sur demande (sans macarons).',
     },
   ],
+
+  autumn: [
+    {
+      id: 'tarte-pomme',
+      name: 'Tarte Pomme',
+      photos: ['/8473.jpg', '/8464.jpg'],
+      composition: [
+        'Pâte sucrée amande',
+        'Compote de pomme',
+        'Pommes',
+      ],
+      prix: [
+        { format: '4 personnes', prix: '15 €' },
+        { format: '6 personnes', prix: '21 €' },
+        { format: '8 personnes', prix: '28 €' },
+        { format: '10 personnes', prix: '34 €' },
+      ],
+      allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande)'],
+      note: 'Option sans fruits à coque sur demande.',
+    },
+    {
+      id: 'tarte-pomme-speculoos',
+      name: 'Tarte Pomme Spéculoos',
+      photos: ['/8470.jpg'],
+      composition: [
+        'Pâte sucrée amande',
+        'Croustillant spéculoos',
+        'Compote et brunoise de pomme',
+        'Ganache montée spéculoos',
+      ],
+      prix: [
+        { format: '4 personnes', prix: '20 €' },
+        { format: '6 personnes', prix: '29 €' },
+        { format: '8 personnes', prix: '38 €' },
+        { format: '10 personnes', prix: '46 €' },
+      ],
+      allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande)', 'Soja (spéculoos)'],
+      note: 'Option sans fruits à coque sur demande.',
+    },
+    {
+      id: 'tarte-poire-pecan',
+      name: 'Tarte Poire Pécan',
+      photos: ['/8458.jpg', '/8461.jpg'],
+      composition: [
+        'Pâte sucrée amande',
+        'Crème amande éclats de noix de pécan',
+        'Gel et brunoise de poire',
+        'Ganache montée noix de pécan',
+      ],
+      prix: [
+        { format: '4 personnes', prix: '24,50 €' },
+        { format: '6 personnes', prix: '34,50 €' },
+        { format: '8 personnes', prix: '44,50 €' },
+        { format: '10 personnes', prix: '54,50 €' },
+      ],
+      allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noix de pécan)'],
+    },
+    {
+      id: 'tarte-caramel-cacahuete',
+      name: 'Tarte Caramel Cacahuète',
+      photos: ['/8476.jpg', '/8479.jpg'],
+      composition: [
+        'Pâte sucrée amande',
+        'Caramel et cacahuètes',
+        'Ganache chocolat noir',
+        'Ganache montée vanille',
+      ],
+      prix: [
+        { format: '4 personnes', prix: '24,50 €' },
+        { format: '6 personnes', prix: '34,50 €' },
+        { format: '8 personnes', prix: '44,50 €' },
+        { format: '10 personnes', prix: '54,50 €' },
+      ],
+      allergenes: ['Gluten', 'Œufs', 'Lait', 'Arachides', 'Fruits à coque (amande)'],
+      note: 'Contient des arachides (cacahuètes). Cette création ne peut pas être adaptée sans arachides.',
+    },
+  ],
 };
 
-/** Tous les produits, toutes saisons confondues (pour la page produit). */
+/*
+  La carte d'automne est prête (compositions, tarifs et photos validés par Aurore
+  le 3 septembre 2026) mais elle ne doit PAS s'afficher tant qu'Aurore n'a pas
+  lancé sa production — elle vise fin septembre sans date arrêtée.
+
+  Sans ce garde-fou, `getSeason()` la publierait toute seule le 22 septembre.
+  Le jour où elle donne son feu vert : passer à `true`, puis redéployer —
+  le HTML prérendu fige la saison au moment du build.
+  D'ici là, la page Carte affiche « La carte d'automne arrive bientôt. »
+
+  Les arachides (Tarte Caramel Cacahuète) et le soja (spéculoos) sont déjà
+  déclarés en présence avérée dans siteConfig.allergens — rien à reprendre là.
+*/
+export const carteAutomnePubliee = false;
+
+/** Les saisons réellement visibles par les visiteurs. */
+function saisonsPubliees(): Partial<Record<Season, Product[]>> {
+  if (carteAutomnePubliee) return saisonProduits;
+  const { autumn, ...publiees } = saisonProduits;
+  void autumn;
+  return publiees;
+}
+
+/** Tous les produits publiés, toutes saisons confondues (pour la page produit). */
 export function getAllProducts(): Product[] {
-  const seasonal = Object.values(saisonProduits).flat().filter(Boolean) as Product[];
+  const seasonal = Object.values(saisonsPubliees()).flat().filter(Boolean) as Product[];
   return [...incontournables, ...seasonal];
 }
 
@@ -332,5 +432,5 @@ export function getProductById(id: string): Product | undefined {
 }
 
 export function getCurrentSeasonProducts(): Product[] {
-  return saisonProduits[getSeason()] ?? [];
+  return saisonsPubliees()[getSeason()] ?? [];
 }

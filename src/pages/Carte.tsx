@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { getSeason, seasonName } from '../utils/season';
-import { incontournables, saisonProduits, type Product } from '../data/products';
+import { incontournables, getCurrentSeasonProducts, type Product } from '../data/products';
 
 function ProductCard({ product, tab }: { product: Product; tab: string }) {
   const rawPrix = product.prix[0]?.prix ?? '';
@@ -51,7 +51,7 @@ export default function Carte() {
   const initialTab = searchParams.get('cat') === 'saison' ? 'saison' : 'incontournables';
   const [tab, setTab] = useState<'incontournables' | 'saison'>(initialTab);
   const season = getSeason();
-  const produitsSaison = saisonProduits[season] ?? [];
+  const produitsSaison = getCurrentSeasonProducts();
 
   const changeTab = (t: 'incontournables' | 'saison') => {
     setTab(t);
