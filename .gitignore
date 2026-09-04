@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# Photos reçues de la cliente qui ne doivent PAS être publiées :
+# tout fichier placé dans public/ est servi en ligne, même sans lien vers lui.
+photos-source
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

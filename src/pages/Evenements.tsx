@@ -76,6 +76,12 @@ function SectionCarousel({ photos, alt }: { photos: string[]; alt: string }) {
 }
 
 const gallery = [
+  { src: '/8484.jpg', alt: 'Pièce montée de macarons pour un mariage' },
+  { src: '/8493.jpg', alt: 'Pièce montée à la française — fraisier et chocolat, décor floral' },
+  { src: '/8496.jpg', alt: 'Mignardises aux fruits frais et chantilly vanille' },
+  { src: '/8499.jpg', alt: 'Mignardises citron meringuées et fraise' },
+  { src: '/8487.jpg', alt: 'Tarte fraise crumble décor dinosaures pour un anniversaire' },
+  { src: '/8490.jpg', alt: 'Number cake 2 ans aux framboises, décor capybaras' },
   { src: '/IMG-20260711-WA0031.jpg', alt: 'Pavlova aux fruits et fleurs' },
   { src: '/6437.jpg', alt: 'Number cake fruits rouges' },
   { src: '/IMG-20260711-WA0002.jpg', alt: 'Mignardises 50 ans' },

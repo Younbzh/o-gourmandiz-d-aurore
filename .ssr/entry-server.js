@@ -133,11 +133,14 @@ const siteConfig = {
       { name: "Gluten", note: "Présent dans la plupart des créations (la Pavlova et les macarons sont sans gluten)" },
       { name: "Œufs", note: "Présents dans toutes les préparations" },
       { name: "Lait", note: "Beurre, crème, lait dans la quasi-totalité des recettes" },
-      { name: "Fruits à coque", note: "Amandes, noisettes, pistaches selon les recettes" },
-      { name: "Traces possibles", note: "Arachides et soja — atelier non spécialisé" }
+      { name: "Fruits à coque", note: "Amandes, noisettes, pistaches, noix de pécan selon les recettes" },
+      { name: "Arachides", note: "Présentes dans les créations à base de cacahuète, qui ne peuvent pas être adaptées sans" },
+      { name: "Soja", note: "Présent dans les biscuits utilisés en croustillant (spéculoos)" },
+      { name: "Traces possibles", note: "Arachides et soja dans les autres créations — atelier non spécialisé" }
     ]
   },
   reviews: {
+    count: 63,
     list: [
       {
         name: "Jean-marc Gallais",
@@ -656,7 +659,10 @@ function Home() {
           /* @__PURE__ */ jsx("div", { className: "flex gap-0.5", children: Array.from({ length: 5 }).map((_, j) => /* @__PURE__ */ jsx(Star, { className: "w-3.5 h-3.5 fill-[#E6D39A] text-[#E6D39A]" }, j)) }),
           /* @__PURE__ */ jsx("span", { className: "text-white text-sm font-semibold", children: "5 / 5" }),
           /* @__PURE__ */ jsx("span", { className: "text-white/30 text-sm", children: "·" }),
-          /* @__PURE__ */ jsx("span", { className: "text-white/60 text-sm", children: "55 avis Google" })
+          /* @__PURE__ */ jsxs("span", { className: "text-white/60 text-sm", children: [
+            siteConfig.reviews.count,
+            " avis Google"
+          ] })
         ] })
       ] }),
       /* @__PURE__ */ jsx("div", { className: "grid md:grid-cols-2 lg:grid-cols-3 gap-5", children: siteConfig.reviews.list.map((review, i) => /* @__PURE__ */ jsxs("div", { className: "border border-white/10 rounded-2xl p-7 flex flex-col", children: [
@@ -680,7 +686,9 @@ function Home() {
           className: "inline-flex items-center gap-2 border border-white/20 text-white/70 hover:text-white hover:border-white/40 px-7 py-3 rounded-full text-sm font-semibold transition-colors",
           children: [
             /* @__PURE__ */ jsx(Star, { className: "w-4 h-4 fill-[#E6D39A] text-[#E6D39A]" }),
-            "Voir les 55 avis sur Google"
+            "Voir les ",
+            siteConfig.reviews.count,
+            " avis sur Google"
           ]
         }
       ) })
@@ -1004,14 +1012,97 @@ const saisonProduits = {
       allergenes: ["Gluten", "Œufs", "Lait", "Fruits à coque (amande)"],
       note: "Contient des macarons (amande). Option sans fruits à coque sur demande (sans macarons)."
     }
+  ],
+  autumn: [
+    {
+      id: "tarte-pomme",
+      name: "Tarte Pomme",
+      photos: ["/8473.jpg", "/8464.jpg"],
+      composition: [
+        "Pâte sucrée amande",
+        "Compote de pomme",
+        "Pommes"
+      ],
+      prix: [
+        { format: "4 personnes", prix: "15 €" },
+        { format: "6 personnes", prix: "21 €" },
+        { format: "8 personnes", prix: "28 €" },
+        { format: "10 personnes", prix: "34 €" }
+      ],
+      allergenes: ["Gluten", "Œufs", "Lait", "Fruits à coque (amande)"],
+      note: "Option sans fruits à coque sur demande."
+    },
+    {
+      id: "tarte-pomme-speculoos",
+      name: "Tarte Pomme Spéculoos",
+      photos: ["/8470.jpg"],
+      composition: [
+        "Pâte sucrée amande",
+        "Croustillant spéculoos",
+        "Compote et brunoise de pomme",
+        "Ganache montée spéculoos"
+      ],
+      prix: [
+        { format: "4 personnes", prix: "20 €" },
+        { format: "6 personnes", prix: "29 €" },
+        { format: "8 personnes", prix: "38 €" },
+        { format: "10 personnes", prix: "46 €" }
+      ],
+      allergenes: ["Gluten", "Œufs", "Lait", "Fruits à coque (amande)", "Soja (spéculoos)"],
+      note: "Option sans fruits à coque sur demande."
+    },
+    {
+      id: "tarte-poire-pecan",
+      name: "Tarte Poire Pécan",
+      photos: ["/8458.jpg", "/8461.jpg"],
+      composition: [
+        "Pâte sucrée amande",
+        "Crème amande éclats de noix de pécan",
+        "Gel et brunoise de poire",
+        "Ganache montée noix de pécan"
+      ],
+      prix: [
+        { format: "4 personnes", prix: "24,50 €" },
+        { format: "6 personnes", prix: "34,50 €" },
+        { format: "8 personnes", prix: "44,50 €" },
+        { format: "10 personnes", prix: "54,50 €" }
+      ],
+      allergenes: ["Gluten", "Œufs", "Lait", "Fruits à coque (amande, noix de pécan)"]
+    },
+    {
+      id: "tarte-caramel-cacahuete",
+      name: "Tarte Caramel Cacahuète",
+      photos: ["/8476.jpg", "/8479.jpg"],
+      composition: [
+        "Pâte sucrée amande",
+        "Caramel et cacahuètes",
+        "Ganache chocolat noir",
+        "Ganache montée vanille"
+      ],
+      prix: [
+        { format: "4 personnes", prix: "24,50 €" },
+        { format: "6 personnes", prix: "34,50 €" },
+        { format: "8 personnes", prix: "44,50 €" },
+        { format: "10 personnes", prix: "54,50 €" }
+      ],
+      allergenes: ["Gluten", "Œufs", "Lait", "Arachides", "Fruits à coque (amande)"],
+      note: "Contient des arachides (cacahuètes). Cette création ne peut pas être adaptée sans arachides."
+    }
   ]
 };
+function saisonsPubliees() {
+  const { autumn, ...publiees } = saisonProduits;
+  return publiees;
+}
 function getAllProducts() {
-  const seasonal = Object.values(saisonProduits).flat().filter(Boolean);
+  const seasonal = Object.values(saisonsPubliees()).flat().filter(Boolean);
   return [...incontournables, ...seasonal];
 }
 function getProductById(id) {
   return getAllProducts().find((p) => p.id === id);
+}
+function getCurrentSeasonProducts() {
+  return saisonsPubliees()[getSeason()] ?? [];
 }
 function ProductCard({ product, tab }) {
   const rawPrix = product.prix[0]?.prix ?? "";
@@ -1056,7 +1147,7 @@ function Carte() {
   const initialTab = searchParams.get("cat") === "saison" ? "saison" : "incontournables";
   const [tab, setTab] = useState(initialTab);
   const season = getSeason();
-  const produitsSaison = saisonProduits[season] ?? [];
+  const produitsSaison = getCurrentSeasonProducts();
   const changeTab = (t) => {
     setTab(t);
     setSearchParams(t === "saison" ? { cat: "saison" } : {}, { replace: true });
@@ -1332,6 +1423,12 @@ function SectionCarousel({ photos, alt }) {
   );
 }
 const gallery = [
+  { src: "/8484.jpg", alt: "Pièce montée de macarons pour un mariage" },
+  { src: "/8493.jpg", alt: "Pièce montée à la française — fraisier et chocolat, décor floral" },
+  { src: "/8496.jpg", alt: "Mignardises aux fruits frais et chantilly vanille" },
+  { src: "/8499.jpg", alt: "Mignardises citron meringuées et fraise" },
+  { src: "/8487.jpg", alt: "Tarte fraise crumble décor dinosaures pour un anniversaire" },
+  { src: "/8490.jpg", alt: "Number cake 2 ans aux framboises, décor capybaras" },
   { src: "/IMG-20260711-WA0031.jpg", alt: "Pavlova aux fruits et fleurs" },
   { src: "/6437.jpg", alt: "Number cake fruits rouges" },
   { src: "/IMG-20260711-WA0002.jpg", alt: "Mignardises 50 ans" },
