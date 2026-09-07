@@ -70,6 +70,14 @@ const PAGES: { chemin: string; url: string; titre: string; description: string }
       `Le parcours d'Aurore et sa façon de travailler : tout sur commande, ` +
       `rien en stock, des produits de saison.`,
   },
+  {
+    chemin: 'confidentialite',
+    url: '/confidentialite',
+    titre: `Mentions légales et confidentialité — Ô Gourmandiz d'Aurore`,
+    description:
+      `Éditeur, hébergement, usage des données et cookies du site d'Ô Gourmandiz d'Aurore. ` +
+      `La mesure d'audience ne démarre qu'avec votre accord, retirable à tout moment.`,
+  },
 ];
 
 export function rendrePages(): PageRendue[] {

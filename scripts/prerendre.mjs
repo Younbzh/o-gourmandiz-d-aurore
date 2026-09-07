@@ -92,7 +92,9 @@ fs.writeFileSync(
       .map((a) => {
         const url = a ? `${SITE}/${a}` : `${SITE}/`;
         // L'accueil et la carte changent plus souvent que les pages commune.
-        const priorite = a === '' ? '1.0' : a.startsWith('patisserie-') ? '0.7' : '0.8';
+        // Les mentions légales sont déclarées, mais ne se disputent aucun mot-clé.
+        const priorite =
+          a === '' ? '1.0' : a === 'confidentialite' ? '0.2' : a.startsWith('patisserie-') ? '0.7' : '0.8';
         return `  <url>\n    <loc>${url}</loc>\n    <lastmod>${aujourdhui}</lastmod>\n    <priority>${priorite}</priority>\n  </url>`;
       })
       .join('\n') +

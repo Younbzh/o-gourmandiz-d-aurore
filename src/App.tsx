@@ -6,6 +6,7 @@ import Produit from './pages/Produit';
 import Evenements from './pages/Evenements';
 import Commander from './pages/Commander';
 import About from './pages/About';
+import Confidentialite from './pages/Confidentialite';
 import PageCommune from './pages/PageCommune';
 import NonTrouvee from './pages/NonTrouvee';
 import { communes, cheminCommune } from './data/communes';
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="evenements" element={<Evenements />} />
         <Route path="commander" element={<Commander />} />
         <Route path="about" element={<About />} />
+        <Route path="confidentialite" element={<Confidentialite />} />
 
         {/*
           Une page par commune desservie. Le chemin est écrit en dur plutôt que

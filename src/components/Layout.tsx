@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Phone, MessageCircle, Menu, X } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { communes, cheminCommune } from '../data/communes';
+import BandeauCookies from './BandeauCookies';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -188,8 +189,12 @@ export default function Layout() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 py-5 text-center text-xs text-white/25 max-w-6xl mx-auto px-5">
-          © {new Date().getFullYear()} {siteConfig.businessName}
+        <div className="border-t border-white/10 py-5 text-center text-xs text-white/25 max-w-6xl mx-auto px-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2">
+          <span>© {new Date().getFullYear()} {siteConfig.businessName}</span>
+          <span className="text-white/15">·</span>
+          <Link to="/confidentialite" className="hover:text-[#5BBFBF] transition-colors">
+            Mentions légales & confidentialité
+          </Link>
         </div>
       </footer>
 
@@ -211,6 +216,8 @@ export default function Layout() {
           </a>
         </div>
       )}
+
+      <BandeauCookies />
     </>
   );
 }
