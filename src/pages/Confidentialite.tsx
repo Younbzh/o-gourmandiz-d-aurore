@@ -2,12 +2,6 @@ import { Link } from 'react-router-dom';
 import { siteConfig } from '../config/siteConfig';
 import { ecrireConsentement, useConsentement } from '../utils/mesure';
 
-/*
-  À compléter dès qu'Aurore les communique : le SIRET et la forme juridique
-  (micro-entreprise, EI…) sont obligatoires dans des mentions légales. Le reste
-  de la page est exact et peut vivre sans, mais ces deux lignes manquent.
-*/
-
 function Bloc({ titre, children }: { titre: string; children: React.ReactNode }) {
   return (
     <section className="border-t border-[#1A130C]/10 pt-8 mt-8">
@@ -43,6 +37,8 @@ export default function Confidentialite() {
         <Bloc titre="Éditeur du site">
           <p>
             {siteConfig.businessName} — Aurore Delmas, pâtissière.<br />
+            Entreprise individuelle sous le régime de la micro-entreprise.<br />
+            SIRET : 990 868 721 00012.<br />
             {address.street}, {address.postalCode} {address.city} ({address.region}, {address.country}).<br />
             Téléphone : <a href={`tel:${phone.replace(/\s/g, '')}`} className="text-[#5BBFBF] hover:underline">{phone}</a> ·{' '}
             E-mail : <a href={`mailto:${email}`} className="text-[#5BBFBF] hover:underline">{email}</a>
