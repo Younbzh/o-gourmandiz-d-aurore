@@ -10,6 +10,11 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+
+# Sortie du prérendu : régénérée par `npm run build`, et doublon de toutes
+# les photos de public/. Elle n'a rien à faire dans le dépôt.
+.ssr
+
 *.local
 
 # Photos reçues de la cliente qui ne doivent PAS être publiées :
