@@ -95,8 +95,25 @@ function charger(): void {
     // eslint-disable-next-line prefer-rest-params
     window.dataLayer!.push(arguments);
   };
+  /*
+    Le « mode Consentement » de Google. Sans ces signaux, gtag considère tout
+    comme accordé, publicité comprise : le site déposerait des cookies
+    publicitaires alors que le bandeau promet le contraire.
+
+    Le stockage publicitaire reste refusé pour toujours — le bandeau ne demande
+    que la mesure d'audience, il ne peut donc pas servir à autoriser autre
+    chose. Seul `analytics_storage` passe à accordé, et seulement ici, où l'on
+    ne vient que sur un « Accepter ».
+  */
+  window.gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+  });
   window.gtag('js', new Date());
   window.gtag('config', ID_MESURE, { send_page_view: false });
+  window.gtag('consent', 'update', { analytics_storage: 'granted' });
 }
 
 /** À appeler au démarrage : ne charge rien si le consentement manque. */
