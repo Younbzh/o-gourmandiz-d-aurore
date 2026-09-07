@@ -75,25 +75,25 @@ function SectionCarousel({ photos, alt }: { photos: string[]; alt: string }) {
   );
 }
 
+/*
+  Le méli-mélo du bas ne montre que les pièces personnalisées : celles qui n'ont
+  pas de catégorie à elles. Les pièces montées, pyramides de macarons et
+  mignardises vivent dans leur section ou sur leur fiche de la carte — les
+  répéter ici dilue la galerie et vide les catégories de leurs plus belles
+  photos.
+*/
 const gallery = [
-  { src: '/8484.jpg', alt: 'Pièce montée de macarons pour un mariage' },
-  { src: '/8493.jpg', alt: 'Pièce montée à la française — fraisier et chocolat, décor floral' },
-  { src: '/8496.jpg', alt: 'Mignardises aux fruits frais et chantilly vanille' },
-  { src: '/8499.jpg', alt: 'Mignardises citron meringuées et fraise' },
   { src: '/8487.jpg', alt: 'Tarte fraise crumble décor dinosaures pour un anniversaire' },
   { src: '/8490.jpg', alt: 'Number cake 2 ans aux framboises, décor capybaras' },
   { src: '/IMG-20260711-WA0031.jpg', alt: 'Pavlova aux fruits et fleurs' },
   { src: '/6437.jpg', alt: 'Number cake fruits rouges' },
-  { src: '/IMG-20260711-WA0002.jpg', alt: 'Mignardises 50 ans' },
   { src: '/6401.jpg', alt: 'Number cake 50 ans' },
-  { src: '/IMG-20260711-WA0026.jpg', alt: 'Mignardises fleur vanille' },
   { src: '/IMG-20260711-WA0008.jpg', alt: 'Number cake anniversaire fraises' },
   { src: '/6442.jpg', alt: 'Number cake chocolat' },
   { src: '/IMG-20260711-WA0020.jpg', alt: 'Number cake fruits exotiques' },
   { src: '/IMG-20260711-WA0027.jpg', alt: 'Number cake 1 an aux fruits' },
   { src: '/IMG-20260711-WA0033.jpg', alt: 'Tarte aux fruits rouges' },
   { src: '/IMG-20260711-WA0013.jpg', alt: 'Number cake citron' },
-  { src: '/6389.jpg', alt: 'Pyramide de macarons rose' },
 ];
 
 export default function Evenements() {
@@ -162,7 +162,7 @@ export default function Evenements() {
           <div className="text-center mb-10">
             <p className="label mb-3">En images</p>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-[#1A130C] italic">
-              Quelques créations
+              Gâteaux personnalisés
             </h2>
           </div>
           <div className="columns-2 md:columns-3 lg:columns-4 gap-3">

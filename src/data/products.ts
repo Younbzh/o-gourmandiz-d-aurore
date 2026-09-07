@@ -164,10 +164,13 @@ export const incontournables: Product[] = [
     name: 'Mignardises',
     photos: [
       '/IMG-20260801-WA0006.jpg',
+      '/8496.jpg',
+      '/8499.jpg',
       '/7757.jpg',
       '/7756.jpg',
       '/IMG-20260711-WA0024.jpg',
       '/IMG-20260711-WA0002.jpg',
+      '/IMG-20260711-WA0026.jpg',
     ],
     compositionLabel: 'Parfums',
     composition: [
