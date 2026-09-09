@@ -402,19 +402,15 @@ export const saisonProduits: Partial<Record<Season, Product[]>> = {
 };
 
 /*
-  La carte d'automne est prête (compositions, tarifs et photos validés par Aurore
-  le 3 septembre 2026) mais elle ne doit PAS s'afficher tant qu'Aurore n'a pas
-  lancé sa production — elle vise fin septembre sans date arrêtée.
-
-  Sans ce garde-fou, `getSeason()` la publierait toute seule le 22 septembre.
-  Le jour où elle donne son feu vert : passer à `true`, puis redéployer —
-  le HTML prérendu fige la saison au moment du build.
-  D'ici là, la page Carte affiche « La carte d'automne arrive bientôt. »
+  Feu vert d'Aurore le 9 septembre 2026 : la carte d'automne est publiée, et
+  montrée en avance à côté de celle d'été plutôt qu'attendre le 22 septembre.
+  Ses clientes commandent longtemps à l'avance — une pièce de début octobre se
+  décide maintenant, et elle ne se décide pas sur une carte qu'on ne voit pas.
 
   Les arachides (Tarte Caramel Cacahuète) et le soja (spéculoos) sont déjà
   déclarés en présence avérée dans siteConfig.allergens — rien à reprendre là.
 */
-export const carteAutomnePubliee = false;
+export const carteAutomnePubliee = true;
 
 /** Les saisons réellement visibles par les visiteurs. */
 function saisonsPubliees(): Partial<Record<Season, Product[]>> {
@@ -422,6 +418,20 @@ function saisonsPubliees(): Partial<Record<Season, Product[]>> {
   const { autumn, ...publiees } = saisonProduits;
   void autumn;
   return publiees;
+}
+
+/**
+ * La carte de la saison suivante, montrée avant l'heure.
+ *
+ * Ne renvoie quelque chose qu'en été : le 22 septembre, l'automne devient la
+ * carte de saison, et la montrer encore ici en ferait un doublon — deux onglets
+ * pour les mêmes gâteaux. La bascule est donc automatique, sans rien à changer
+ * ce jour-là.
+ */
+export function getCarteEnAvance(): { saison: Season; produits: Product[] } | null {
+  if (!carteAutomnePubliee || getSeason() !== 'summer') return null;
+  const produits = saisonProduits.autumn;
+  return produits?.length ? { saison: 'autumn', produits } : null;
 }
 
 /** Tous les produits publiés, toutes saisons confondues (pour la page produit). */

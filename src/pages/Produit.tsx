@@ -95,8 +95,9 @@ export default function Produit() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const from = searchParams.get('from') === 'saison' ? 'saison' : 'incontournables';
-  const backTo = from === 'saison' ? '/carte?cat=saison' : '/carte';
+  // Ramène à l'onglet d'où l'on vient, carte en avance comprise.
+  const from = searchParams.get('from');
+  const backTo = from === 'saison' || from === 'avance' ? `/carte?cat=${from}` : '/carte';
   const product = id ? getProductById(id) : undefined;
 
   if (!product) {
