@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
@@ -61,6 +62,34 @@ export default function Home() {
   const season = getSeason();
   const hero = seasonHero[season];
 
+  /*
+    La photo d'accueil, mise en mouvement.
+
+    Un seul plan, une poussée très lente sur la pyramide, aucune coupe. Un
+    montage à plusieurs photos se lit immédiatement comme un diaporama ; c'est
+    la coupe qui trahit, pas le fait que la source soit fixe.
+
+    La source reste SA photo, et non un plan de banque : côte à côte, ses
+    macarons turquoise battent n'importe quelles mains anonymes dans une
+    cuisine quelconque. L'affiche de la vidéo est cette même photo, donc rien
+    ne bouge pendant le chargement ni en mouvement réduit.
+
+    Deux montages, un seul téléchargement : l'accueil fait toute la hauteur de
+    l'écran, et sur un téléphone une vidéo 16/9 y perdrait les deux tiers de sa
+    largeur. Le choix se fait ici parce que `<source media>` n'est pas appliqué
+    sur une vidéo, et que deux <video> dont l'un est masqué se téléchargent
+    tous les deux.
+  */
+  const [srcVideo, setSrcVideo] = useState('');
+  useEffect(() => {
+    const mq = window.matchMedia('(max-aspect-ratio: 1/1)');
+    const choisir = () =>
+      setSrcVideo(mq.matches ? '/hero-pyramide-mobile.mp4' : '/hero-pyramide.mp4');
+    choisir();
+    mq.addEventListener('change', choisir);
+    return () => mq.removeEventListener('change', choisir);
+  }, []);
+
   return (
     <>
       {/* Hero */}
@@ -69,6 +98,18 @@ export default function Home() {
           src="/6386.jpg"
           alt="Pyramide de macarons Ô'Gourmandiz d'Aurore"
           className="absolute inset-0 w-full h-full object-cover object-top"
+        />
+        <video
+          src={srcVideo || undefined}
+          poster="/6386.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+          tabIndex={-1}
+          className="video-hero absolute inset-0 w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1A130C]/90 via-[#1A130C]/25 to-transparent" />
 

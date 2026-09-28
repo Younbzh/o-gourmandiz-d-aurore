@@ -60,3 +60,12 @@ body[data-theme="light"] .glass {
 body[data-theme="light"] p {
   color: #333;
 }
+
+/*
+  Photo d'accueil animée : masquée quand le système demande moins de mouvement.
+  L'affiche étant la photo elle-même, la page est alors rigoureusement
+  identique à ce qu'elle était avant — on ne perd rien.
+*/
+@media (prefers-reduced-motion: reduce) {
+  .video-hero { display: none; }
+}
