@@ -83,8 +83,21 @@ export default function Home() {
   const [srcVideo, setSrcVideo] = useState('');
   useEffect(() => {
     const mq = window.matchMedia('(max-aspect-ratio: 1/1)');
-    const choisir = () =>
-      setSrcVideo(mq.matches ? '/hero-pyramide-mobile-v4.mp4' : '/hero-pyramide-v2.mp4');
+    /*
+      Rien sur téléphone, et c'est une contrainte de matière, pas un choix.
+
+      La photo source fait 1080 de large ; un écran de téléphone en affiche
+      environ 1170 physiques. Elle tombe donc presque au pixel près, et elle
+      est nette. Mais un travelling suppose d'y découper une fenêtre plus
+      petite — 560 de large ici —, que le téléphone étire ensuite deux fois.
+      L'image perd sa netteté, et la fenêtre qui avance de 1,06 pixel par
+      image saute visiblement entre 1 et 2.
+
+      Le grand écran n'a pas ce problème : la fenêtre y est rendue à sa taille
+      ou en dessous. L'animation lui reste réservée, et le téléphone garde la
+      photo, qui vaut mieux.
+    */
+    const choisir = () => setSrcVideo(mq.matches ? '' : '/hero-pyramide-v2.mp4');
     choisir();
     mq.addEventListener('change', choisir);
     return () => mq.removeEventListener('change', choisir);
