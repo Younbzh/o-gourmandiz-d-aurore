@@ -84,7 +84,7 @@ export default function Home() {
   useEffect(() => {
     const mq = window.matchMedia('(max-aspect-ratio: 1/1)');
     const choisir = () =>
-      setSrcVideo(mq.matches ? '/hero-pyramide-mobile-v2.mp4' : '/hero-pyramide-v2.mp4');
+      setSrcVideo(mq.matches ? '/hero-pyramide-mobile-v3.mp4' : '/hero-pyramide-v2.mp4');
     choisir();
     mq.addEventListener('change', choisir);
     return () => mq.removeEventListener('change', choisir);
