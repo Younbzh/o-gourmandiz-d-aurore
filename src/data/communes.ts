@@ -104,13 +104,23 @@ export const communes: Commune[] = [
     specialites: ['Number Cake', 'Tarte Double Chocolat', 'Biscuits personnalisés', 'Macarons'],
   },
   {
-    slug: 'ploermel',
-    nom: 'Ploërmel',
-    departement: 'Morbihan',
-    situation: 'au sud-est, dans le Morbihan',
+    /*
+      Plouguenast et Langast ont fusionné : c'est une seule commune depuis
+      2019, et l'écrire en deux morceaux ferait une faute que tout le monde
+      relèverait ici.
+
+      Elle a remplacé Ploërmel, qui était à 43 km de La Motte — le double de
+      la plus lointaine des autres. Pour un gâteau qu'on vient chercher, c'est
+      hors de portée. Plouguenast-Langast est à 5 km : la plus proche de
+      toutes, et elle manquait.
+    */
+    slug: 'plouguenast-langast',
+    nom: 'Plouguenast-Langast',
+    departement: 'Côtes-d’Armor',
+    situation: 'juste au nord, à quelques minutes',
     ancrage:
-      'Pour un mariage, le dessert se décide plusieurs semaines à l’avance : pièce montée, pyramide de macarons ou dessert de buffet, avec un rendez-vous de dégustation pour arrêter les parfums. Les fleurs comestibles et les décors sont accordés aux couleurs du jour.',
-    specialites: ['Pièces montées', 'Pyramides de macarons', 'Mignardises', 'Macarons'],
+      'La commune la plus proche de l’atelier : c’est ici que le retrait se fait le plus simplement, y compris pour une commande décidée dans la semaine. Anniversaires, baptêmes, desserts de repas de famille — les formats se règlent au nombre de convives, et le décor se choisit ensemble.',
+    specialites: ['Number Cake', 'Layer Cake', 'Macarons', 'Biscuits personnalisés'],
   },
 ];
 

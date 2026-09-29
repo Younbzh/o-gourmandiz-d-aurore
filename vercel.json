@@ -6,5 +6,12 @@
       "source": "/carte/:id",
       "destination": "/carte/index.html"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/patisserie-ploermel",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
