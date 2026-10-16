@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Check, Phone, MessageCircle } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
+import { lienWhatsApp } from '../utils/whatsapp';
 
 type Occasion = 'Anniversaire' | 'Mariage / Fiançailles' | 'Baptême / Naissance' | 'Événement professionnel' | 'Autre';
 type Creation = 'Number cake' | 'Tarte de saison' | 'Macarons' | 'Mignardises' | 'Biscuits personnalisés' | 'Pièce montée à la française' | 'Pyramide de macarons' | 'Je ne sais pas encore';
@@ -67,22 +68,21 @@ export default function Commander() {
   };
 
   const handleSubmit = () => {
-    // Pas d'émoji : WhatsApp les affiche en losanges « ? » chez Aurore.
     const msg = [
-      `Bonjour Aurore ! Je souhaite passer une commande.`,
+      `Bonjour Aurore ! Je souhaite passer une commande. 🎂`,
       ``,
-      `Occasion : ${form.occasion}`,
-      `Date souhaitée : ${dateFr(form.date)}`,
-      `Nombre de personnes : ${form.guests}`,
-      `Type de création : ${form.creation}`,
-      form.wishes ? `Mes souhaits : ${form.wishes}` : '',
+      `📌 Occasion : ${form.occasion}`,
+      `📅 Date souhaitée : ${dateFr(form.date)}`,
+      `👥 Nombre de personnes : ${form.guests}`,
+      `✨ Type de création : ${form.creation}`,
+      form.wishes ? `💬 Mes souhaits : ${form.wishes}` : '',
       ``,
-      `Nom : ${form.lastName.trim()}`,
-      `Prénom : ${form.name.trim()}`,
-      `Téléphone : ${form.phone}`,
+      `📋 Nom : ${form.lastName.trim()}`,
+      `📋 Prénom : ${form.name.trim()}`,
+      `📱 Téléphone : ${form.phone}`,
     ].filter(Boolean).join('\n');
 
-    window.open(`https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(lienWhatsApp(msg), '_blank');
     setSubmitted(true);
   };
 
@@ -111,7 +111,7 @@ export default function Commander() {
               {siteConfig.contact.phone}
             </a>
             <a
-              href={`https://wa.me/${siteConfig.contact.whatsapp}`}
+              href={lienWhatsApp()}
               target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 w-full bg-[#25D366] text-white py-4 rounded-full font-semibold hover:bg-[#1DAE54] transition-colors"
             >

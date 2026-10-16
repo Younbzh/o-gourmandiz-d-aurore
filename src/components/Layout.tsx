@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 import { Phone, MessageCircle, Menu, X } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
+import { lienWhatsApp } from '../utils/whatsapp';
 import { communes, cheminCommune } from '../data/communes';
 import BandeauCookies from './BandeauCookies';
 
@@ -135,7 +136,7 @@ export default function Layout() {
               <a href={`tel:${siteConfig.contact.phone.replace(/\s/g,'')}`} className="block hover:text-white transition-colors">
                 {siteConfig.contact.phone}
               </a>
-              <a href={`https://wa.me/${siteConfig.contact.whatsapp}`} target="_blank" rel="noopener noreferrer"
+              <a href={lienWhatsApp()} target="_blank" rel="noopener noreferrer"
                 className="block hover:text-white transition-colors">
                 WhatsApp
               </a>
@@ -208,7 +209,7 @@ export default function Layout() {
             <Phone className="w-4 h-4" /> Appeler
           </a>
           <a
-            href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Bonjour%20Aurore%20!%20Je%20souhaite%20passer%20une%20commande`}
+            href={lienWhatsApp('Bonjour Aurore ! Je souhaite passer une commande 🎂')}
             target="_blank" rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-2 py-4 bg-[#5BBFBF] text-white font-semibold text-sm"
           >

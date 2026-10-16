@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { useParams, useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ArrowLeft, MessageCircle } from 'lucide-react';
-import { siteConfig } from '../config/siteConfig';
+import { lienWhatsApp } from '../utils/whatsapp';
 import { getProductById } from '../data/products';
 
 function BigCarousel({ photos, alt, badge }: { photos: string[]; alt: string; badge?: boolean }) {
@@ -111,9 +111,9 @@ export default function Produit() {
     );
   }
 
-  const commandeUrl = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
+  const commandeUrl = lienWhatsApp(
     `Bonjour Aurore ! Je souhaite commander : ${product.name}. `
-  )}`;
+  );
 
   return (
     <div className="bg-[#FDFAF6] min-h-screen pt-28 pb-20">

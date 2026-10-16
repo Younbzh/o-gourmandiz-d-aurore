@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Phone, MessageCircle, ArrowRight } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
+import { lienWhatsApp } from '../utils/whatsapp';
 import type { Commune } from '../data/communes';
 
 /**
@@ -60,7 +61,7 @@ export default function PageCommune({ commune }: { commune: Commune }) {
               <Phone className="w-4 h-4" /> {siteConfig.contact.phone}
             </a>
             <a
-              href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Bonjour%20Aurore%20!%20Je%20vous%20contacte%20depuis%20${encodeURIComponent(commune.nom)}%20pour%20une%20commande`}
+              href={lienWhatsApp(`Bonjour Aurore ! Je vous contacte depuis ${commune.nom} pour une commande 🎂`)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#5BBFBF] text-white px-7 py-3.5 rounded-full font-semibold hover:bg-[#4AAEAE] transition-colors"
