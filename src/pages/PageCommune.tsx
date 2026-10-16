@@ -60,7 +60,7 @@ export default function PageCommune({ commune }: { commune: Commune }) {
               <Phone className="w-4 h-4" /> {siteConfig.contact.phone}
             </a>
             <a
-              href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Bonjour%20Aurore%20!%20Je%20vous%20contacte%20depuis%20${encodeURIComponent(commune.nom)}%20pour%20une%20commande%20%F0%9F%8E%82`}
+              href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Bonjour%20Aurore%20!%20Je%20vous%20contacte%20depuis%20${encodeURIComponent(commune.nom)}%20pour%20une%20commande`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#5BBFBF] text-white px-7 py-3.5 rounded-full font-semibold hover:bg-[#4AAEAE] transition-colors"

@@ -12,6 +12,7 @@ interface FormData {
   creation: Creation | '';
   wishes: string;
   name: string;
+  lastName: string;
   phone: string;
 }
 
@@ -34,6 +35,12 @@ const creations: { label: Creation; photo: string }[] = [
   { label: 'Je ne sais pas encore', photo: '/gateau-fraises.jpeg' },
 ];
 
+// « 2026-10-24 » → « 24/10/2026 »
+const dateFr = (iso: string) => {
+  const [a, m, j] = iso.split('-');
+  return j ? `${j}/${m}/${a}` : iso;
+};
+
 export default function Commander() {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
@@ -44,6 +51,7 @@ export default function Commander() {
     creation: '',
     wishes: '',
     name: '',
+    lastName: '',
     phone: '',
   });
 
@@ -54,22 +62,24 @@ export default function Commander() {
     if (step === 1) return form.occasion !== '';
     if (step === 2) return form.date !== '' && form.guests !== '' && form.creation !== '';
     if (step === 3) return true;
-    if (step === 4) return form.name !== '' && form.phone !== '';
+    if (step === 4) return form.name.trim() !== '' && form.lastName.trim() !== '' && form.phone !== '';
     return false;
   };
 
   const handleSubmit = () => {
+    // Pas d'émoji : WhatsApp les affiche en losanges « ? » chez Aurore.
     const msg = [
-      `Bonjour Aurore ! Je souhaite passer une commande. 🎂`,
+      `Bonjour Aurore ! Je souhaite passer une commande.`,
       ``,
-      `📌 Occasion : ${form.occasion}`,
-      `📅 Date souhaitée : ${form.date}`,
-      `👥 Nombre de personnes : ${form.guests}`,
-      `✨ Type de création : ${form.creation}`,
-      form.wishes ? `💬 Mes souhaits : ${form.wishes}` : '',
+      `Occasion : ${form.occasion}`,
+      `Date souhaitée : ${dateFr(form.date)}`,
+      `Nombre de personnes : ${form.guests}`,
+      `Type de création : ${form.creation}`,
+      form.wishes ? `Mes souhaits : ${form.wishes}` : '',
       ``,
-      `📋 Mon prénom : ${form.name}`,
-      `📱 Mon téléphone : ${form.phone}`,
+      `Nom : ${form.lastName.trim()}`,
+      `Prénom : ${form.name.trim()}`,
+      `Téléphone : ${form.phone}`,
     ].filter(Boolean).join('\n');
 
     window.open(`https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(msg)}`, '_blank');
@@ -275,6 +285,18 @@ export default function Commander() {
             </h2>
             <div>
               <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2">
+                Votre nom *
+              </label>
+              <input
+                type="text"
+                placeholder="Dupont"
+                value={form.lastName}
+                onChange={e => set('lastName', e.target.value)}
+                className="w-full border-2 border-[#F3EBE1] rounded-xl px-4 py-3 text-[#1A130C] focus:border-[#5BBFBF] outline-none transition-colors bg-white"
+              />
+            </div>
+            <div>
+              <label className="block text-xs uppercase tracking-widest text-gray-400 mb-2">
                 Votre prénom *
               </label>
               <input
@@ -303,7 +325,7 @@ export default function Commander() {
               <p className="label mb-4">Récapitulatif</p>
               <div className="space-y-2 text-sm text-gray-600">
                 <div className="flex justify-between"><span className="text-gray-400">Occasion</span><span className="font-medium text-[#1A130C]">{form.occasion}</span></div>
-                <div className="flex justify-between"><span className="text-gray-400">Date</span><span className="font-medium text-[#1A130C]">{form.date}</span></div>
+                <div className="flex justify-between"><span className="text-gray-400">Date</span><span className="font-medium text-[#1A130C]">{dateFr(form.date)}</span></div>
                 <div className="flex justify-between"><span className="text-gray-400">Personnes</span><span className="font-medium text-[#1A130C]">{form.guests}</span></div>
                 <div className="flex justify-between"><span className="text-gray-400">Création</span><span className="font-medium text-[#1A130C] text-right max-w-[60%]">{form.creation}</span></div>
               </div>

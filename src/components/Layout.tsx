@@ -208,7 +208,7 @@ export default function Layout() {
             <Phone className="w-4 h-4" /> Appeler
           </a>
           <a
-            href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Bonjour%20Aurore%20!%20Je%20souhaite%20passer%20une%20commande%20%F0%9F%8E%82`}
+            href={`https://wa.me/${siteConfig.contact.whatsapp}?text=Bonjour%20Aurore%20!%20Je%20souhaite%20passer%20une%20commande`}
             target="_blank" rel="noopener noreferrer"
             className="flex-1 flex items-center justify-center gap-2 py-4 bg-[#5BBFBF] text-white font-semibold text-sm"
           >
