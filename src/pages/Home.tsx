@@ -214,9 +214,9 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-5 lg:px-8 grid md:grid-cols-2 gap-12 lg:gap-24 items-center">
           <div className="relative">
             <img
-              src="/tartelette-fleur.jpeg"
-              alt="Création d'Aurore"
-              className="w-full aspect-[4/5] object-cover rounded-2xl"
+              src="/7752.jpg"
+              alt="Aurore, la pâtissière d'Ô Gourmandiz d'Aurore"
+              className="w-full aspect-[4/5] object-cover object-[75%_center] rounded-2xl"
             />
             <div className="absolute -bottom-5 -right-5 bg-[#1A130C] text-white px-6 py-5 rounded-xl hidden md:block">
               <p className="label mb-1">Diplômée</p>
