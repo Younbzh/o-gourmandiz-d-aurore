@@ -255,6 +255,7 @@ export const carteFetes: Product[] = [
       'Biscuit moelleux',
       'Mousse vanille',
       'Crémeux cacahuète',
+      'Caramel / cacahuète',
       'Flocage velours',
       'Ganache montée vanille',
     ],
@@ -351,7 +352,7 @@ export const calendrierAvent: Product = {
     'Mendiants',
     'Et bien d\'autres gourmandiz encore, à découvrir case après case',
   ],
-  prix: [{ format: 'Le calendrier', prix: 'PRIX À DONNER PAR AURORE' }],
+  prix: [{ format: 'Le calendrier', prix: '22,50 €' }],
   allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
   note: 'Seulement 20 calendriers disponibles.',
 };
