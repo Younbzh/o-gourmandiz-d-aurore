@@ -1,8 +1,17 @@
 import { useState } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CalendarDays, Gift, Wallet } from 'lucide-react';
 import { getSeason, seasonName } from '../utils/season';
-import { incontournables, getCurrentSeasonProducts, getCarteEnAvance, type Product } from '../data/products';
+import {
+  incontournables,
+  getCurrentSeasonProducts,
+  getCarteEnAvance,
+  carteFetes,
+  calendrierAvent,
+  modalitesFetes,
+  carteFetesVisible,
+  type Product,
+} from '../data/products';
 
 function ProductCard({ product, tab }: { product: Product; tab: string }) {
   const rawPrix = product.prix[0]?.prix ?? '';
@@ -45,7 +54,74 @@ function ProductCard({ product, tab }: { product: Product; tab: string }) {
   );
 }
 
-type Onglet = 'incontournables' | 'saison' | 'avance';
+/*
+  Le calendrier de l'Avent passe avant la carte : il s'ouvre le 1er décembre,
+  trois semaines avant les bûches, et il n'y en a que vingt.
+*/
+function Calendrier() {
+  const p = calendrierAvent;
+  return (
+    <Link
+      to={`/carte/${p.id}?from=fetes`}
+      className="group grid md:grid-cols-2 bg-white rounded-2xl overflow-hidden shadow-sm border border-[#F3EBE1] mb-12"
+    >
+      <div className="overflow-hidden bg-[#F3EBE1]">
+        <img
+          src={p.photos[0]}
+          alt={p.name}
+          className="w-full h-full aspect-[4/3] md:aspect-auto object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+      </div>
+      <div className="p-6 md:p-10 flex flex-col justify-center">
+        <p className="label mb-3">Dès le 1er décembre</p>
+        <h2 className="font-display font-bold italic text-[#1A130C] text-3xl md:text-4xl leading-tight mb-4">{p.name}</h2>
+        <p className="text-gray-600 text-sm leading-relaxed mb-5">
+          24 cases pleines de gourmandiz : nougats, florentins, caramels, rochers chocolat, meringues,
+          mendiants et bien d'autres gourmandiz encore…
+        </p>
+        <p className="text-sm font-semibold text-[#1A130C] mb-6">Seulement 20 calendriers disponibles !</p>
+        <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#5BBFBF]">
+          {p.prix[0].prix} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+function ModalitesFetes() {
+  const m = modalitesFetes;
+  const blocs = [
+    { icone: Gift, titre: 'Retrait à La Motte', lignes: m.retraits },
+    { icone: CalendarDays, titre: 'Clôture des commandes', lignes: m.clotures },
+    { icone: Wallet, titre: 'Règlement', lignes: [m.reglement] },
+  ];
+  return (
+    <div className="mt-14 bg-white rounded-2xl border border-[#F3EBE1] p-6 md:p-10">
+      <p className="label mb-2 text-center">Les réservations sont ouvertes</p>
+      <h2 className="font-display font-bold italic text-[#1A130C] text-3xl text-center mb-3">Modalités et réservations</h2>
+      <p className="text-gray-500 text-sm text-center max-w-md mx-auto mb-8">
+        Les quantités étant limitées, pensez à réserver votre gourmandiz dès maintenant, sur WhatsApp.
+      </p>
+      <div className="grid md:grid-cols-3 gap-6">
+        {blocs.map(({ icone: Icone, titre, lignes }) => (
+          <div key={titre}>
+            <div className="flex items-center gap-2 mb-3">
+              <Icone className="w-4 h-4 text-[#5BBFBF]" />
+              <h3 className="font-semibold text-[#1A130C] text-sm">{titre}</h3>
+            </div>
+            <ul className="space-y-1.5">
+              {lignes.map((l) => (
+                <li key={l} className="text-sm text-gray-600 leading-relaxed">{l}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+type Onglet = 'incontournables' | 'fetes' | 'saison' | 'avance';
 
 export default function Carte() {
   const navigate = useNavigate();
@@ -61,15 +137,24 @@ export default function Carte() {
   */
   const enAvance = getCarteEnAvance();
 
+  const fetes = carteFetesVisible();
+
   const cat = searchParams.get('cat');
   const initialTab: Onglet =
-    cat === 'saison' ? 'saison' : cat === 'avance' && enAvance ? 'avance' : 'incontournables';
+    cat === 'saison'
+      ? 'saison'
+      : cat === 'avance' && enAvance
+        ? 'avance'
+        : cat === 'fetes' && fetes
+          ? 'fetes'
+          : 'incontournables';
   const [tab, setTab] = useState<Onglet>(initialTab);
 
   const produitsSaison = getCurrentSeasonProducts();
 
   const onglets: { id: Onglet; libelle: string }[] = [
     { id: 'incontournables', libelle: 'Incontournables' },
+    ...(fetes ? [{ id: 'fetes' as const, libelle: 'Carte des Fêtes' }] : []),
     { id: 'saison', libelle: `Carte de saison · ${seasonName[season]}` },
     ...(enAvance ? [{ id: 'avance' as const, libelle: `${seasonName[enAvance.saison]} · bientôt` }] : []),
   ];
@@ -80,7 +165,13 @@ export default function Carte() {
   };
 
   const products =
-    tab === 'incontournables' ? incontournables : tab === 'avance' ? (enAvance?.produits ?? []) : produitsSaison;
+    tab === 'incontournables'
+      ? incontournables
+      : tab === 'fetes'
+        ? carteFetes
+        : tab === 'avance'
+          ? (enAvance?.produits ?? [])
+          : produitsSaison;
 
   return (
     <>
@@ -135,11 +226,16 @@ export default function Carte() {
                   Vous pouvez les découvrir dès maintenant pour préparer vos commandes.
                 </p>
               )}
+              {tab === 'fetes' && <Calendrier />}
+              {tab === 'fetes' && (
+                <h2 className="font-display font-bold italic text-[#1A130C] text-3xl text-center mb-8">La carte des Fêtes</h2>
+              )}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
                 {products.map(product => (
                   <ProductCard key={product.id} product={product} tab={tab} />
                 ))}
               </div>
+              {tab === 'fetes' && <ModalitesFetes />}
               <div className="text-center mt-12">
                 <button
                   onClick={() => navigate('/commander')}

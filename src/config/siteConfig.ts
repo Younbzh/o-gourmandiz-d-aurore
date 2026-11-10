@@ -291,8 +291,8 @@ export const siteConfig = {
 
   reviews: {
     title: "Ce que disent mes clients",
-    count: 63,
-    note: "5 / 5 · 63 avis Google",
+    count: 81,
+    note: "5 / 5 · 81 avis Google",
     googleUrl: "https://www.google.com/search?q=Ô+Gourmandiz+d%27Aurore+La+Motte&ludocid=",
     list: [
       {
@@ -332,7 +332,7 @@ export const siteConfig = {
         occasion: "Tarte"
       }
     ],
-    googleCta: "Voir les 63 avis sur Google"
+    googleCta: "Voir les 81 avis sur Google"
   },
 
   finalCTA: {

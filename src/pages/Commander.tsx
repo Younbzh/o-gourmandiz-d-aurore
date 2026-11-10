@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { Check, Phone, MessageCircle } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { lienWhatsApp } from '../utils/whatsapp';
+import { carteFetesVisible } from '../data/products';
 
 type Occasion = 'Anniversaire' | 'Mariage / Fiançailles' | 'Baptême / Naissance' | 'Événement professionnel' | 'Autre';
-type Creation = 'Number cake' | 'Tarte de saison' | 'Macarons' | 'Mignardises' | 'Biscuits personnalisés' | 'Pièce montée à la française' | 'Pyramide de macarons' | 'Je ne sais pas encore';
+type Creation = 'Bûche / carte des Fêtes' | 'Calendrier de l\'Avent' | 'Number cake' | 'Tarte de saison' | 'Macarons' | 'Mignardises' | 'Biscuits personnalisés' | 'Pièce montée à la française' | 'Pyramide de macarons' | 'Je ne sais pas encore';
 
 interface FormData {
   occasion: Occasion | '';
@@ -25,7 +26,16 @@ const occasions: Occasion[] = [
   'Autre',
 ];
 
+// Les deux choix de Noël passent en tête jusqu'au 31 décembre, puis disparaissent.
+const creationsFetes: { label: Creation; photo: string }[] = carteFetesVisible()
+  ? [
+      { label: 'Bûche / carte des Fêtes', photo: '/10529.jpg' },
+      { label: 'Calendrier de l\'Avent', photo: '/10375.jpg' },
+    ]
+  : [];
+
 const creations: { label: Creation; photo: string }[] = [
+  ...creationsFetes,
   { label: 'Number cake', photo: '/gateau-40-ans.jpeg' },
   { label: 'Tarte de saison', photo: '/tarte.jpeg' },
   { label: 'Macarons', photo: '/macaron-1.jpeg' },

@@ -196,6 +196,7 @@ export const incontournables: Product[] = [
     name: 'Biscuits personnalisés',
     photos: [
       '/IMG-20260801-WA0004.jpg',
+      '/10574.jpg',
       '/6464.jpg',
       '/IMG-20260711-WA0018.jpg',
       '/IMG-20260711-WA0022.jpg',
@@ -216,7 +217,7 @@ export const incontournables: Product[] = [
   {
     id: 'meringues',
     name: 'Meringues personnalisées',
-    photos: ['/IMG-20260618-WA0066.jpg', '/7738.jpg'],
+    photos: ['/10495.jpg', '/10498.jpg', '/IMG-20260618-WA0066.jpg', '/7738.jpg'],
     composition: [
       'Meringues croustillantes',
       'Couleurs personnalisables',
@@ -231,6 +232,144 @@ export const incontournables: Product[] = [
     note: 'Sans gluten, sans fruits à coque.',
   },
 ];
+
+/*
+  La carte des Fêtes, envoyée par Aurore le 10 novembre 2026.
+
+  Dans l'ordre qu'elle a demandé : les trois bûches, les mignardises, les
+  macarons en dernier. Les clientes la retrouvent d'un seul tenant, comme les
+  incontournables, dans un onglet à part de la carte.
+
+  Les mignardises sont à 1,20 € la pièce, comme toute l'année : 16 pièces font
+  19,20 € et 32 font 38,40 €. Le visuel qui regroupe toute la carte affiche
+  19,50 € et 39 €, celui des mignardises seules 19,20 € et 38,40 €. On a gardé
+  les seconds, qui tombent juste.
+*/
+export const carteFetes: Product[] = [
+  {
+    id: 'buche-cacahuete-caramel',
+    name: 'Bûche Cacahuète Caramel',
+    photos: ['/10523.jpg', '/10538.jpg'],
+    composition: [
+      'Croustillant cacahuète',
+      'Biscuit moelleux',
+      'Mousse vanille',
+      'Crémeux cacahuète',
+      'Flocage velours',
+      'Ganache montée vanille',
+    ],
+    prix: [
+      { format: '4 personnes', prix: '22 €' },
+      { format: '8 personnes', prix: '37 €' },
+    ],
+    allergenes: ['Arachides', 'Gluten', 'Œufs', 'Lait'],
+    note: 'Contient des arachides (cacahuètes). Cette bûche ne peut pas être adaptée sans arachides.',
+  },
+  {
+    id: 'buche-croustillant-chocolat',
+    name: 'Bûche Croustillant Chocolat',
+    photos: ['/10529.jpg', '/10535.jpg'],
+    composition: [
+      'Croustillant praliné',
+      'Biscuit madeleine',
+      'Mousse chocolat noir',
+      'Crémeux praliné',
+      'Glaçage rocher',
+      'Ganache montée chocolat au lait',
+    ],
+    prix: [
+      { format: '4 personnes', prix: '22 €' },
+      { format: '8 personnes', prix: '37 €' },
+    ],
+    allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
+  },
+  {
+    id: 'buche-pavlova-exotique',
+    name: 'Bûche Pavlova Exotique',
+    photos: ['/10517.jpg', '/10526.jpg'],
+    composition: [
+      'Meringue croquante',
+      'Gel mangue / passion',
+      'Mangue / passion',
+      'Ganache montée vanille',
+    ],
+    prix: [
+      { format: '4 personnes', prix: '22 €' },
+      { format: '8 personnes', prix: '37 €' },
+    ],
+    allergenes: ['Œufs', 'Lait'],
+    sansGluten: true,
+  },
+  {
+    id: 'mignardises-fetes',
+    name: 'Mignardises des Fêtes',
+    photos: ['/10505.jpg', '/10508.jpg', '/10511.jpg', '/10514.jpg', '/10520.jpg', '/10532.jpg'],
+    compositionLabel: 'L\'assortiment',
+    composition: [
+      'Tartelette double chocolat',
+      'Tartelette vanille caramel',
+      'Mini pavlova mangue passion',
+      'Tartelette praliné chocolat au lait',
+    ],
+    prix: [
+      { format: '16 pièces', prix: '19,20 €' },
+      { format: '32 pièces', prix: '38,40 €' },
+    ],
+    allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
+  },
+  {
+    id: 'macarons-fetes',
+    name: 'Boîte de macarons des Fêtes',
+    photos: ['/7730.jpg', '/6480.jpg', '/6475.jpg'],
+    compositionLabel: 'Saveurs',
+    composition: ['Vanille', 'Caramel', 'Chocolat', 'Mangue / passion'],
+    prix: [
+      { format: 'Boîte de 8', prix: '12 €' },
+      { format: 'Boîte de 16', prix: '24 €' },
+    ],
+    allergenes: ['Œufs', 'Lait', 'Fruits à coque (amande)'],
+    sansGluten: true,
+    note: 'Naturellement sans gluten.',
+  },
+];
+
+/*
+  Le calendrier de l'Avent. Aurore ne veut pas tout dévoiler : la description
+  cite quelques douceurs et dit qu'il y en aura d'autres.
+*/
+export const calendrierAvent: Product = {
+  id: 'calendrier-avent',
+  name: 'Calendrier de l\'Avent',
+  photos: ['/10375.jpg'],
+  compositionLabel: 'Dans les 24 cases',
+  composition: [
+    'Nougats',
+    'Florentins',
+    'Caramels',
+    'Rochers chocolat',
+    'Meringues',
+    'Mendiants',
+    'Et bien d\'autres gourmandiz encore, à découvrir case après case',
+  ],
+  prix: [{ format: 'Le calendrier', prix: 'PRIX À DONNER PAR AURORE' }],
+  allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
+  note: 'Seulement 20 calendriers disponibles.',
+};
+
+/** Retrait à La Motte, clôture des commandes et règlement : la page « Modalités » d'Aurore. */
+export const modalitesFetes = {
+  retraits: ['24 décembre, de 13 h à 17 h', '25 décembre, de 10 h à 12 h', '31 décembre, de 13 h à 17 h'],
+  clotures: ['Le 18 décembre pour un retrait le 24 ou le 25', 'Le 23 décembre pour un retrait le 31'],
+  reglement: 'Pour faciliter les retraits pendant les fêtes, le règlement se fait à la commande : avant le 18 décembre pour Noël, avant le 23 décembre pour le 31.',
+};
+
+/*
+  L'onglet disparaît de lui-même le 1er janvier : une carte de Noël encore
+  affichée en janvier dirait que le site n'est plus tenu.
+*/
+export function carteFetesVisible(date: Date = new Date()): boolean {
+  return date < new Date(2027, 0, 1);
+}
 
 export const saisonProduits: Partial<Record<Season, Product[]>> = {
   summer: [
@@ -437,7 +576,8 @@ export function getCarteEnAvance(): { saison: Season; produits: Product[] } | nu
 /** Tous les produits publiés, toutes saisons confondues (pour la page produit). */
 export function getAllProducts(): Product[] {
   const seasonal = Object.values(saisonsPubliees()).flat().filter(Boolean) as Product[];
-  return [...incontournables, ...seasonal];
+  const fetes = carteFetesVisible() ? [calendrierAvent, ...carteFetes] : [];
+  return [...incontournables, ...seasonal, ...fetes];
 }
 
 export function getProductById(id: string): Product | undefined {

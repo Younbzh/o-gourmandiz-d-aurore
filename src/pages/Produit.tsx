@@ -97,7 +97,7 @@ export default function Produit() {
   const [searchParams] = useSearchParams();
   // Ramène à l'onglet d'où l'on vient, carte en avance comprise.
   const from = searchParams.get('from');
-  const backTo = from === 'saison' || from === 'avance' ? `/carte?cat=${from}` : '/carte';
+  const backTo = from === 'saison' || from === 'avance' || from === 'fetes' ? `/carte?cat=${from}` : '/carte';
   const product = id ? getProductById(id) : undefined;
 
   if (!product) {
