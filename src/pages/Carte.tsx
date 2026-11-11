@@ -55,8 +55,9 @@ function ProductCard({ product, tab }: { product: Product; tab: string }) {
 }
 
 /*
-  Le calendrier de l'Avent passe avant la carte : il s'ouvre le 1er décembre,
-  trois semaines avant les bûches, et il n'y en a que vingt.
+  Le calendrier de l'Avent passe avant la carte : on l'ouvre trois semaines
+  avant les bûches, et il n'y en a que vingt. Pas de date au-dessus : Aurore
+  le remet avant le 1er décembre, quand ça arrange la cliente.
 */
 function Calendrier() {
   const p = calendrierAvent;
@@ -73,7 +74,6 @@ function Calendrier() {
         />
       </div>
       <div className="p-6 md:p-10 flex flex-col justify-center">
-        <p className="label mb-3">Dès le 1er décembre</p>
         <h2 className="font-display font-bold italic text-[#1A130C] text-3xl md:text-4xl leading-tight mb-4">{p.name}</h2>
         <p className="text-gray-600 text-sm leading-relaxed mb-5">
           24 cases pleines de gourmandiz : nougats, florentins, caramels, rochers chocolat, meringues,

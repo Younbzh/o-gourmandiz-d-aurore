@@ -176,7 +176,7 @@ export const siteConfig = {
         description: "Sablés décorés et personnalisés — prénom, date, motif, illustration sur feuille de sucre. Toujours emballés individuellement. Un souvenir gourmand pour chacun de vos invités.",
         features: ["Prénom, date, motif", "Toujours emballés individuellement", "Min. 20 pièces par parfum"],
         icon: "Cookie",
-        photos: ["/sables-personnalises.jpeg", "/IMG-20260711-WA0018.jpg", "/IMG-20260711-WA0022.jpg", "/IMG-20260711-WA0025.jpg"]
+        photos: ["/sables-personnalises.jpeg", "/10574.jpg", "/IMG-20260711-WA0018.jpg", "/IMG-20260711-WA0022.jpg", "/IMG-20260711-WA0025.jpg"]
       },
       {
         name: "Meringues personnalisées",

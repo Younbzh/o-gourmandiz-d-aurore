@@ -351,7 +351,7 @@ export const calendrierAvent: Product = {
     'Et bien d\'autres gourmandiz encore, à découvrir case après case',
   ],
   prix: [{ format: 'Le calendrier', prix: '22,50 €' }],
-  allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
+  allergenes: ['Arachides', 'Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
   note: 'Seulement 20 calendriers disponibles.',
 };
 

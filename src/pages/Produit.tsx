@@ -7,6 +7,14 @@ import ModalitesFetes from '../components/ModalitesFetes';
 
 function BigCarousel({ photos, alt, badge }: { photos: string[]; alt: string; badge?: boolean }) {
   const [index, setIndex] = useState(0);
+  // Le cadre prend la forme de la photo affichée : une bûche en paysage n'a
+  // plus de grandes bandes au-dessus et en dessous d'elle.
+  const [formats, setFormats] = useState<Record<number, number>>({});
+  const mesurer = (img: HTMLImageElement | null, i: number) => {
+    if (!img?.complete || !img.naturalWidth || formats[i]) return;
+    const format = img.naturalWidth / img.naturalHeight;
+    setFormats((f) => ({ ...f, [i]: format }));
+  };
   const startX = useRef<number | null>(null);
   const n = photos.length;
 
@@ -23,12 +31,13 @@ function BigCarousel({ photos, alt, badge }: { photos: string[]; alt: string; ba
   return (
     <div>
       <div
-        className="relative overflow-hidden bg-[#F3EBE1] rounded-3xl shadow-xl"
+        className="relative overflow-hidden bg-[#F3EBE1] rounded-3xl shadow-xl max-h-[70vh] transition-[aspect-ratio] duration-500"
+        style={{ aspectRatio: formats[index] ?? 4 / 5 }}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
         <div
-          className="flex transition-transform duration-500 ease-out"
+          className="flex h-full transition-transform duration-500 ease-out"
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {photos.map((p, i) => (
@@ -37,7 +46,10 @@ function BigCarousel({ photos, alt, badge }: { photos: string[]; alt: string; ba
               src={p}
               alt={`${alt} ${i + 1}`}
               loading={i === 0 ? 'eager' : 'lazy'}
-              className="w-full h-[70vh] object-contain flex-shrink-0"
+              // Une photo déjà chargée avant l'hydratation n'émet plus onLoad.
+              ref={(img) => mesurer(img, i)}
+              onLoad={(e) => mesurer(e.currentTarget, i)}
+              className="w-full h-full object-contain flex-shrink-0"
             />
           ))}
         </div>
