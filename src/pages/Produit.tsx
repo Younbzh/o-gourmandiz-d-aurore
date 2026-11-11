@@ -2,7 +2,8 @@ import { useState, useRef } from 'react';
 import { useParams, useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ArrowLeft, MessageCircle } from 'lucide-react';
 import { lienWhatsApp } from '../utils/whatsapp';
-import { getProductById } from '../data/products';
+import { getProductById, carteFetes } from '../data/products';
+import ModalitesFetes from '../components/ModalitesFetes';
 
 function BigCarousel({ photos, alt, badge }: { photos: string[]; alt: string; badge?: boolean }) {
   const [index, setIndex] = useState(0);
@@ -166,6 +167,8 @@ export default function Produit() {
               </div>
             </div>
           </div>
+
+          {carteFetes.some((f) => f.id === product.id) && <ModalitesFetes compact />}
 
           {product.details && product.details.length > 0 && (
             <div className="mt-8">

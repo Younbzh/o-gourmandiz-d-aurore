@@ -162,7 +162,7 @@ export const siteConfig = {
         description: "Vos créations préférées de la carte — fraisiers, tartes, pavlovas… — montées en pièce d'exception, décorées de fleurs (comestibles ou non), de rubans ou d'éléments personnalisés. À partir de 5€ la part, selon les options.",
         features: ["Créations à la carte", "Fleurs comestibles ou non", "Rubans & topper personnalisé"],
         icon: "Star",
-        photos: ["/8493.jpg", "/7739.jpg", "/IMG-20260711-WA0000.jpg", "/6431.jpg", "/gateau-mariage.jpeg"]
+        photos: ["/10755.jpg", "/8493.jpg", "/7739.jpg", "/IMG-20260711-WA0000.jpg", "/6431.jpg", "/gateau-mariage.jpeg"]
       },
       {
         name: "Pyramide de macarons",
@@ -183,7 +183,7 @@ export const siteConfig = {
         description: "Meringues croustillantes aux couleurs et parfums de votre événement, toujours emballées individuellement. Parfait en buffet ou en cadeau pour vos invités. Sans gluten et sans fruits à coque.",
         features: ["Couleurs personnalisées", "Emballage individuel", "Sans gluten"],
         icon: "Sparkles",
-        photos: ["/7738.jpg"]
+        photos: ["/7738.jpg", "/10495.jpg", "/10498.jpg"]
       }
     ]
   },

@@ -240,10 +240,8 @@ export const incontournables: Product[] = [
   macarons en dernier. Les clientes la retrouvent d'un seul tenant, comme les
   incontournables, dans un onglet à part de la carte.
 
-  Les mignardises sont à 1,20 € la pièce, comme toute l'année : 16 pièces font
-  19,20 € et 32 font 38,40 €. Le visuel qui regroupe toute la carte affiche
-  19,50 € et 39 €, celui des mignardises seules 19,20 € et 38,40 €. On a gardé
-  les seconds, qui tombent juste.
+  Les mignardises : 19,50 € les 16 et 39 € les 32, les prix du visuel
+  qu'Aurore a renvoyé le 11 novembre.
 */
 export const carteFetes: Product[] = [
   {
@@ -313,15 +311,15 @@ export const carteFetes: Product[] = [
       'Tartelette praliné chocolat au lait',
     ],
     prix: [
-      { format: '16 pièces', prix: '19,20 €' },
-      { format: '32 pièces', prix: '38,40 €' },
+      { format: '16 pièces', prix: '19,50 €' },
+      { format: '32 pièces', prix: '39 €' },
     ],
     allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
   },
   {
     id: 'macarons-fetes',
     name: 'Boîte de macarons des Fêtes',
-    photos: ['/7730.jpg', '/6480.jpg', '/6475.jpg'],
+    photos: ['/10752.jpg', '/7730.jpg', '/6480.jpg'],
     compositionLabel: 'Saveurs',
     composition: ['Vanille', 'Caramel', 'Chocolat', 'Mangue / passion'],
     prix: [
