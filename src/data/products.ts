@@ -289,7 +289,6 @@ export const carteFetes: Product[] = [
     composition: [
       'Meringue croquante',
       'Gel mangue / passion',
-      'Mangue / passion',
       'Ganache montée vanille',
     ],
     prix: [
