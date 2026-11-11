@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { getSeason, type Season } from '../utils/season';
+import { carteFetesVisible } from '../data/products';
 
 const visualLinks = [
   {
@@ -135,11 +136,12 @@ export default function Home() {
             Pâtisseries de saison,<br />entièrement sur commande.
           </p>
           <div className="flex flex-wrap gap-4">
+            {/* Jusqu'au 31 décembre, le bouton mène droit à la carte des Fêtes. */}
             <button
-              onClick={() => navigate('/carte')}
+              onClick={() => navigate(carteFetesVisible() ? '/carte?cat=fetes' : '/carte')}
               className="bg-white text-[#1A130C] px-8 py-4 rounded-full font-semibold hover:bg-[#F3EBE1] transition-colors"
             >
-              Je découvre la carte
+              {carteFetesVisible() ? 'Je découvre la carte des Fêtes' : 'Je découvre la carte'}
             </button>
             <button
               onClick={() => navigate('/commander')}

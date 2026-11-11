@@ -289,6 +289,7 @@ export const carteFetes: Product[] = [
     composition: [
       'Meringue croquante',
       'Gel mangue / passion',
+      'Fruits frais mangue / passion',
       'Ganache montée vanille',
     ],
     prix: [
@@ -305,7 +306,7 @@ export const carteFetes: Product[] = [
     compositionLabel: 'L\'assortiment',
     composition: [
       'Tartelette double chocolat',
-      'Tartelette vanille caramel',
+      'Tartelette vanille caramel cacahuète',
       'Mini pavlova mangue passion',
       'Tartelette praliné chocolat au lait',
     ],
@@ -313,7 +314,7 @@ export const carteFetes: Product[] = [
       { format: '16 pièces', prix: '19,50 €' },
       { format: '32 pièces', prix: '39 €' },
     ],
-    allergenes: ['Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
+    allergenes: ['Arachides', 'Gluten', 'Œufs', 'Lait', 'Fruits à coque (amande, noisette)'],
   },
   {
     id: 'macarons-fetes',
